@@ -1,0 +1,31 @@
+$comfortaa-font: 'Comfortaa', cursive;
+$cormorant-garamond-font: 'Cormorant Garamond', serif;
+$spartan-font: 'Spartan', sans-serif;
+
+$font-72: 72px;
+$font-64: 64px;
+$font-56: 56px;
+$font-48: 48px;
+$font-24: 24px;
+$font-18: 18px;
+$font-16: 16px;
+$font-14: 14px;
+
+
+//size typography
+$min-vw: 400px;
+$max-vw: 1440px;
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-font-size, $max-font-size, $min-vw: 400px, $max-vw: 1440px) {
+  font-size: $min-font-size;
+  @media screen and (min-width: $min-vw) {
+    font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+  }
+  @media screen and (min-width: $max-vw) {
+    font-size: $max-font-size;
+  }
+}
+
