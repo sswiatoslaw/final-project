@@ -3,15 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "airbnb": "0.0.2",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-jest-enzyme": "^7.1.2",
-    "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-jest": "^24.3.6",
+    "antd": "^4.16.3",
     "formik": "^2.2.9",
+    "node-sass": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -26,7 +24,8 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "build": "npm run eslint && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --debug src/",
@@ -65,9 +64,9 @@
   "watch": {
     "eslint": {
       "patterns": [
-        "/src/**/*.js"
+        "/src/**/*.jsx"
       ],
-      "extensions": "js"
+      "extensions": "jsx"
     }
   },
   "lint-staged": {

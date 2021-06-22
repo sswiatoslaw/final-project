@@ -2,12 +2,11 @@ import './Header.scss'
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { HeartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons'
-
+import logo from '../../logo.svg'
 function Header () {
   return (
         <div className="header">
           <div className="header-logo">
-            LOGO
             <h1>Savvy<span>Tots</span></h1>
           </div>
           <div className="header-menu">
