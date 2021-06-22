@@ -2,7 +2,6 @@ import './Header.scss'
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { HeartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons'
-import logo from '../../logo.svg'
 function Header () {
   return (
         <div className="header">
