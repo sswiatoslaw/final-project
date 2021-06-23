@@ -1,19 +1,49 @@
 .our-mailing-list{
-    @include breakpoint(sm-only);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: $amatic-sc-font;
     font-weight: bold;
-    font-size: 36px;
-    line-height: 45px;
     text-align: center;
     background-color: $Harp;
-    &_text {
-    margin: 38px 77px 31px;
-    }
+    font-size: 40px;
+
     #send-mail{
         margin-bottom: 61px;
    
     }
+    @include breakpoint(sm-only) {
+    
+        &_text {
+            font-size: 24px;
+            font-weight: bold;
+        margin: 38px 77px 31px;
+        }
+        
+    };
+   @include breakpoint(md-up) {
+
+    &_text {
+        font-weight: bold;
+        line-height: 50px;
+        margin: 50px 90px 40px;
+        }
+       
+   }
+@include breakpoint(lg-only){
+    &_col {
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+    justify-items: baseline;
+    }
+    &_text {
+           margin: 53px 230px 66px 0px; 
+    }
+
+    #send-mail{
+        width: calc((100% - -580px) / 2)
+    }
+}
+
 }
