@@ -30,7 +30,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --debug src/",
     "lint:write": "eslint --debug src/ --fix",
-    "prettier": "prettier --write src/**/*.js"
+    "prettier": "prettier --write src/**/*.jsx"
   },
   "eslintConfig": {
     "extends": [

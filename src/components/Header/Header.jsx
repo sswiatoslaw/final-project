@@ -1,27 +1,34 @@
-import './Header.scss'
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { HeartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons'
+import './Header.scss';
+import React, { useState } from 'react';
+import MenuComponent from './../Menu';
+import { Button } from 'antd';
+import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 function Header () {
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+    console.log(document.querySelector('.ant-menu'));
+    document.querySelector('.header-menu__mobile').classList.toggle('active');
+  };
+  
   return (
-        <div className="header">
-          <div className="header-logo">
-            <h1>Savvy<span>Tots</span></h1>
-          </div>
-          <div className="header-menu">
-            <Link to="/" className="active">Home</Link>
-            <Link to="/shop">Shop</Link>
-            <Link to="/about">About</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/contact-us">Contact Us</Link>
-          </div>
-          <div className="header-icon">
-          <HeartOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} />
-          <ShoppingOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} />
-          <UserOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} />
-          </div>
+    <>
+      <div className="header">
+        <div className="header-logo">
+          <h1>Savvy<span>Tots</span></h1>
         </div>
+        <div className="header-menu">
+          {/* <Input placeholder="Search..." /> */}
+        </div>
+        <div className="header-icon">
+          <Button onClick={toggleCollapsed} size='large'>
+            {React.createElement(collapsed ? MenuOutlined : CloseOutlined)}
+          </Button>
+        </div>
+      </div>
+      <MenuComponent />
+    </>
   );
 }
 
-export default Header
+export default Header;

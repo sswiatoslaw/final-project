@@ -39,3 +39,13 @@
         }
     }
 }
+
+.header-menu__mobile{
+    display: none;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.header-menu__mobile.active{
+    display: block;
+}
