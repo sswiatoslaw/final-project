@@ -3,7 +3,7 @@
 .header{
     margin: 30px 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     font-family: 'Spartan', sans-serif;
     .header-logo{
         display: flex;
@@ -20,32 +20,13 @@
         }
     }
     .header-menu{
-        a{
-            margin-inline: 46px;
-            text-decoration: none;
-            font-weight: 300;
-            font-size: 24px;
-            line-height: 27px;
-            color: #5E6A67;
-        }
-        .active{
-            font-weight: 500;
-            color: #36403D;
-        }
     }
     .header-icon{
-        span{
-            width: 50px;
+        @media screen and (max-width: 768px) {
+            display: none;
         }
     }
 }
+@media screen and (max-width: 768px) {
 
-.header-menu__mobile{
-    display: none;
-    position: absolute;
-    transition: 0.5s;
-}
-
-.header-menu__mobile.active{
-    display: block;
 }

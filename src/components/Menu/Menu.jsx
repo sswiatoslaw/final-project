@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Menu } from 'antd';
 import {
   HomeOutlined,
@@ -12,20 +12,28 @@ import {
 } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import { Link, useHistory } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { add_SelectedMenu } from '../../store/modal/actions';
 const { SubMenu } = Menu;
 
 const MenuComponent = () => {
-  const mode = useSelector(state => state.mode);
-  const theme = useSelector(state => state.theme);
+  const dispatch = useDispatch()
+  const mode = useSelector(state => state.modal.mode);
+  const theme = useSelector(state => state.modal.theme);
+  const selectedMenu = useSelector(state => state.modal.selectedMenu)
   const history = useHistory();
   const changeUrl = () => { history.push('/shop') };
+
+  const handleClick = (e) => {
+    dispatch(add_SelectedMenu(e.key))
+  }
   return (
     <>
       <Menu
-        className="header-menu__mobile"
+        onClick={handleClick}
+        selectedKeys={[selectedMenu]}
         style={{ width: '90%' }}
-        mode={mode}
+        mode="horizontal"
         theme={theme}>
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/">Home</Link>
@@ -59,21 +67,23 @@ const MenuComponent = () => {
           <Menu.Item key="10" icon={<PhoneOutlined />}>
             <Link to="/contact-us">Contact Us</Link>
           </Menu.Item>
-          <Menu.Item key="11" icon={<HeartOutlined/>}>
+          <div key="11" className="header-menu__mobile">
+          <Menu.Item key="12" icon={<HeartOutlined/>}>
             <Link to="/favorite">
                 Favorite
             </Link>
           </Menu.Item>
-          <Menu.Item key="12" icon={<ShoppingOutlined/>}>
+          <Menu.Item key="13" icon={<ShoppingOutlined/>}>
             <Link to="/cart">
                 Cart
             </Link>
           </Menu.Item>
-          <Menu.Item key="13" icon={<UserOutlined/>}>
+          <Menu.Item key="14" icon={<UserOutlined/>}>
             <Link to ='/user'>
                 User
             </Link>
           </Menu.Item>
+          </div>
       </Menu>
     </>
   );
