@@ -22,17 +22,8 @@ a {
 }
 
 .wrapper {
-  margin-left: 6%;
-  margin-right: 6%;
-  width: calc(100% - calc(6% * 2));
-  @include breakpoint(sm-up) {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: calc(100% - calc(10% * 2));
-  }
-  @include breakpoint(md-up) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 82%;
-  }
+ min-width: 320px;
+ max-width: 1200px;
+ padding: 0 10px;
+ margin: 0 auto;
 }

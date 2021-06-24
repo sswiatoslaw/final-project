@@ -1,0 +1,11 @@
+%links {
+  font-weight: 300;
+  font-size: 24px;
+  color: $text-color;
+  transition: font-weight 0.5s linear;
+
+  &:hover,
+  &:focus {
+    font-weight: 500;
+  }
+}
