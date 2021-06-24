@@ -32,8 +32,7 @@ const MenuComponent = () => {
       <Menu
         onClick={handleClick}
         selectedKeys={[selectedMenu]}
-        style={{ width: '90%' }}
-        mode="horizontal"
+        mode={mode}
         theme={theme}>
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/">Home</Link>
@@ -67,18 +66,18 @@ const MenuComponent = () => {
           <Menu.Item key="10" icon={<PhoneOutlined />}>
             <Link to="/contact-us">Contact Us</Link>
           </Menu.Item>
-          <div key="11" className="header-menu__mobile">
-          <Menu.Item key="12" icon={<HeartOutlined/>}>
+          <div key="11" className="header__icon-mobile">
+          <Menu.Item key="12" icon={<HeartOutlined />}>
             <Link to="/favorite">
                 Favorite
             </Link>
           </Menu.Item>
-          <Menu.Item key="13" icon={<ShoppingOutlined/>}>
+          <Menu.Item key="13" icon={<ShoppingOutlined />}>
             <Link to="/cart">
                 Cart
             </Link>
           </Menu.Item>
-          <Menu.Item key="14" icon={<UserOutlined/>}>
+          <Menu.Item key="14" icon={<UserOutlined />}>
             <Link to ='/user'>
                 User
             </Link>

@@ -1,5 +1,5 @@
 import './Header.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import MenuComponent from './../Menu';
 import { Link } from 'react-router-dom'
 import {
@@ -8,30 +8,24 @@ import {
   HeartOutlined
 } from '@ant-design/icons';
 function Header () {
-  const [collapsed, setCollapsed] = useState(true);
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-    document.querySelector('.menu').classList.toggle('active');
-  };
-  
   return (
     <>
       <div className="header">
-        <div className="header-logo">
+        <div className="header__logo">
           <h1>Savvy<span>Tots</span></h1>
         </div>
-        <div className="header-menu">
+        <div className="header__menu">
         <MenuComponent />
         </div>
-        <div className="header-icon">
+        <div className="header__icon">
           <Link to="/favorite">
-            <HeartOutlined />
+            <HeartOutlined style={ { fontSize: '24px', color: '#A8D6CB' } }/>
           </Link>
           <Link to="/cart">
-            <ShoppingOutlined />
+            <ShoppingOutlined style={ { fontSize: '24px', color: '#A8D6CB' } }/>
           </Link>
           <Link to ='/user'>
-            <UserOutlined />
+            <UserOutlined style={ { fontSize: '24px', color: '#A8D6CB' } }/>
           </Link>
           {/* <Button onClick={toggleCollapsed} size='large'>
             {React.createElement(collapsed ? MenuOutlined : CloseOutlined)}

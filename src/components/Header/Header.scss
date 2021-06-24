@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-around;
     font-family: 'Spartan', sans-serif;
-    .header-logo{
+    &__logo{
         display: flex;
         h1{
             display: flex;
@@ -19,14 +19,25 @@
             }
         }
     }
-    .header-menu{
-    }
-    .header-icon{
-        @media screen and (max-width: 768px) {
-            display: none;
-        }
+    &__icon{
+        display: flex;
+        gap: 10px;
+        align-items: center;
     }
 }
-@media screen and (max-width: 768px) {
 
+.header__icon-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .ant-menu-root{
+        width: 20%;
+    }
+    .header__icon{
+        display: none;
+    }
+    .header__icon-mobile{
+        display: block;
+    }
 }

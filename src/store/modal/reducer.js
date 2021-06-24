@@ -2,7 +2,7 @@ import * as types from './actionTypes'
 
 const initialState = {
   theme: 'light',
-  mode: 'inline',
+  mode: 'horizontal',
   selectedMenu: ''
 }
 const modalReducer = (state = initialState, action) => {
