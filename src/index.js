@@ -6,8 +6,9 @@ import store from './store/store';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './assets/index.scss';
 import Header from './components/Header';
-import ShopPage from './pages/ShopPage'
-import MainPage from './pages/MainPage'
+import ShopPage from './pages/ShopPage';
+import MainPage from './pages/MainPage';
+import LoginPage from './pages/LoginPage';
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
@@ -16,10 +17,13 @@ ReactDOM.render(
           <Header />
           <Switch>
             <Route exact path="/">
-              <MainPage/>
+              <MainPage />
             </Route>
             <Route path="/shop">
-              <ShopPage/>
+              <ShopPage />
+            </Route>
+            <Route path="/login">
+              <LoginPage />
             </Route>
           </Switch>
         </BrowserRouter>
