@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import ErrorBoundary from './components/ErrorBoundary';
 import store from './store/store';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './assets/index.scss';
+// import './assets/index.scss';
 import Header from './components/Header';
 import ShopPage from './pages/ShopPage';
 import MainPage from './pages/MainPage';

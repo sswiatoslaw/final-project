@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 
 const initialState = {
   theme: 'light',
-  mode: 'horizontal',
+  mode: 'vertical',
   selectedMenu: '',
   isModalOpen: false,
 };

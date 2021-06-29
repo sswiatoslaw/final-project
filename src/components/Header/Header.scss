@@ -3,7 +3,7 @@
 .header{
     margin: 30px 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-family: 'Spartan', sans-serif;
     &__logo{
         display: flex;
@@ -19,9 +19,50 @@
             }
         }
     }
+    &__menu{
+        display: flex;
+        align-items: center;
+        .ant-menu{
+            display: flex;
+            gap: 46px;
+            list-style: none;
+            a{
+                text-decoration: none;
+            }
+            &-item-selected{
+                .ant-menu-title-content{
+                    a{
+                        font-weight: 500;
+                        color: #36403D;
+                    }
+                }
+            }
+            &-submenu{
+                &-title{
+                    .ant-menu-title-content{
+                        font-size: 24px;
+                        font-weight: 300;
+                        text-decoration: none;
+                        color: #5E6A67;
+                    }
+                }
+            }
+
+            &-item{
+                .ant-menu-title-content{
+                    a{
+                        font-size: 24px;
+                        font-weight: 300;
+                        text-decoration: none;
+                        color: #5E6A67;
+                    }
+                }
+            }
+        }
+    }
     &__icon{
         display: flex;
-        gap: 10px;
+        gap: 50px;
         align-items: center;
     }
 }
@@ -39,5 +80,7 @@
     }
     .header__icon-mobile{
         display: block;
+        display: flex;
+        gap: 10px;
     }
 }
