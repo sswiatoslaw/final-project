@@ -1,0 +1,15 @@
+@import './src/assets/index.scss';
+
+.category-filter_menu {
+    display: flex;
+    max-width: 800px;
+    flex-flow: row wrap;
+    row-gap: 20px;
+}
+
+@include breakpoint(lg-only) {
+    .category-filter_menu {
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+  }

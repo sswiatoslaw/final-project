@@ -6,6 +6,7 @@ import store from './store/store';
 import './assets/index.scss';
 import App from './components/App';
 // import Categories from './components/Categories/Categories';
+import CategoriesFilterMenu from './components/Categories/CategoriesFilterMenu';
 // import 'antd/dist/antd.css';
 // import { Row } from 'antd';
 // import pic from './assets/images/shoes&socks/bows.jpg';
@@ -30,6 +31,7 @@ ReactDOM.render(
     <ErrorBoundary>
       <Provider store={store}>
         <App />
+        <CategoriesFilterMenu/>
       </Provider>
     </ErrorBoundary>
   </React.StrictMode>,

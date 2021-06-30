@@ -1,0 +1,69 @@
+[
+    {
+        "_id": "5d99f68e419d1040eec0f722c",
+        "id": "women",
+        "name": "skirt",
+        "parentId": "null",
+        "imgUrl": "img/catalog/women.png",
+        "description": "A category, that represents products for women",
+        "level": 0,
+        "date": "2019-10-06T14:13:34.304Z",
+        "__v": 0
+    },
+    
+    {
+        "_id": "5d99f77d419d04s0eec0f722d",
+        "id": "women",
+        "name": "shoes",
+        "parentId": "women",
+        "imgUrl": "img/catalog/women-shoes.png",
+        "description": "A category, that represents shoes for women",
+        "level": 1,
+        "date": "2019-10-06T14:17:33.743Z",
+        "__v": 0
+    },
+    {
+        "_id": "5d99f77d4159d040eec0f722d",
+        "id": "women",
+        "name": "dresses",
+        "parentId": "women",
+        "imgUrl": "img/catalog/women-shoes.png",
+        "description": "A category, that represents shoes for women",
+        "level": 1,
+        "date": "2019-10-06T14:17:33.743Z",
+        "__v": 0
+    },
+    {
+        "_id": "5d99f77d4198d040eec0f722d",
+        "id": "women",
+        "name": "t-shirts",
+        "parentId": "women",
+        "imgUrl": "img/catalog/women-shoes.png",
+        "description": "A category, that represents shoes for women",
+        "level": 1,
+        "date": "2019-10-06T14:17:33.743Z",
+        "__v": 0
+    },
+    {
+        "_id": "5d99f77d419d0q40eec0f722d",
+        "id": "baby",
+        "name": "top",
+        "parentId": "girl",
+        "imgUrl": "img/catalog/women-shoes.png",
+        "description": "A category, that represents shoes for women",
+        "level": 1,
+        "date": "2019-10-06T14:17:33.743Z",
+        "__v": 0
+    },
+    {
+        "_id": "5d99f77d419d04x0eec0f722d",
+        "id": "baby",
+        "name": "hats",
+        "parentId": "boy",
+        "imgUrl": "img/catalog/women-shoes.png",
+        "description": "A category, that represents shoes for women",
+        "level": 1,
+        "date": "2019-10-06T14:17:33.743Z",
+        "__v": 0
+    }
+]
