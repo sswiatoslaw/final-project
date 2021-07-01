@@ -1,0 +1,32 @@
+@import './../../assets/colors';
+@import './../../assets/typography';
+
+.ant-btn{
+  font-family: $spartan-font;
+  &-default{
+    color: $basic-color;
+    font-weight: 500;
+    padding: 20px 85px;
+    background: $CapeCod;
+    font-size: $font-16;
+    transition: 0.5s;
+    text-transform: uppercase;
+    &:hover{
+      background: $Sinbad;
+    }  
+  }
+  &-border{
+    color: #5E6A67;
+    font-weight: 500;
+    padding: 20px 85px;
+    font-size: $font-16;
+    transition: 0.5s;
+    text-transform: uppercase;
+    border: 2px solid #CCCCCC;
+    &:hover{
+      border: 2px solid #5E6A67;
+      color: #36403D;
+      background: rgba(0,0,0, 0.05)
+    }
+  }
+}

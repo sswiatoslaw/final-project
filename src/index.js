@@ -5,7 +5,6 @@ import ErrorBoundary from './components/ErrorBoundary';
 import store from './store/store';
 import './assets/index.scss';
 import App from './components/App';
-
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
