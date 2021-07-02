@@ -1,0 +1,21 @@
+@import './src/assets/index.scss';
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+    padding: 0 150px 50px;   
+    
+
+    &__nav {
+       text-align: center; 
+       border-right: none;            
+    }
+    &__tittle {
+        color: $text-color;
+        font-size: 18px;
+        font-weight: bold;
+        padding-bottom: 18px;        
+    }    
+}
+
