@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { ShoppingOutlined, UserOutlined, HeartOutlined } from '@ant-design/icons';
 import { toggle_isModalOpen } from '../../store/modal/actions';
 import { useDispatch } from 'react-redux';
+import useWindowSize from '../../сustomHooks/useWindowSize';
 function Header () {
   const dispatch = useDispatch();
+  const size = useWindowSize();
   const toggleModal = () => {
     dispatch(toggle_isModalOpen())
   };
@@ -19,7 +21,7 @@ function Header () {
           </h1>
         </div>
         <div className="header__menu">
-          <MenuComponent />
+          { size.width >= 768 ? <MenuComponent mobile={true} /> : <MenuComponent mobile={false} /> }
         </div>
         <div className="header__icon">
           <Link to="/favorite">

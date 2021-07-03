@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
 import { Menu } from 'antd';
+import { MenuOutlined } from '@ant-design/icons'
 import 'antd/dist/antd.css'
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { add_SelectedMenu, toggle_isModalOpen } from '../../store/modal/actions';
 const { SubMenu } = Menu;
 
-const MenuComponent = () => {
+const MenuComponent = (props) => {
+  const { mobile } = props;
   const dispatch = useDispatch();
-  const mode = useSelector((state) => state.modal.mode);
   const theme = useSelector((state) => state.modal.theme);
   const selectedMenu = useSelector((state) => state.modal.selectedMenu);
   const history = useHistory();
@@ -27,8 +28,9 @@ const MenuComponent = () => {
         onClick={handleClick}
         selectedKeys={[selectedMenu]}
         triggerSubMenuAction='click'
-        mode={mode}
+        mode={mobile ? 'vertical' : 'horizontal'}
         theme={theme}
+        overflowedIndicator={<MenuOutlined />}
       >
         <Menu.Item key="1">
           <Link to="/">Home</Link>
