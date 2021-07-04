@@ -1,5 +1,3 @@
-// import './GuideToFavoriteLooks.scss';
-
 const GuideToFavoriteLooksMob = () => {
   return (
     <section className='guide-mob'>
