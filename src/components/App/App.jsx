@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-import Footer from '../Footer/Footer'
 
 function App () {
   return (
@@ -17,8 +16,6 @@ function App () {
           Learn React
         </a>
       </header>
-
-      <Footer />
     </div>
   );
 }
