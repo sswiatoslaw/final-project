@@ -5,30 +5,40 @@
     font-family: 'Spartan', sans-serif;
     bottom: 0;
     left: 0;
+    margin-left: 100px;
     position: fixed;
     padding-bottom: 27px;  
     text-align: center;
-    width: 100%; 
-    @include fluid-type($font-14, $font-16);  
-      
+    width: 85%; 
+    
+    @include fluid-type($font-14, $font-16); 
+
+                
     &__menu{
      display: flex;
      flex-wrap: wrap;  
      flex-direction: row;
      justify-content: space-between;
      padding-bottom: 50px;
-     width: 100%;
+     width: 100%; 
+     
     }
 
     &__text {
         font-size: 16px;
+
+         @include breakpoint(md-only) {        
+          margin: 0 30px; 
+        }
     }
         
     span {
         padding-right: 10px;
-    }      
-    
+    }    
 }
+
+ 
+
 
 
 

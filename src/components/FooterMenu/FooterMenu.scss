@@ -3,19 +3,36 @@
 .menu{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     font-size: 16px;
-    padding: 0 150px 50px;   
+    padding: 20px 50px 50px; 
+    width: 60%;
     
-
-    &__nav {
-       text-align: center; 
-       border-right: none;            
-    }
     &__tittle {
         color: $text-color;
         font-size: 18px;
         font-weight: bold;
-        padding-bottom: 18px;        
+        padding-bottom: 30px;          
+        
     }    
+    .ant-menu {
+       text-align: center; 
+       border-right: none;
+    }  
+        
+
+    li:last-child {
+        height: 55px;
+        line-height: 22px;
+    }
+   
+
+    @include breakpoint(md-only) {        
+        justify-content: space-evenly;
+        width: 100%;
+    }
 }
 
+.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    height: 30px;
+}

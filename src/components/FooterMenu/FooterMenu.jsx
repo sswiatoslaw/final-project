@@ -38,12 +38,12 @@ const MenuComponent = () => {
                 <Menu.Item key="4">
                     <Link to="/shipping+returns">Shipping + Returns</Link>
                 </Menu.Item>
-                <Menu.Item style={{heigth: 165}} key="5" >
+                <Menu.Item className="men__item" style={{heigth: 165}} key="5" >
                     <Link to="/our-sourcing-and-prodaction-values">Our Sourcing & <br/> Prodaction Values</Link>
                 </Menu.Item>
             </Menu>
          </div>
-      </div>
+      
         <div >
             <span className='menu__tittle'>Navigate</span>
             <Menu className='menu__nav'
@@ -70,6 +70,7 @@ const MenuComponent = () => {
                 </Menu.Item>
             </Menu>
         </div>
+     </div>
     </>
   );
 };
