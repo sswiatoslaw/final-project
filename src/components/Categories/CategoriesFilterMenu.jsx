@@ -22,6 +22,7 @@ const CategoriesFilterMenu = () => {
           {getItems(filterGoods('women'))}
         </SubMenu>
       </Menu>
+
       <Menu mode="horizontal"style={{borderBottom: 'none'}}>
         <SubMenu key="2" title="Feeding">
           {getItems(filterGoods('baby'))}

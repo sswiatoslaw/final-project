@@ -2,14 +2,15 @@
 
 .category-filter_menu {
     display: flex;
-    max-width: 800px;
     flex-flow: row wrap;
     row-gap: 20px;
+    justify-content: space-evenly;
 }
+
+
 
 @include breakpoint(lg-only) {
     .category-filter_menu {
       flex-flow: row wrap;
-      justify-content: center;
     }
   }
