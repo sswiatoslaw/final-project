@@ -1,6 +1,5 @@
 import { Menu } from 'antd';
 import React from 'react';
-import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import goods from './test.json';
 import './CategoriesFilterMenu.scss';
