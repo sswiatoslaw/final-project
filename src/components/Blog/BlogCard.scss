@@ -1,0 +1,41 @@
+@import '../../assets/index.scss';
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
+.section-name {
+  font-size: 54px;
+  font-family: 'Amatic SC';
+  text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+
+    // @include breakpoint (lg-only) {
+    //     display: flex;        
+    // }
+   
+}
+
+.blog {
+ margin: 35px 20px 51px;
+ text-align: center;
+ height: 100%;    
+
+ &__image {
+  width: 100%;
+ }
+  
+ &__date {
+ margin: 20px 0;
+ @include fluid-type($font-14, $font-16);
+ color: $logo-text-color; 
+ }
+ 
+ &__title {
+  margin: 0 49px;
+  padding: 0 30px;
+  font-size: $font-16;
+ }
+}
+
+
