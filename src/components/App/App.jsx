@@ -1,4 +1,5 @@
 import React from 'react';
+// import CardItem from '../Card/Card'
 import './App.scss';
 
 function App () {
@@ -17,6 +18,7 @@ function App () {
           Learn React
         </a>
       </header>
+      {/* <CardItem /> */}
     </div>
   );
 }
