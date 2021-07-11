@@ -75,8 +75,8 @@ export default Product;
 
 Product.propTypes = {
   product: PropTypes.exact({
-    title: PropTypes.string,
-    price: PropTypes.number,
+    name: PropTypes.string,
+    currentPrice: PropTypes.number,
     url: PropTypes.string,
     ItemNo: PropTypes.number,
     color: PropTypes.string,
