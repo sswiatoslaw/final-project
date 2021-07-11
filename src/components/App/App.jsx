@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductList from '../ProductList/ProductList';
+// import ProductList from '../ProductList/ProductList';
 // import CardItem from '../Card/Card'
 import './App.scss';
 
@@ -19,8 +19,7 @@ function App () {
           Learn React
         </a>
 
-       <ProductList/>
-      </header>
+       </header>
       {/* <CardItem /> */}
       
     </div>
