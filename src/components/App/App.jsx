@@ -1,4 +1,5 @@
 import React from 'react';
+import LeaveAmessave from '../LeaveAmessave/LeaveAmessave';
 import './App.scss';
 
 function App () {
@@ -17,6 +18,7 @@ function App () {
           Learn React
         </a>
       </header>
+      <LeaveAmessave/>
     </div>
   );
 }

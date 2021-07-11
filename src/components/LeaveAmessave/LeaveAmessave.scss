@@ -1,0 +1,50 @@
+@import '../../assets/index.scss';
+
+.leave-a-messave-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $CapeCod;
+    font-size: $font-14;
+
+    &__text {
+        font-family: $amatic-sc-font;
+        font-weight: bold;
+        font-size: 44px;
+        line-height: 55px;
+        margin-bottom: 42px;
+    }
+    .ant-form.ant-form-horizontal{
+        margin : 0 20px;
+       
+        .ant-input{
+            font-size: 25px;
+            border: 2px solid #DBEBE7;
+            margin-bottom: 17px;
+        }
+        .ant-form-text{
+        color: $Corduroy;
+        line-height: 160%;
+        margin: 43px 0 30px;
+        text-align: center;
+        }
+    }
+    .ant-form-item-label{
+    text-align: start;
+    text-transform: uppercase;
+    }
+    .message-text-area{
+        min-width: 327px;
+     
+    }
+    .ant-btn{
+        background-color:$Sinbad;
+        color: $White;
+        font-weight: 500;
+        text-transform: uppercase;
+        line-height: 16px;
+        min-height: 60px;
+        width: 335px;
+    }
+    
+}
