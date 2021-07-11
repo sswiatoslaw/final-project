@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-import JoingMailing from '../JoingMailing/JoingMailing';
 function App () {
   return (
     <div className="App">
@@ -17,7 +16,6 @@ function App () {
           Learn React
         </a>
       </header>
-      <JoingMailing/>
     </div>
   );
 }

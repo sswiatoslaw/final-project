@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Form, Input } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
+import './ourMailingList.scss'
 import validateFormJoingMailing from './validateFormJoingMailing'
 
 const JoingMailing = () => {

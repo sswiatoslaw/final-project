@@ -1,3 +1,5 @@
+@import '../../assets/index.scss';
+
 .our-mailing-list{
     display: flex;
     justify-content: center;
@@ -9,15 +11,15 @@
     font-size: 40px;
 
     #send-mail{
-        margin-bottom: 61px;
+        margin: 0 20px 61px;
    
     }
     @include breakpoint(sm-only) {
     
         &_text {
-            font-size: 24px;
+            font-size: 36px;
             font-weight: bold;
-        margin: 38px 77px 31px;
+        margin: 38px 76px 31px;
         }
         
     };
@@ -38,7 +40,7 @@
     justify-items: baseline;
     }
     &_text {
-           margin: 53px 230px 66px 0px; 
+        margin: 53px calc((200px -100%) /2) 66px 0px;
     }
 
     #send-mail{
