@@ -3,7 +3,20 @@ import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
 import './App.scss';
 
-function App () {
+function App ({ getAllProducts, allProducts }) {
+  useEffect(() => {
+    if (allProducts.length === 0) {
+      getAllProducts();
+    }
+  }, [getAllProducts, allProducts]);
+
+  const elements = allProducts.map((item) => {
+    return (
+      <li key={item._id}>
+        {item.name}
+      </li>
+    );
+  });
 
 function App ({ getAllProducts, allProducts }) {
   useEffect(() => {
