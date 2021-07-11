@@ -1,9 +1,9 @@
 import { Collapse } from 'antd';
-import AdditionalInformation from './AdditionalInformation';
-import SizeChart from './SizeChart';
-import CareDetails from './CareDetails';
-import ReturnDetails from './ReturnDetails';
-import ShippingDetails from './ShippingDetails';
+import AdditionalInformation from './CollapseContent/AdditionalInformation';
+import SizeChart from './CollapseContent/SizeChart';
+import CareDetails from './CollapseContent/CareDetails';
+import ReturnDetails from './CollapseContent/ReturnDetails';
+import ShippingDetails from './CollapseContent/ShippingDetails';
 import 'antd/dist/antd.css';
 import './Collapse.scss';
 
