@@ -44,7 +44,7 @@ const shippingDetails = [
   `Due to Covid-19 some carriers are experiencing delays. If you have any issues you are welcome to reach out to our customer support team at ${email} but please understand this is not something we can control.`
 ];
 
-export const CollapseDictionary = {
+export const collapseDictionary = {
   additionalInformation,
   careDetailsProposes,
   careDetailsProposesInfo,
