@@ -1,0 +1,50 @@
+@import "src/assets/index";
+
+.about {
+  padding: 60px 0 51px;
+
+  @include breakpoint(lg-only) {
+    padding: 100px 0 89px;
+  }
+
+  &__img-container {
+    margin-bottom: 25px;
+    overflow: hidden;
+    max-width: 1180px;
+    min-width: 335px;
+    max-height: 708px;
+    min-height: 335px;
+    transition: transform 4s ease-in;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    transform: scale(1.4);
+
+    @include breakpoint(lg-only) {
+      transform: scale(1)
+    }
+  }
+
+  &__img-desc {
+    margin-bottom: 41px;
+    text-align: center;
+    color: $logo-text-color;
+    @include fluid-type($font-14, $font-16);
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    text-align: center;
+    font-family: $cormorant-garamond-font;
+    color: $text-color;
+    @include fluid-type($font-24, $font-48);
+  }
+
+  &__text {
+    margin-bottom: 23px;
+    color: $logo-text-color;
+    @include fluid-type($font-14, $font-16);
+  }
+}
