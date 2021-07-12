@@ -1,5 +1,5 @@
-const aboutImgFirst = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/about-the-history.png';
-const aboutImgSecond = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/about-the-history-2.png';
+const aboutImgFirst = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/about-content/about-the-history.png';
+const aboutImgSecond = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/about-content/about-the-history-2.png';
 
 const aboutHistoryDesc = 'Our Founder, Ying Liu';
 const aboutHistoryTitle = 'The History Behind Kyte Baby';
