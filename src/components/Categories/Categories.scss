@@ -32,6 +32,8 @@
   background-repeat: no-repeat;
   min-height: 320px;
   width: 275px;
+  margin-top: 80px;
+  margin-bottom: 89px;
   align-self: center;
   &:hover .category__wrapper {
     opacity: 1;
@@ -48,6 +50,7 @@
 
 @include breakpoint(lg-only) {
   .ant-row {
+    display: flex;
     flex-flow: row wrap;
     gap: 15px;
     justify-content: center;
