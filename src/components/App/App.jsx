@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
 import './App.scss';
 
+function App () {
+
 function App ({ getAllProducts, allProducts }) {
   useEffect(() => {
     if (allProducts.length === 0) {
@@ -31,8 +33,7 @@ function App ({ getAllProducts, allProducts }) {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
       </header>
