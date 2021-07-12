@@ -1,0 +1,2 @@
+export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const ACTIVE_CARD = 'ACTIVE_CARD'
