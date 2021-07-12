@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-function App() {
+function App () {
   return (
     <div className="App">
       <header className="App-header">
