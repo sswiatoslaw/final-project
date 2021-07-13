@@ -1,0 +1,11 @@
+@import "src/assets/index";
+
+.blog {
+  &__img {
+    transform: scale(1.1);
+
+    @include breakpoint(lg-only) {
+      transform: scale(1);
+    }
+  }
+}
