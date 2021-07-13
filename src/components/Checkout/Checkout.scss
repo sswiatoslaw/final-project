@@ -1,0 +1,90 @@
+@import "src/assets/index";
+
+.checkout {
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column {
+    min-width: 45%;
+  }
+
+  &__select {
+    border-radius: 18px;
+    border-color: $main-color;
+  }
+
+  &__steps-action {
+    display: inline-flex;
+    align-self: flex-end;
+    gap: 40px;
+    margin-top: 30px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.ant-steps {
+  margin-bottom: 40px;
+}
+
+.ant-row {
+  flex-flow: column wrap;
+}
+
+.ant-page-header-heading-title {
+  margin-bottom: 27px;
+  font-family: $cormorant-garamond-font;
+  color: $text-color;
+  text-transform: capitalize;
+  @include fluid-type($font-24, $font-48);
+}
+
+.ant-form-item-label {
+  text-align: justify;
+  margin-bottom: 11px;
+}
+
+.ant-input,
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 18px;
+  border-color: $main-color;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: $main-color;
+  }
+}
+
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon,
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after {
+  background-color: $main-color;
+}
+
+.ant-steps-item-process .ant-steps-item-icon,
+.ant-steps-item-finish .ant-steps-item-icon {
+  border-color: $main-color;
+}
+
+.ant-input, .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  min-width: 300px;
+}
+
+.anticon svg {
+  color: $main-color;
+}
+
+.ant-form-item-explain,
+.ant-form-item-explain-error {
+  text-align: right;
+}
