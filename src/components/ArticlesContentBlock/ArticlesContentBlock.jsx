@@ -9,15 +9,15 @@ const ArticlesContentBlock = ({ article }) => {
       {
         typeof article.img === 'undefined'
           ? ''
-          : <div className='about__img-container'><img className='about__img' src={article.img} alt={article.altText} /></div>
+          : <div className='articles-content__img-container'><img className='articles-content__img about__img blog__img' src={article.img} alt={article.altText} /></div>
       }
       {
-        typeof article.desc == 'undefined' ? '' : <p className='about__img-desc'>{article.desc}</p>
+        typeof article.desc == 'undefined' ? '' : <p className='articles-content__img-desc'>{article.desc}</p>
       }
       {
-        typeof article.title == 'undefined' ? '' : <Title level={2} className='about__title'>{article.title}</Title>
+        typeof article.title == 'undefined' ? '' : <Title level={2} className='articles-content__title'>{article.title}</Title>
       }
-      {article.text.map((item, index) => <p className='about__text' key={index}>{item}</p>)}
+      {article.text.map((item, index) => <p className='articles-content__text' key={index}>{item}</p>)}
     </Typography>
   );
 };
