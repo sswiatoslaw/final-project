@@ -1,40 +1,14 @@
 import { Card, Button } from 'antd';
-import { StarFilled, StarOutlined, HeartOutlined } from '@ant-design/icons';
+import { StarFilled, StarOutlined } from '@ant-design/icons';
 import './Product.scss';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import { changeCurrentProduct, changeModalState, setModalAddOrDelValue } from '../../store/modal/actions';
-import { changeProductList } from '../../store/products/actions'
-import { getProducts } from '../../store/products/selectors'
 
 const { Meta } = Card;
 
-const Product = ({product}) => {
-  const products = useSelector(getProducts)
-  const dispatch = useDispatch()
-
-  const openModal = (addDelSwitcher = true) => {
-    dispatch(changeCurrentProduct(product))
-    dispatch(changeModalState(true))
-    dispatch(setModalAddOrDelValue(addDelSwitcher ? 'add' : 'delete'))
-  }
-
-  const addToFavorites = () => {
-    const newProducts = products.map(elem => {
-      if (elem.itemNo === product.itemNo) {
-        elem.isFavorite = !elem.isFavorite
-      }
-      return elem
-    })
-    dispatch(changeProductList(newProducts))
-
-    let favor = JSON.parse(localStorage.getItem('favor')) || []
-    favor = (favor.includes(product.itemNo) ? favor.filter(elem => elem !== product.itemNo) : favor.concat(product.itemNo))
-    localStorage.setItem('favor', JSON.stringify(favor))
-  }
-
+const Product = (product) => {
   return (
         <div className='card'>
+          <li key={product._id}>
             <Card
                 hoverable
                 style={{ width: 280, textAlign: 'center', border: 'none', colorStyle: '#36403D', }}
@@ -54,22 +28,14 @@ const Product = ({product}) => {
                     </span>
 
                 </div>
-                <Button className='card__button' handleClick={openModal} >{product.currentPrice}</Button>
-                <div div className='Product__favorites'>
-                    <span className="favorites--title">Add to favorites</span>
-                        <HeartOutlined
-                            onClick={addToFavorites}
-                            filled={product.isFavorite}
-                            color="blue"
-                            className="favorites--icon"
-                        />
-                </div>
-                
+                <Button className='card__button' >{product.currentPrice}</Button>
+                                
             </Card>
+          </li>
         </div>
         
   );
-}
+};
 
 export default Product;
 
@@ -78,9 +44,6 @@ Product.propTypes = {
     name: PropTypes.string,
     currentPrice: PropTypes.number,
     url: PropTypes.string,
-    ItemNo: PropTypes.number,
-    color: PropTypes.string,
-    amountAtCart: PropTypes.number,
-    isFavorite: PropTypes.bool
+    itemNo: PropTypes.number,
   }).isRequired
 }

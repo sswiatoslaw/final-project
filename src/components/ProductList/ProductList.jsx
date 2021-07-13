@@ -1,80 +1,45 @@
-
+import React, { useEffect } from 'react';
 import Product from '../Product/Product';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import fetchProducts from '../../store/products/actions';
 import './ProductList.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { changeModalState, setModalHeader } from '../../store/modal/actions'
-import { changeProductList } from '../../store/products/actions'
-import { getProduct, getModalState, getCurrentModal, getModalAddOrDeleteValue } from '../../store/modal/selectors'
-import { getProducts } from '../../store/products/selectors'
-import { useEffect } from 'react';
 
-const ProductList = ({productsAtPage, cart = false}) => {
-  const dispatch = useDispatch()
-  const products = useSelector(getProducts)
-  const product = useSelector(getProduct)
-  //   const isActive = useSelector(getModalState)
-  //   const currentModal = useSelector(getCurrentModal)
-  const modalAddOrDeleteValue = useSelector(getModalAddOrDeleteValue)
-  
-  const addToCart = () => {
-    dispatch(changeModalState(false))
-      
-    const newProducts = products.map(elem => {
-      if (elem.itemNo === product.itemNo) {
-        elem.amountAtCart++
-      }
-      return elem
-    })
-    
-    dispatch(changeProductList(newProducts))
-    let cart = JSON.parse(localStorage.getItem('cart')) || []
-    cart = newProducts.filter(elem => elem.amountAtCart !== 0)
-    localStorage.setItem('cart', JSON.stringify(cart))
-  }
-    
-  const deleteFromCart = () => {
-    dispatch(changeModalState(false))
-      
-    const newProducts = products.map(elem => {
-      if (elem.itemNo === product.itemNo) {
-        elem.amountAtCart--
-      }
-      return elem
-    })
-    dispatch(changeProductList(newProducts))
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || []
-    cart = newProducts.filter(elem => elem.amountAtCart !== 0)
-    localStorage.setItem('cart', JSON.stringify(cart))
-  }
-
-  const closeModal = () => {
-    dispatch(changeModalState(false))
-  }
-
+const ProductList = ({ getAllProducts, allProducts }) => {
   useEffect(() => {
-    dispatch(setModalHeader(modalAddOrDeleteValue, product.title))
-  }, [modalAddOrDeleteValue, product.title, dispatch]);
+    if (allProducts.length === 0) {
+      getAllProducts();
+    }
+  }, [getAllProducts, allProducts]);
+
+  const products = allProducts.map((product) => {
+    return (
+          <li key={product._id}>
+              <Product />
+          </li>
+    );
+  });
 
   return (
     <>
-      {cart && <h4>Items at cart:</h4>}
-      <ul className='listItemsWrapper'>
-        {productsAtPage.map((el, index) => {
-          return <Product
-                    key={index}
-                    product={el}
-                />
-        })}
-      </ul>
+        <ul className='products__list'>
+
+        { products}
+        </ul>
       
      </>
   );
-}
+};
 
-export default ProductList;
+const mapStateToProps = (state) => {
+  return {
+    allProducts: state.allProducts
+  };
+};
 
-ProductList.propTypes = {
-  productsAtPage: PropTypes.arrayOf(PropTypes.object).isRequired,
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllProducts: () => dispatch(fetchProducts())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

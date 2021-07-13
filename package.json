@@ -7,11 +7,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-<<<<<<< HEAD
-    "antd": "^4.16.6",
-=======
     "antd": "^4.16.3",
->>>>>>> d3ee8a9b4096b3fb8ab9f5dc1d490d256aaa9b5c
     "axios": "^0.21.1",
     "formik": "^2.2.9",
     "node-sass": "^6.0.0",
