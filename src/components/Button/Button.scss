@@ -1,9 +1,10 @@
 @import './../../assets/colors';
 @import './../../assets/typography';
 
-.ant-btn{
+.ant-btn {
   font-family: $spartan-font;
-  &-default{
+
+  &-default {
     color: $basic-color;
     font-weight: 500;
     padding: 20px 85px;
@@ -11,11 +12,13 @@
     font-size: $font-16;
     transition: 0.5s;
     text-transform: uppercase;
-    &:hover{
+
+    &:hover {
       background: $Sinbad;
-    }  
+    }
   }
-  &-border{
+
+  &-border {
     color: #5E6A67;
     font-weight: 500;
     padding: 20px 85px;
@@ -23,10 +26,11 @@
     transition: 0.5s;
     text-transform: uppercase;
     border: 2px solid #CCCCCC;
-    &:hover{
+
+    &:hover {
       border: 2px solid #5E6A67;
       color: #36403D;
-      background: rgba(0,0,0, 0.05)
+      background: rgba(0, 0, 0, 0.05)
     }
   }
 }

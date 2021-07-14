@@ -1,15 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
-import store from '../../store/store';
-import { Provider } from 'react-redux';
 import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import store from '../../store/store';
+import App from './App';
 
-test('renders learn react link', () => {
+it('should render App component', () => {
   render(
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   );
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
 });
