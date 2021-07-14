@@ -9,8 +9,7 @@ import ShopPage from './pages/ShopPage';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import './assets/index.scss';
-import 'antd/dist/antd.css'
-
+import 'antd/dist/antd.css';
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
