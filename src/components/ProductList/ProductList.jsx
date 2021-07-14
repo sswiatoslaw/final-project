@@ -1,45 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Product from '../Product/Product';
-import { connect } from 'react-redux';
-import fetchProducts from '../../store/products/actions';
 import './ProductList.scss';
 
-const ProductList = ({ getAllProducts, allProducts }) => {
-  useEffect(() => {
-    if (allProducts.length === 0) {
-      getAllProducts();
-    }
-  }, [getAllProducts, allProducts]);
-
-  const products = allProducts.map((product) => {
-    return (
-          <li key={product._id}>
-              <Product />
-          </li>
-    );
-  });
-
+const ProductList = () => {
   return (
     <>
         <ul className='products__list'>
-
-        { products}
+        <Product />
         </ul>
       
-     </>
+    </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    allProducts: state.allProducts
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllProducts: () => dispatch(fetchProducts())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
+export default ProductList;
