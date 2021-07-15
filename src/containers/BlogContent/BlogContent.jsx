@@ -1,12 +1,12 @@
-import { articles } from '../../dictionary/aboutContentDictionary';
+import { articles } from '../../dictionary/blogContentDictionary';
 import ArticlesContentBlock from '../../components/ArticlesContentBlock';
 import '../../components/ArticlesContentBlock/ArticlesContentBlock.scss';
-import './AboutContent.scss';
+import './BlogContent.scss';
 
-const AboutContent = () => {
+const BlogContent = () => {
   return (
     <div className='wrapper'>
-      <section className='about articles-content'>
+      <section className='blog articles-content'>
         {
           articles.map((article, index) => <ArticlesContentBlock article={article} key={index} />)
         }
@@ -15,4 +15,4 @@ const AboutContent = () => {
   );
 };
 
-export default AboutContent;
+export default BlogContent;
