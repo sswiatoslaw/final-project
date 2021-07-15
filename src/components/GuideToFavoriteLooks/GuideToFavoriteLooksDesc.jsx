@@ -1,4 +1,4 @@
-import { Row, Col } from 'antd';
+import { Col, Row } from 'antd';
 import img from './guide-to-favorite-looks.png';
 
 const GuideToFavoriteLooksDesc = () => {

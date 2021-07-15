@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import getProducts from '../../api/getProducts';
+import { getProducts } from '../../api/getProducts';
 
 export const setProducts = cards => ({
   type: types.LOAD_PRODUCTS,

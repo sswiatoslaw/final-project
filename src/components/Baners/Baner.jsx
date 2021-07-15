@@ -49,4 +49,4 @@ Baner.propTypes = {
   title: PropTypes.string,
   textBottom: PropTypes.string,
   children: PropTypes.element
-}
+};
