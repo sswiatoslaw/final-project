@@ -1,0 +1,93 @@
+@import '../../assets/index.scss';
+
+.feed-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__block {
+    color: $CapeCod;
+    font-size: $font-14;
+    text-align: center;
+    @include breakpoint(lg-only) {
+      font-size: $font-16;
+    }
+  }
+  &__title {
+    font-family: $amatic-sc-font;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 55px;
+    margin-bottom: 42px;
+
+    @include breakpoint(lg-only) {
+      font-size: 54px;
+      line-height: 68px;
+    }
+  }
+
+  &--text {
+    color: $Corduroy;
+    line-height: 160%;
+    margin: 43px 0 22px;
+    text-align: center;
+    margin: 0 0 22px;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include breakpoint(lg-only) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__list {
+      width: 100%;
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      @include breakpoint(lg-only) {
+        width: 47%;
+      }
+
+      &--message {
+        margin-bottom: 43px;
+
+        @include breakpoint(lg-only) {
+          min-height: 160px;
+          width: 100%;
+          margin-bottom: 50px;
+        }
+      }
+    }
+    &__input {
+      width: 100%;
+      min-height: 60px;
+      border: 2px solid #dbebe7;
+      margin-bottom: 17px;
+      font-size: $font-18;
+      @include breakpoint(lg-only) {
+        min-height: 80px;
+      }
+
+      &--text-area {
+        min-height: 120px;
+
+        @include breakpoint(lg-only) {
+          min-height: 160px;
+        }
+      }
+    }
+  }
+}
+.ant-form-item-label {
+  text-align: start;
+  text-transform: uppercase;
+}
