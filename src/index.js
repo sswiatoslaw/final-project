@@ -1,36 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ErrorBoundary from './components/ErrorBoundary';
 import store from './store/store';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from './components/Header';
-import ShopPage from './pages/ShopPage';
-import MainPage from './pages/MainPage';
-import LoginPage from './pages/LoginPage';
+import App from './components/App/App';
 import './assets/index.scss';
 import 'antd/dist/antd.css';
+
 ReactDOM.render(
   <React.StrictMode>
-    <ErrorBoundary>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Header />
-          
-          <Switch>
-            <Route exact path="/">
-              <MainPage />
-            </Route>
-            <Route path="/shop">
-              <ShopPage />
-            </Route>
-            <Route path="/login">
-              <LoginPage />
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </Provider>
-    </ErrorBoundary>
+    <Provider store={store}>
+      <ErrorBoundary>
+        <Router>
+          <App />
+        </Router>
+      </ErrorBoundary>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
