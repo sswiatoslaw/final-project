@@ -6,19 +6,18 @@ import PropTypes from 'prop-types';
 
 const { Meta } = Card;
 
-const Product = ({allProducts}) => {
-  const el = allProducts.map((item) => {
-    return (
+const Product = ({product}) => {
+  return (
         <div className='card'>
-          <li key={item._id}>
+          <li key={product._id}>
             <Card
                 hoverable
                 style={{ width: 280, textAlign: 'center', border: 'none', colorStyle: '#36403D', }}
-                cover={<img src={item.url} alt={item.name}/>}
+                cover={<img src={product.url} alt={product.name}/>}
             >
                 <div className='card__title'>
                     <Meta
-                        title={item.name} />
+                        title={product.name} />
                 </div>
                 <div>
                     <span >
@@ -30,17 +29,11 @@ const Product = ({allProducts}) => {
                     </span>
 
                 </div>
-                <Button className='card__button' >{item.currentPrice}</Button>
+                <Button className='card__button' >{product.currentPrice}</Button>
                                 
             </Card>
           </li>
         </div>);
-  })
-  return (
-      <div>
-        { el }
-      </div>
-  );
 };
     
 const mapStateToProps = (state) => {
@@ -52,7 +45,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Product);
 
 Product.propTypes = {
-  item: PropTypes.exact({
+  product: PropTypes.exact({
     name: PropTypes.string,
     currentPrice: PropTypes.number,
     url: PropTypes.string,
