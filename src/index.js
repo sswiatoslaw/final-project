@@ -16,6 +16,7 @@ ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter>
           <Header />
+          
           <Switch>
             <Route exact path="/">
               <MainPage />
