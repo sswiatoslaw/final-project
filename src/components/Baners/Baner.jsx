@@ -22,16 +22,16 @@ const Baner = ({
       <span className='baner__overlay' style={{ opacity, backgroundColor: '#36403D' }}></span>
 
       <div className='baner__content'>
-        <span className='baner__text baner__text--top'>
+        <p className='baner__text baner__text--top'>
           {textTop}
-        </span>
+        </p>
         <h2 className='baner__title'>{title}</h2>
-        <span className='baner__text baner__text--bottom'>
+        <p className='baner__text baner__text--bottom'>
           {textBottom}
-        </span>
-        <span className='baner__btn'>
+        </p>
+        <div className='baner__btn'>
           {children}
-        </span>
+        </div>
       </div>
     </section>
   );

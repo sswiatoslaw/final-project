@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.4s ease-in, border 0.4s ease-in, color 0.4s ease-in;
+  margin: 0 auto;
 
   &--contained {
     background-color: $main-color;

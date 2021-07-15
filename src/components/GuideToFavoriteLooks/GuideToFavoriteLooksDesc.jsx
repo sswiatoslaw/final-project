@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd';
+import Button from '../Button/Button';
 import img from './guide-to-favorite-looks.png';
 
 const GuideToFavoriteLooksDesc = () => {
@@ -11,7 +12,7 @@ const GuideToFavoriteLooksDesc = () => {
         <Col className='guide__container' flex='0 1 30%'>
           <h2 className='guide__heading'>Drop 1 style guide</h2>
           <p className='guide__text'>We put together some of our favorite looks from our ss21 drop 1 collection</p>
-          <a href='#void'>BUTTON</a>
+          <Button modifier='contained' text='View more' width='280px'/>
         </Col>
       </Row>
     </div>

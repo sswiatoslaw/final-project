@@ -2,7 +2,7 @@ import React from 'react'
 import {Form, Input} from 'antd';
 import './FeedbackForm.scss'
 const FeedbackForm = (props) => {
-  const {title, text} = props
+  const {title, text, button} = props
   return (
     <div className={'wrapper'}>
         <div className={'feed-back feed-back__block'}>
@@ -21,7 +21,9 @@ const FeedbackForm = (props) => {
       <p className={'feed-back__text'}>
           {text}
       </p>
-      <button>кнопка компонент</button>
+     <>
+     {button}
+     </>
         </div>
         </div>
   )
