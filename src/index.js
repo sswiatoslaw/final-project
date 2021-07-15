@@ -10,13 +10,15 @@ import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import './assets/index.scss';
 import 'antd/dist/antd.css';
+import Skiu from './components/Slider/Slider'
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
       <Provider store={store}>
         <BrowserRouter>
-          <Header />
-          <Switch>
+        <Skiu />
+          {/* <Header /> */}
+          {/* <Switch>
             <Route exact path="/">
               <MainPage />
             </Route>
@@ -26,7 +28,7 @@ ReactDOM.render(
             <Route path="/login">
               <LoginPage />
             </Route>
-          </Switch>
+          </Switch> */}
         </BrowserRouter>
       </Provider>
     </ErrorBoundary>
