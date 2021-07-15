@@ -1,8 +1,9 @@
 import { Card, Button } from 'antd';
+import { HeartOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
-import { StarFilled, StarOutlined } from '@ant-design/icons';
 import './Product.scss';
 import PropTypes from 'prop-types';
+import Rater from './Rater';
 
 const { Meta } = Card;
 
@@ -10,26 +11,24 @@ const Product = ({product}) => {
   return (
         <div className='card'>
           <li key={product._id}>
+            
             <Card
                 hoverable
-                style={{ width: 280, textAlign: 'center', border: 'none', colorStyle: '#36403D', }}
-                cover={<img src={product.url} alt={product.name}/>}
+                style={{width: '100%', textAlign: 'center', border: 'none', colorStyle: '#36403D', }}
+                cover={<img src={product.imageUrls[0]} alt={product.name} />}
             >
-                <div className='card__title'>
+              <HeartOutlined className='card__icon'/>
+              <div className='card__title'>
                     <Meta
                         title={product.name} />
                 </div>
                 <div>
                     <span >
-                        <StarFilled className='card__stars'/>
-                        <StarFilled className='card__stars'/>
-                        <StarFilled className='card__stars'/>
-                        <StarFilled className='card__stars'/>
-                        <StarOutlined className='card__stars' />
+                        <Rater/>
                     </span>
 
                 </div>
-                <Button className='card__button' >{product.currentPrice}</Button>
+                <Button className='card__button' >To bag - $ {product.currentPrice} </Button>
                                 
             </Card>
           </li>
@@ -48,7 +47,7 @@ Product.propTypes = {
   product: PropTypes.exact({
     name: PropTypes.string,
     currentPrice: PropTypes.number,
-    url: PropTypes.string,
+    imageUrls: PropTypes.string,
     itemNo: PropTypes.number,
   }).isRequired
 }

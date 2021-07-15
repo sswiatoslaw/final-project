@@ -1,32 +1,90 @@
-@import './../../assets/colors';
-@import './../../assets/typography';
+@import 'src/assets/index';
 
-.ant-btn{
-  font-family: $spartan-font;
-  &-default{
-    color: $basic-color;
-    font-weight: 500;
-    padding: 20px 85px;
-    background: $CapeCod;
-    font-size: $font-16;
-    transition: 0.5s;
-    text-transform: uppercase;
-    &:hover{
-      background: $Sinbad;
-    }  
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s ease-in, border 0.4s ease-in, color 0.4s ease-in;
+  margin: 0 auto;
+
+  &--contained {
+    background-color: $main-color;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      border: 2px solid $footer-bg-color;
+      background-color: inherit;
+    }
   }
-  &-border{
-    color: #5E6A67;
+
+  &--outlined {
+    border: 2px solid $footer-bg-color;
+    background-color: inherit;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $main-color;
+    }
+  }
+
+  &__text {
     font-weight: 500;
-    padding: 20px 85px;
-    font-size: $font-16;
-    transition: 0.5s;
-    text-transform: uppercase;
-    border: 2px solid #CCCCCC;
-    &:hover{
-      border: 2px solid #5E6A67;
-      color: #36403D;
-      background: rgba(0,0,0, 0.05)
+    @include fluid-type($font-14, $font-16);
+
+    &--contained {
+      color: $basic-color;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+
+    &--outlined {
+      color: $text-color;
+
+      &:hover {
+        color: $basic-color;
+      }
     }
   }
 }
+.ant-btn,
+.ant-btn:hover,
+.ant-btn:focus {
+  border: 2px solid $main-color;
+}
+
+// @import './../../assets/colors';
+// @import './../../assets/typography';
+
+// .ant-btn{
+//   font-family: $spartan-font;
+//   &-default{
+//     color: $basic-color;
+//     font-weight: 500;
+//     padding: 20px 85px;
+//     background: $CapeCod;
+//     font-size: $font-16;
+//     transition: 0.5s;
+//     text-transform: uppercase;
+//     &:hover{
+//       background: $Sinbad;
+//     }  
+//   }
+//   &-border{
+//     color: #5E6A67;
+//     font-weight: 500;
+//     padding: 20px 85px;
+//     font-size: $font-16;
+//     transition: 0.5s;
+//     text-transform: uppercase;
+//     border: 2px solid #CCCCCC;
+//     &:hover{
+//       border: 2px solid #5E6A67;
+//       color: #36403D;
+//       background: rgba(0,0,0, 0.05)
+//     }
+//   }
+// }

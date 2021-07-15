@@ -6,14 +6,15 @@ import './ProductList.scss';
 const ProductList = ({ allProducts}) => {
   return (
     <>
-        <div className='products__list--title'> </div>
-            <ul>
+       <section className='product__list'>
+            <ul className='product__item'>
             {allProducts.map((product) => {
               return (
                <Product product={product} key={product._id} />
               )
             })};
            </ul>
+        </section>
     </>
   )
 };

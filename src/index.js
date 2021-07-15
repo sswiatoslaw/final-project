@@ -18,11 +18,8 @@ ReactDOM.render(
         <BrowserRouter>
           <Header />
           <Switch>
-            {/* <Route exact path="/">
-              <MainPage />
-            </Route> */}
             <Route exact path="/">
-              <ProductContent />
+              <MainPage />
             </Route>
             <Route path="/shop">
               <ShopPage />

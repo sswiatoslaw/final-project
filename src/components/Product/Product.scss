@@ -4,9 +4,29 @@
  color: $CapeCod;
  border: none;
  font-family: $spartan-font;
- 
+ width: 157px;
+ position: relative;
+  
+ @include breakpoint(lg-only) {
+      width: 280px;
+    }
+
+
+ &__icon {
+   size: 24px;
+   color: $White;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+
+   &:hover,
+   &:focus {
+      color: $main-color;
+   }
+ }
+   
  &__title{
-    margin: 34px;
+    margin: 20px;
     font-weight: 500;
  }
 
@@ -17,9 +37,29 @@
  }
 
  &__button {
+    font-size: $font-16;
+    font-weight: 500;
      width: 100%;
-     border: 1px solid #E5E5E5;
-     padding: 11px 0;
+     height: 150%;
+     border: 2px solid $Harp;
+     padding: 15px 0 15px;
      margin-top: 31px;
  }
+}
+
+.ant-card-body {
+   padding: 0 0 50px;
+}
+
+.ant-rate {
+   color: $CapeCod;   
+}
+
+svg {
+   width: 25px;
+   height: 24px;
+}
+
+.ant-card-meta-title {
+   font-size: $font-18;
 }
