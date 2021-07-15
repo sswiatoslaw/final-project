@@ -35,6 +35,7 @@ function App ({ getAllProducts, allProducts }) {
           Learn React
         </a>
       </header>
+      
     </div>
   );
 }
