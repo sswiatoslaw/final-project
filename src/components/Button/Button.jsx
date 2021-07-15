@@ -1,19 +1,27 @@
 import React from 'react';
-import './Button.scss';
 import { Button as ButtonComponent } from 'antd';
+import './Button.scss';
 
-const Button = (props) => {
-  const { children, type, onClick } = props;
-  let button;
-  if (type === 'border') {
-    button = <ButtonComponent onClick={onClick} className={`ant-btn-${type}`}> {children} </ButtonComponent>;
-  } else {
-    button = <ButtonComponent onClick={onClick} className='ant-btn-default'> {children} </ButtonComponent>;
-  }
+const Button = ({
+  modifier,
+  onClick,
+  text,
+  htmlType,
+  width = '100%',
+  minWidth = '280px',
+  height = '60px',
+  minHeight,
+  maxHeight,
+  textTransform = 'uppercase'
+}) => {
   return (
-    <>
-      {button}
-    </>
+    <ButtonComponent
+      onClick={onClick}
+      className={`btn btn--${modifier} btn__text  btn__text--${modifier}`}
+      htmlType={htmlType}
+      style={{ width, minWidth, height, minHeight, maxHeight, textTransform }}>
+      {text}
+    </ButtonComponent>
   );
 };
 
