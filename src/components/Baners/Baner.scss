@@ -44,6 +44,7 @@
     text-align: center;
     text-transform: capitalize;
     line-height: 61px;
+    color: $White;
     @include fluid-type($font-48, $font-72);
 
     @include breakpoint(md-up) {
