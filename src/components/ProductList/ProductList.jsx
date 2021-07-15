@@ -10,7 +10,7 @@ const ProductList = ({ allProducts}) => {
             <ul>
             {allProducts.map((product) => {
               return (
-                  <Product key={product._id}/>
+               <Product product={product} key={product._id} />
               )
             })};
            </ul>

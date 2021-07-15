@@ -8,6 +8,7 @@ import Header from './components/Header';
 import ShopPage from './pages/ShopPage';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
+import ProductContent from './containers/ProductContent/ProductContent';
 import './assets/index.scss';
 import 'antd/dist/antd.css'
 ReactDOM.render(
@@ -17,8 +18,11 @@ ReactDOM.render(
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route exact path="/">
+            {/* <Route exact path="/">
               <MainPage />
+            </Route> */}
+            <Route exact path="/">
+              <ProductContent />
             </Route>
             <Route path="/shop">
               <ShopPage />
