@@ -1,0 +1,51 @@
+@import "src/assets/index";
+
+.articles-content {
+  padding: 60px 0 51px;
+
+  @include breakpoint(lg-only) {
+    padding: 100px 0 89px;
+  }
+
+  &__img-container {
+    margin: 0 auto 25px;
+    overflow: hidden;
+    max-width: 1180px;
+    min-width: 335px;
+    max-height: 708px;
+    min-height: 335px;
+    transition: transform 4s ease-in;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 1180px;
+    min-width: 335px;
+    max-height: 708px;
+    min-height: 335px;
+  }
+
+  &__img-desc {
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    color: $logo-text-color;
+    @include fluid-type($font-14, $font-16);
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    text-align: center;
+    font-family: $cormorant-garamond-font;
+    color: $text-color;
+    text-transform: capitalize;
+    @include fluid-type($font-24, $font-48);
+  }
+
+  &__text {
+    margin-bottom: 23px;
+    color: $logo-text-color;
+    @include fluid-type($font-14, $font-16);
+  }
+}

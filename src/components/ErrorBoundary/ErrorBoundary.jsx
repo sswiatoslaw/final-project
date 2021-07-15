@@ -5,7 +5,7 @@ class ErrorBoundary extends PureComponent {
   constructor (props) {
     super(props);
     this.state = {
-      hasError: false,
+      hasError: false
     };
   }
 
@@ -16,7 +16,7 @@ class ErrorBoundary extends PureComponent {
 
   render () {
     const { hasError } = this.state;
-    return hasError ? <Error/> : this.props.children;
+    return hasError ? <Error /> : this.props.children;
   }
 }
 
