@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal, Form, Input, Checkbox, Button } from 'antd'
-import { toggle_isModalOpen } from '../store/modal/actions';
+import { toggle_isModalOpen } from '../../store/modal/actions';
 import { Formik } from 'formik'
 const LoginPage = () => {
   const dispatch = useDispatch();

@@ -6,17 +6,11 @@ const { Title } = Typography;
 const ArticlesContentBlock = ({ article }) => {
   return (
     <Typography>
-      {
-        typeof article.img === 'undefined'
-          ? ''
-          : <div className='articles-content__img-container'><img className='articles-content__img about__img blog__img' src={article.img} alt={article.altText} /></div>
-      }
-      {
-        typeof article.desc == 'undefined' ? '' : <p className='articles-content__img-desc'>{article.desc}</p>
-      }
-      {
-        typeof article.title == 'undefined' ? '' : <Title level={2} className='articles-content__title'>{article.title}</Title>
-      }
+      {article.img &&
+      <div className='articles-content__img-container'><img className='articles-content__img about__img blog__img' src={article.img} alt={article.altText} />
+      </div>}
+      {article.desc && <p className='articles-content__img-desc'>{article.desc}</p>}
+      {article.title && <Title level={2} className='articles-content__title'>{article.title}</Title>}
       {article.text.map((item, index) => <p className='articles-content__text' key={index}>{item}</p>)}
     </Typography>
   );

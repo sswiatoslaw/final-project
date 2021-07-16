@@ -1,8 +1,23 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import store from '../../store/store';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+window.matchMedia = window.matchMedia || function () {
+  return {
+    matches: false,
+    addListener: function () {},
+    removeListener: function () {}
+  };
+};
+it('should render App component', () => {
+  render(
+    <Provider store={store}>
+      <Router>
+        <App/>
+      </Router>
+    </Provider>
+  );
 });
