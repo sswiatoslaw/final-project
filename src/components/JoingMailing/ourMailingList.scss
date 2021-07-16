@@ -1,51 +1,53 @@
 @import '../../assets/index.scss';
 
-.our-mailing-list{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: $amatic-sc-font;
-    font-weight: bold;
-    text-align: center;
-    background-color: $Harp;
-    font-size: 40px;
+.our-mailing-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $amatic-sc-font;
+  font-weight: bold;
+  text-align: center;
+  background-color: $Harp;
+  font-size: 40px;
+  margin-top: 120px;
+  #send-mail {
+    margin: 0 20px 61px;
 
-    #send-mail{
-        margin: 0 20px 61px;
-   
-    }
-    @include breakpoint(sm-only) {
-    
-        &_text {
-            font-size: 36px;
-            font-weight: bold;
-        margin: 38px 76px 31px;
-        }
-        
-    };
-   @include breakpoint(md-up) {
+  }
+
+  @include breakpoint(sm-only) {
 
     &_text {
-        font-weight: bold;
-        line-height: 50px;
-        margin: 50px 90px 40px;
-        }
-       
-   }
-@include breakpoint(lg-only){
+      font-size: 36px;
+      font-weight: bold;
+      margin: 38px 76px 31px;
+    }
+
+  }
+;
+  @include breakpoint(md-up) {
+
+    &_text {
+      font-weight: bold;
+      line-height: 50px;
+      margin: 50px 90px 40px;
+    }
+
+  }
+  @include breakpoint(lg-only) {
     &_col {
-        display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: baseline;
-    justify-items: baseline;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: baseline;
+      justify-items: baseline;
     }
     &_text {
-        margin: 53px calc((200px -100%) /2) 66px 0px;
+      margin: 53px calc((200px - 100%) / 2) 66px 0px;
     }
 
-    #send-mail{
-        width: calc((100% - -580px) / 2)
+    #send-mail {
+      width: calc((100% - -580px) / 2)
     }
-}
+  }
 
 }

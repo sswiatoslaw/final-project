@@ -1,5 +1,13 @@
+import React from 'react'
+
+const Logo = (props) => {
+  const {width, height} = props
+  return (
+        <>
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
       version="1.1"
       viewBox="0 0 400 412.821"
       style={{cursor: 'pointer'}}
@@ -15,3 +23,8 @@
         ></path>
       </g>
     </svg>
+       </>
+  )
+}
+
+export default Logo
