@@ -1,0 +1,17 @@
+import Button from '../../components/Button/Button'
+import React from 'react'
+import FeedbackForm from '../../components/FeedbackForm/FeedbackForm'
+import Baner from '../../components/Baners/Baner'
+import { banerImagesDictionary, banerTitleDictionary } from '../../dictionary/banerDictionary'
+const ContactUsPage = () => {
+  return (
+        <div>
+            <Baner imgPath={banerImagesDictionary.contactUs} imgName='boys' title={banerTitleDictionary.contactUsTitle} />
+            <FeedbackForm title={'Leave a Messave'} text={'If you have a question or a query no matter how big or small, feel free to get in touch with us here and we\'ll happily help you.'} button={<Button modifier='contained' text='Send'
+                                                                                                       width='280px'
+                                                                                                       minWidth='335px'/>}/>
+        </div>
+  )
+}
+
+export default ContactUsPage
