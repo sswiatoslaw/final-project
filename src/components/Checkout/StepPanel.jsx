@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
 import { Steps } from 'antd';
+import { connect } from 'react-redux';
+import { addDataFromFormCheckout } from '../../store/formsData/checkoutFormData/actions';
 
-const StepPanel = ({ steps }) => {
+const StepPanel = ({ steps, addDataFromCheckout, userData }) => {
   const [activeStep, setActiveStep] = useState(0);
 
   const next = () => {
@@ -22,11 +24,11 @@ const StepPanel = ({ steps }) => {
           <Steps.Step key={item.title} title={item.title} />
         ))}
       </Steps>
-      {steps.map((item) => (
-        <div
-          className={`steps-content ${
-            item.step !== activeStep + 1 && 'hidden'
-          }`}
+      {steps.map((item, index) => (
+        <div key={index}
+             className={`steps-content ${
+               item.step !== activeStep + 1 && 'hidden'
+             }`}
         >
           {item.content}
         </div>
@@ -46,4 +48,16 @@ const StepPanel = ({ steps }) => {
   );
 };
 
-export default StepPanel;
+const mapStateToProps = (state) => {
+  return {
+    userData: state.userData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addDataFromCheckout: (data) => dispatch(addDataFromFormCheckout(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StepPanel);

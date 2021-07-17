@@ -7,12 +7,12 @@ const { Option } = Select;
 export const Payment = () => {
   return (
     <div className='checkout__content'>
-      <FormItem name='payment' label='Payment'>
+      <FormItem name='paymentInfo' label='Payment'>
         <Select
           onChange={(value) => {
             alert(value);
           }}
-          name='payment'
+          name='paymentInfo'
           placeholder='Pay With'>
           <Option value='cash'>Cash</Option>
           <Option value='credit Card'>Credit Card</Option>
