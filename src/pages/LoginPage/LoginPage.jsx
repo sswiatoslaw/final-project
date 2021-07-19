@@ -1,96 +1,58 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Modal, Form, Input, Checkbox, Button } from 'antd'
+import { Modal, Form, Input } from 'antd'
 import { toggle_isModalOpen } from '../../store/modal/actions';
-import { Formik } from 'formik'
+import axios from 'axios';
 const LoginPage = () => {
+  const [form] = Form.useForm()
   const dispatch = useDispatch();
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const toggleModal = () => {
     dispatch(toggle_isModalOpen())
   };
-  const toggleIsAdmin = (e) => {
-    console.log(e.target.checked)
-  }
-
-  const handleSubmit = (values) => {
-    console.log(values.firstName)
-  }
   return (
-          <Formik
-            initialValues={{
-              firstName: '123',
-              lastName: '',
-              email: '',
-              login: '',
-              password: '',
-              isAdmin: true
-            }}
-            onSubmit={handleSubmit}
-          >
-            {(values, handleChange) => (
                 <Modal
                     title="Login"
                     centered="true"
                     visible={isModalOpen}
-                    footer={[
-                        <>
-                            <Button key="button" onClick={toggleModal}>
-                                Cancel
-                            </Button>
-                            <Button htmlType="submit" type="submit">
-                                Submit
-                            </Button>
-                        </>
-                    ]}
+                    onCancel={toggleModal}
+                    onOk={() => {
+                      form.validateFields()
+                        .then(userData => {
+                          console.log(userData)
+                          axios.post('https://boiling-dawn-71074.herokuapp.com/api/customers/login', userData)
+                            .then(loginResult => {
+                              console.log(loginResult)
+                              localStorage.setItem('token', loginResult.token)
+                            })
+                            .catch(error => {
+                              console.log(error)
+                            })
+                          // form.resetFields();
+                          // toggleModal()
+                        })
+                    }}
                 >
-
                 <Form
-                    name='register'
-                    initialValues={{ remember: true }}
+                    form={form}
+                    name='login'
                 >
                     <Form.Item
-                        label="FirstName"
-                        name="firstName"
-                        rules={[{required: true, messeage: 'Please input your firstName!'}]}
+                        label="login"
+                        name="loginOrEmail"
+                        rules={[{required: true, messeage: 'Please input your email or login!'}]}
                     >
-                        <Input value={values.firstName} onChange={handleChange} name='firstName'/>
-                    </Form.Item>
-                    <Form.Item
-                        label="LastName"
-                        name="lastName"
-                        rules={[{required: true, messeage: 'Please input your lastName!'}]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Email"
-                        name="email"
-                        rules={[{required: true, messeage: 'Please input your e-mail!'}]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label="Login"
-                        name="login"
-                        rules={[{required: true, messeage: 'Please input your login!'}]}
-                    >
-                        <Input />
+                        <Input name='firstName'/>
                     </Form.Item>
                     <Form.Item
                         label="Password"
                         name="password"
-                        rules={[{required: true, messeage: 'Please input your password!'}]}
+                        rules={[{required: true, messeage: 'Please input your password  !'}]}
                     >
                         <Input />
                     </Form.Item>
-                    <Checkbox name="isAdmin" onChange={toggleIsAdmin}>
-                        Admin?
-                    </Checkbox>
                 </Form>
                 </Modal>
-            )}
-          </Formik>
   );
 };
 
