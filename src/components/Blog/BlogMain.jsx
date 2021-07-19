@@ -1,7 +1,7 @@
 import img1 from './blog-image-1.png';
 import img2 from './blog-image-2.png';
 import img3 from './blog-image-3.jpg';
-import './BlogCard.scss'
+import './BlogMain.scss'
 
 const BlogCard = () => {
   return (
