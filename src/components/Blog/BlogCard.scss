@@ -1,40 +1,49 @@
 @import '../../assets/index.scss';
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
+.blog {
+  margin: 51px 0;
+  
+  @include breakpoint(lg-only) {
+    display: flex;
+    justify-content:space-around;
+  }
+}
 
 .section-name {
+  color: $logo-text-color;
   font-size: 54px;
-  font-family: 'Amatic SC';
+  font-family: $amatic-font;
+  margin: 49px 0;
   text-align: center;
 }
 
-.wrapper {
-    width: 100%;
-
-    // @include breakpoint (lg-only) {
-    //     display: flex;        
-    // }
-   
-}
-
-.blog {
- margin: 35px 20px 51px;
+.blog__card {
+ color: $text-color;
+ margin-bottom: 51px;
  text-align: center;
- height: 100%;    
+  
+ &--image {
+  height: 65%;
 
- &__image {
-  width: 100%;
+   @include breakpoint(lg-only) {
+    width: 95%;
+  }
  }
   
- &__date {
+ &--date {
  margin: 20px 0;
  @include fluid-type($font-14, $font-16);
- color: $logo-text-color; 
+  
  }
  
- &__title {
-  margin: 0 49px;
-  padding: 0 30px;
-  font-size: $font-16;
+ &--title {
+  width: 90%;
+  @include fluid-type($font-16, $font-24);
+
+  @include breakpoint(lg-only) {
+    margin: 0 10px;
+  }
+  
  }
 }
 
