@@ -1,0 +1,14 @@
+@import "src/assets/index";
+
+.quantity {
+  font-weight: 300;
+  font-size: $font-18;
+  text-transform: uppercase;
+  color: $text-color;
+}
+
+.ant-btn-group {
+  display: flex;
+  align-items: center;
+  width: 15%;
+}
