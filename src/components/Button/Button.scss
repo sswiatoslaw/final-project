@@ -1,0 +1,57 @@
+@import 'src/assets/index';
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s ease-in, border 0.4s ease-in, color 0.4s ease-in;
+  margin: 0 auto;
+
+  &--contained {
+    background-color: $main-color;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      border: 2px solid $footer-bg-color;
+      background-color: inherit;
+    }
+  }
+
+  &--outlined {
+    border: 2px solid $footer-bg-color;
+    background-color: inherit;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $main-color;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    @include fluid-type($font-14, $font-16);
+
+    &--contained {
+      color: $basic-color;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+
+    &--outlined {
+      color: $text-color;
+
+      &:hover {
+        color: $basic-color;
+      }
+    }
+  }
+}
+.ant-btn,
+.ant-btn:hover,
+.ant-btn:focus {
+  border: 2px solid $main-color;
+}

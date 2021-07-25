@@ -3,8 +3,7 @@
 $comfortaa-font: 'Comfortaa', cursive;
 $cormorant-garamond-font: 'Cormorant Garamond', serif;
 $spartan-font: 'Spartan', sans-serif;
-$amatic-font: 'Amatic SC';
-
+$amatic-sc-font: 'Amatic SC', sans-serif;
 
 $font-72: 72px;
 $font-64: 64px;
@@ -15,7 +14,6 @@ $font-24: 24px;
 $font-18: 18px;
 $font-16: 16px;
 $font-14: 14px;
-
 
 //size typography
 $min-vw: 400px;
@@ -33,4 +31,3 @@ $max-vw: 1440px;
     font-size: $max-font-size;
   }
 }
-

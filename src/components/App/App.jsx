@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.scss';
-// import BlogMainContent from '../../containers/BlogMainContent';
-import BlogContainer from '../../containers/BlogContainer/BlogContainer';
 
 function App () {
   return (
@@ -14,12 +12,10 @@ function App () {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
       </header>
-      <BlogContainer/>
     </div>
   );
 }
