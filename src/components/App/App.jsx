@@ -1,6 +1,7 @@
 import React from 'react';
-import BlogCard from '../Blog/BlogCard'
 import './App.scss';
+// import BlogMainContent from '../../containers/BlogMainContent';
+import BlogContainer from '../../containers/BlogContainer/BlogContainer';
 
 function App () {
   return (
@@ -18,7 +19,7 @@ function App () {
           Learn React
         </a>
       </header>
-      <BlogCard/>
+      <BlogContainer/>
     </div>
   );
 }
