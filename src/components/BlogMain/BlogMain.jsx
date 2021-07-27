@@ -8,7 +8,7 @@ const BlogMain = ({ allSlides}) => {
   return (
     <>
        <section className='blog__list'>
-            <ul className='blog__item'>
+           <ul className='blog__item'>
             {blogMainList.map((slide) => {
               return (
                <BlogCard slide={slide} key={slide._id} />
