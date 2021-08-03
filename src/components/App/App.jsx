@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import BlogMainContent from './../../containers/BlogMainContent/index';
+import ProductContent from '../../containers/ProductContent';
 
 function App () {
   return (
@@ -17,7 +17,7 @@ function App () {
           Learn React
         </a>
       </header>
-      <BlogMainContent/>
+      <ProductContent/>
     </div>
   );
 }
