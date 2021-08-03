@@ -2,7 +2,7 @@
 
 .footer {
     color: $logo-text-color; 
-    font-family: 'Spartan', sans-serif;
+    font-family: $spartan-font;
     bottom: 0;
     left: 0;
     margin-left: 60px;
@@ -19,21 +19,26 @@
      flex-wrap: wrap;  
      flex-direction: row;
      justify-content: space-between;
-     padding-bottom: 50px;
-     width: 100%; 
+    
+     width: 100%;    
      
+     @include breakpoint(lg-only) {        
+          flex-wrap: nowrap ;        
+        }
     }
 
     &__text {
-        font-size: 16px;
+        margin: 0 30px; 
+        padding-bottom: 50px;
 
-         @include breakpoint(md-only) {        
-          margin: 0 30px; 
+         @include breakpoint(lg-only) {        
+          font-size: 16px;
         }
     }
         
     span {
         padding-right: 10px;
+        opacity: 0.5;
     }    
 }
 

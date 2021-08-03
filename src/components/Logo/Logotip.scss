@@ -1,16 +1,17 @@
 @import 'src/assets/index';
 
 .logotip {
-    display: flex;
-    flex-direction: column; 
-    border: none; 
+    width: 100%;
+    padding-bottom: 40px;
     
-    @include breakpoint(md-only) {
-        width: 100%;
-        padding-bottom: 40px;
+    @include breakpoint(lg-only) {
+      display: flex;
+      flex-direction: column; 
+      border: none; 
+      width: 40%;
     }
     .ant-anchor-ink::before {
-        display: none;
+        display: none;        
     }
 }
 

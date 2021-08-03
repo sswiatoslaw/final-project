@@ -12,8 +12,7 @@ ReactDOM.render(
     <ErrorBoundary>
       <Provider store={store}>
         <BrowserRouter>
-          <Footer />
-          
+                   
         </BrowserRouter>
       </Provider>
     </ErrorBoundary>
