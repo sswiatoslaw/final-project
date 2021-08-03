@@ -7,6 +7,7 @@ import LoginPage from '../../pages/LoginPage';
 import ContactUsPage from '../../pages/ContactUsPage';
 import BlogPage from '../../pages/BlogPage/BlogPage';
 import AboutPage from '../../pages/AboutPage';
+import ShoppingCartPage from '../../pages/ShoppingCartPage/ShoppingCartPage';
 
 const Routes = () => {
   return (
@@ -30,6 +31,9 @@ const Routes = () => {
         </Route>
         <Route path='/contact-us'>
           <ContactUsPage />
+        </Route>
+        <Route path='/cart'>
+          <ShoppingCartPage />
         </Route>
       </Switch>
     </>
