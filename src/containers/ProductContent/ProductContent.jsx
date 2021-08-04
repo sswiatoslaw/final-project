@@ -1,9 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
+import Pagination from '../../components/Pagination/Pagination';
 import ProductList from '../../components/ProductList/ProductList';
 
 function ProductContent ({ getAllProducts, allProducts }) {
+  // const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(20);
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   useEffect(() => {
     if (allProducts.length === 0) {
       getAllProducts();
@@ -11,10 +23,17 @@ function ProductContent ({ getAllProducts, allProducts }) {
   }, [getAllProducts, allProducts]);
 
   return (
-    <div className='wrapper'>
-      <ProductList/>
-
-    </div>
+    <>
+      <div className='wrapper'>
+        <ProductList products={currentProducts}/>
+      </div>
+      
+      <Pagination
+        productsPerPage={productsPerPage}
+        allProducts={allProducts.length}
+        paginate={paginate}
+      />
+    </>
   );
 };
 
