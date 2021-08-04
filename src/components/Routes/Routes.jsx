@@ -27,12 +27,12 @@ const Routes = () => {
         <Route path='/about'>
           <AboutPage/>
         </Route>
-        <Route path='/blog'>
+        <Route exact path='/blog'>
           <BlogPage />
         </Route>
-        <Route path='/blogtest'>
+        <Route exact path='/blog/post'>
           <BlocksArticlesPages/>
-        </Route>
+          </Route>
         <Route path='/contact-us'>
           <ContactUsPage />
         </Route>
