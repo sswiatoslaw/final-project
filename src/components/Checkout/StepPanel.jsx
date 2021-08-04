@@ -19,30 +19,30 @@ const StepPanel = ({ steps, addDataFromCheckout, userData }) => {
 
   return (
     <>
-      <Steps current={activeStep} style={{ width: '100% ' }}>
-        {steps.map((item) => (
-          <Steps.Step key={item.title} title={item.title} />
-        ))}
+      <Steps current={ activeStep } style={ { width: '100% ' } }>
+        { steps.map((item) => (
+          <Steps.Step key={ item.title } title={ item.title }/>
+        )) }
       </Steps>
-      {steps.map((item, index) => (
-        <div key={index}
-             className={`steps-content ${
+      { steps.map((item, index) => (
+        <div key={ index }
+             className={ `steps-content ${
                item.step !== activeStep + 1 && 'hidden'
-             }`}
+             }` }
         >
-          {item.content}
+          { item.content }
         </div>
-      ))}
+      )) }
       <div className='checkout__steps-action'>
-        {activeStep < steps.length - 1 && (
-          <Button modifier='contained' text='Next' onClick={() => next()} width='120px' />
-        )}
-        {activeStep === steps.length - 1 && (
-          <Button modifier='contained' text='Checkout' htmlType='submit' width='120px' />
-        )}
-        {activeStep > 0 && (
-          <Button modifier='outlined' text='Previous' htmlType='submit' onClick={() => prev()} width='120px' />
-        )}
+        { activeStep > 0 && (
+          <Button modifier='outlined' text='Previous' htmlType='submit' onClick={ () => prev() } minWidth='120px' height='44px'/>
+        ) }
+        { activeStep === steps.length - 1 && (
+          <Button modifier='contained' text='Checkout' htmlType='submit' minWwidth='120px' height='44px'/>
+        ) }
+        { activeStep < steps.length - 1 && (
+          <Button modifier='contained' text='Next' onClick={ () => next() } minWidth='120px' height='44px'/>
+        ) }
       </div>
     </>
   );

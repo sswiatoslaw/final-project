@@ -13,48 +13,36 @@ export const Delivery = () => {
     postal: '',
   });
 
-  const [touched, setTouched] = useState({
-    country: false,
-    city: false,
-    address: false,
-    postal: false,
-  });
-
   const handleChange = event => {
     const name = event.target.id;
     setValues(values => ({ ...values, [name]: event.target.value }));
   };
 
-  const handleBlur = event => {
-    const name = event.target.id;
-    setTouched(touched => ({ ...touched, [name]: true }));
-  };
-
   return (
     <div className='checkout__content'>
       <div className='checkout__column'>
-        <FormItem name='country' label='Country/Region' onChange={handleChange}>
-          <Input value={values.country} />
+        <FormItem name='country' label='Country/Region' onChange={ handleChange }>
+          <Input value={ values.country }/>
         </FormItem>
-        <FormItem name='city' label='Town/City' onChange={handleChange} onBlur={handleBlur} rules={[
+        <FormItem name='city' label='Town/City' onChange={ handleChange } rules={ [
           {
             required: true,
             message: 'Required',
           },
-        ]}>
-          <Input value={values.city} />
+        ] }>
+          <Input value={ values.city }/>
         </FormItem>
       </div>
       <div className='checkout__column'>
-        <FormItem name='address' label='Address' onChange={handleChange} onBlur={handleBlur} rules={[
+        <FormItem name='address' label='Address' onChange={ handleChange } rules={ [
           {
             required: true,
             message: 'Required',
           },
-        ]}>
-          <Input value={values.address} />
+        ] }>
+          <Input value={ values.address }/>
         </FormItem>
-        <FormItem name='postal' label='Postal Code' onChange={handleChange} onBlur={handleBlur} rules={[
+        <FormItem name='postal' label='Postal Code' onChange={ handleChange } rules={ [
           {
             pattern: new RegExp(postalRegExp),
             message: 'Postal Code is not a valid number',
@@ -64,8 +52,8 @@ export const Delivery = () => {
             message: 'Postal Code must be maximum 5 characters.',
             disabled: true,
           },
-        ]}>
-          <Input value={values.postal} />
+        ] }>
+          <Input value={ values.postal }/>
         </FormItem>
       </div>
     </div>

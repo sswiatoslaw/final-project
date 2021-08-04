@@ -9,9 +9,9 @@ export const Payment = () => {
     <div className='checkout__content'>
       <FormItem name='paymentInfo' label='Payment'>
         <Select
-          onChange={(value) => {
+          onChange={ (value) => {
             alert(value);
-          }}
+          } }
           name='paymentInfo'
           placeholder='Pay With'>
           <Option value='cash'>Cash</Option>

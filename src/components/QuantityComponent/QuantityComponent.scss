@@ -1,14 +1,22 @@
-@import "src/assets/index";
+@import 'src/assets/index';
 
 .quantity {
   font-weight: 300;
-  font-size: $font-18;
-  text-transform: uppercase;
+  font-size: $font-14;
   color: $text-color;
 }
 
 .ant-btn-group {
   display: flex;
   align-items: center;
-  width: 15%;
+}
+
+.anticon svg {
+  width: 20px;
+  height: 20px;
+}
+
+[ant-click-animating-without-extra-node]:after {
+  animation: 0s !important;
+  border-color: transparent !important;
 }

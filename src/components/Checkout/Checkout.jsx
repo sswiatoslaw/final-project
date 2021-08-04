@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Form, PageHeader } from 'antd';
 import { connect } from 'react-redux';
 import { addDataFromFormCheckout } from '../../store/formsData/checkoutFormData/actions';
@@ -10,15 +10,10 @@ import './Checkout.scss';
 
 const Checkout = ({ addDataFromCheckout }) => {
   const [stepForm] = Form.useForm();
-  const [, forceUpdate] = useState({});
 
-  useEffect(() => {
-    forceUpdate({});
-  }, []);
-
-  <PersonalInformation />;
-  <Delivery />;
-  <Payment />;
+  <PersonalInformation/>;
+  <Delivery/>;
+  <Payment/>;
 
   const onFinish = () => {
     const formData = stepForm.getFieldsValue();
@@ -50,24 +45,24 @@ const Checkout = ({ addDataFromCheckout }) => {
     {
       step: 1,
       title: 'Personal Information',
-      content: <PersonalInformation />,
+      content: <PersonalInformation/>,
     },
     {
       step: 2,
       title: 'Delivery',
-      content: <Delivery />,
+      content: <Delivery/>,
     },
     {
       step: 3,
       title: 'Payment',
-      content: <Payment />,
+      content: <Payment/>,
     },
   ];
 
   return (
-    <PageHeader title='Checkout'>
-      <Form form={stepForm} onFinish={onFinish} className='checkout__form'>
-        <StepPanel steps={steps} />
+    <PageHeader title='Checkout' className='checkout'>
+      <Form form={ stepForm } onFinish={ onFinish } className='checkout__form'>
+        <StepPanel steps={ steps }/>
       </Form>
     </PageHeader>
   );

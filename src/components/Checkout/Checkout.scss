@@ -1,4 +1,4 @@
-@import "src/assets/index";
+@import 'src/assets/index';
 
 .checkout {
 
@@ -9,11 +9,21 @@
 
   &__content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+
+    @include breakpoint(lg-only) {
+      justify-content: space-between;
+      flex-direction: row;
+    }
   }
 
   &__column {
-    min-width: 45%;
+
+    @include breakpoint(lg-only) {
+      &:first-child {
+        padding-right: 10px;
+      }
+    }
   }
 
   &__select {
@@ -23,10 +33,15 @@
 
   &__steps-action {
     display: inline-flex;
-    align-self: flex-end;
+    align-self: center;
     gap: 40px;
     margin-top: 30px;
+
+    @include breakpoint(lg-only) {
+      align-self: flex-end;
+    }
   }
+
 }
 
 .hidden {
@@ -39,6 +54,10 @@
 
 .ant-row {
   flex-flow: column wrap;
+}
+
+.ant-page-header {
+  padding: 0 50px 0 0;
 }
 
 .ant-page-header-heading-title {
@@ -87,4 +106,24 @@
 .ant-form-item-explain,
 .ant-form-item-explain-error {
   text-align: right;
+}
+
+.ant-select-arrow {
+  right: 20px;
+  margin-top: -8px;
+}
+
+.ant-form-item-label > label,
+.ant-steps-item-title {
+  text-transform: capitalize;
+  color: $text-color;
+}
+
+@include breakpoint(sm-only & & md-only) {
+  .ant-form-item {
+    margin-bottom: 14px;
+  }
+  .ant-form-item .ant-form-item-label {
+    padding: 0;
+  }
 }
