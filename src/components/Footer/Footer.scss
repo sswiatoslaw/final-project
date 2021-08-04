@@ -1,0 +1,49 @@
+@import './src/assets/index.scss';
+
+.footer {
+    color: $logo-text-color; 
+    font-family: $spartan-font;
+    bottom: 0;
+    left: 0;
+    margin-left: 60px;
+    position: fixed;
+    padding-bottom: 27px;  
+    text-align: center;
+    width: 85%; 
+    
+    @include fluid-type($font-14, $font-16); 
+
+                
+    &__menu{
+     display: flex;
+     flex-wrap: wrap;  
+     flex-direction: row;
+     justify-content: space-between;
+    
+     width: 100%;    
+     
+     @include breakpoint(lg-only) {        
+          flex-wrap: nowrap ;        
+        }
+    }
+
+    &__text {
+        margin: 0 30px; 
+        padding-bottom: 50px;
+
+         @include breakpoint(lg-only) {        
+          font-size: 16px;
+        }
+    }
+        
+    span {
+        padding-right: 10px;
+        opacity: 0.5;
+    }    
+}
+
+ 
+
+
+
+
