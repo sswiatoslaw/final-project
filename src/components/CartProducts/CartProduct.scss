@@ -1,0 +1,81 @@
+@import 'src/assets/index';
+
+.cart {
+  &__orders-container {
+    width: 50vw;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #444;
+    margin-left: 40px;
+  }
+
+  &__total-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 0;
+    padding: 0 40px;
+    color: $text-color;
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  padding: 25px 0;
+  border-top: 1px solid $footer-bg-color;
+
+  &__img-container {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    border: 0;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+
+  &__title {
+    padding-bottom: 15px;
+  }
+
+  &__link,
+  &__price {
+    color: $text-color;
+    font-size: $font-14;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    width: 15vw;
+  }
+
+  &__price {
+    font-size: $font-14;
+    color: $text-color;
+    font-weight: 500;
+  }
+}
+
+.ant-btn, .ant-btn:hover, .ant-btn:focus {
+  border: none;
+}
+
+.ant-btn-icon-only {
+  color: $text-color;
+}

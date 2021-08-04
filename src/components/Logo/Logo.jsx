@@ -10,7 +10,7 @@ const Logo = (props) => {
                 height={height}
                 version="1.1"
                 viewBox="0 0 400 412.821"
-                style={{ cursor: 'pointer'}}
+                style={{ cursor: 'pointer' }}
             >
                 <g fillRule="evenodd" stroke="none">
                     <path

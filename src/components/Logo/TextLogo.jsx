@@ -1,15 +1,24 @@
 import React from 'react'
-import './TextLogo.scss'
 
-const TextLogo = () => {
+const SavvyStyle = {
+  fontSize: 50,
+  color: '#5E6A67',
+  fontFamily: 'Montserrat'
+}
+
+const TotsStyle = {
+  fontSize: 30,
+  color: '#A8D6CB'
+}
+
+const TextLogo = (props) => {
   return (
-      <div className='text'>
-        <span className='text__savvy'>Savvy</span >
-            <span className='text__tots'>
+        <span className={props.className} style={SavvyStyle}>
+            Savvy
+            < span style={TotsStyle} >
                 T o t s
             </span >
-        
-    </div>
+        </span >
   )
 }
 
