@@ -5,7 +5,6 @@ import Button from '../../components/Button/Button';
 import GuideToFavoriteLooks from '../../components/GuideToFavoriteLooks/GuideToFavoriteLooks';
 import JoingMailing from '../../components/JoingMailing/JoingMailing';
 import {banerImagesDictionary, banerTitleDictionary, banerTextDictionary} from '../../dictionary/banerDictionary'
-
 const MainPage = () => {
   return (
 <div>
