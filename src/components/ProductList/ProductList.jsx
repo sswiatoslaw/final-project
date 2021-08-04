@@ -8,6 +8,7 @@ const ProductList = ({ allProducts}) => {
     <>
        <section className='product__list'>
             <ul className='product__item'>
+              
             {allProducts.map((product) => {
               return (
                <Product product={product} key={product.itemNo} />
