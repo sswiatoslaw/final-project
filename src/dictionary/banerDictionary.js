@@ -1,9 +1,9 @@
-const main = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/baners/baner-main.png';
-const shop = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/baners/baner-shop.png';
-const about = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/baners/baner-about.png';
-const blog = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/baners/baner-blog.jpeg';
-const newbornSleepSchedules = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/baners/baner-newborn-sleep-schedules.jpeg';
-const contactUs = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/baners/baner-contact-us.png';
+const main = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/topics/topic-main.png';
+const shop = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/topics/topic-shop.png';
+const about = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/topics/topic-about.png';
+const blog = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/topics/topic-blog.jpeg';
+const newbornSleepSchedules = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/topics/topic-newborn-sleep-schedules.jpeg';
+const contactUs = 'https://savvy-tots.s3.eu-west-3.amazonaws.com/topics/topic-contact-us.png';
 
 const mainTitle = 'Comfortable, healthy, sustainable clothing';
 const shopTitle = 'Shop';

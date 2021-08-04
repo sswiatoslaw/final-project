@@ -1,0 +1,68 @@
+@import './src/assets/index.scss';
+
+.card {
+ color: $CapeCod;
+ border: none;
+ font-family: $spartan-font;
+ width: 157px;
+ position: relative;
+  
+ @include breakpoint(lg-only) {
+      width: 280px;
+    }
+
+ &__icon {
+   size: 24px;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+ }
+   
+ &__title{
+    margin: 20px;
+    font-weight: 500;
+ }
+
+ &__stars{    
+    width: 25px;
+    height: 24.07px;
+    top: 0.47px;
+ }
+
+}
+
+button.ant-btn.card__button {
+   font-size: $font-16;
+    font-weight: 500;
+     width: 100%;
+     height: 150%;
+     border: 2px solid $Harp;
+     padding: 15px 0 15px;
+     margin-top: 31px;
+}
+
+div.ant-card-body {
+   padding: 0 0 50px;
+}
+
+ul.ant-rate {
+   color: $CapeCod;   
+}
+
+svg {
+   width: 25px;
+   height: 24px;
+}
+
+.ant-card-meta-title {
+   font-size: $font-18;
+}
+
+span.anticon.anticon-heart.card__icon{
+   color: $basic-color;
+}
+
+span.anticon.anticon-heart.card__icon:hover,
+span.anticon.anticon-heart.card__icon:focus {
+   color: $main-color;
+}

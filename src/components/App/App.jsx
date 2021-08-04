@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import ProductContent from '../../containers/ProductContent';
 
 function App () {
   return (
@@ -16,6 +17,7 @@ function App () {
           Learn React
         </a>
       </header>
+      <ProductContent/>
     </div>
   );
 }
