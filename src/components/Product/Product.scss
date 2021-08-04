@@ -11,18 +11,11 @@
       width: 280px;
     }
 
-
  &__icon {
    size: 24px;
-   color: $White;
    position: absolute;
    top: 20px;
    right: 20px;
-
-   &:hover,
-   &:focus {
-      color: $main-color;
-   }
  }
    
  &__title{
@@ -36,22 +29,23 @@
     top: 0.47px;
  }
 
- &__button {
-    font-size: $font-16;
+}
+
+button.ant-btn.card__button {
+   font-size: $font-16;
     font-weight: 500;
      width: 100%;
      height: 150%;
      border: 2px solid $Harp;
      padding: 15px 0 15px;
      margin-top: 31px;
- }
 }
 
-.ant-card-body {
+div.ant-card-body {
    padding: 0 0 50px;
 }
 
-.ant-rate {
+ul.ant-rate {
    color: $CapeCod;   
 }
 
@@ -62,4 +56,13 @@ svg {
 
 .ant-card-meta-title {
    font-size: $font-18;
+}
+
+span.anticon.anticon-heart.card__icon{
+   color: $basic-color;
+}
+
+span.anticon.anticon-heart.card__icon:hover,
+span.anticon.anticon-heart.card__icon:focus {
+   color: $main-color;
 }
