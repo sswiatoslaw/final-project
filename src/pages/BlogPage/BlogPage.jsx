@@ -5,7 +5,6 @@ import Baner from '../../components/Baners/Baner';
 import JoingMailing from '../../components/JoingMailing/JoingMailing';
 import BlogContainer from './../../containers/BlogContainer/index';
 import './BlogPage.scss'
-
 const BlogPage = () => {
   return (
         <div>

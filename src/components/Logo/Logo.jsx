@@ -4,13 +4,13 @@ const Logo = (props) => {
   const { width, height } = props
   return (
         <>
-            <svg
+            <svg className={'logo'}
                 xmlns="http://www.w3.org/2000/svg"
                 width={width}
                 height={height}
                 version="1.1"
                 viewBox="0 0 400 412.821"
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer'}}
             >
                 <g fillRule="evenodd" stroke="none">
                     <path
