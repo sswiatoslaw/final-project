@@ -8,7 +8,8 @@ import ContactUsPage from '../../pages/ContactUsPage';
 import BlogPage from '../../pages/BlogPage/BlogPage';
 import AboutPage from '../../pages/AboutPage';
 import ShoppingCartPage from '../../pages/ShoppingCartPage/ShoppingCartPage';
-
+import Footer from '../Footer/Footer';
+import BlocksArticlesPages from '../../pages/BlogPage/BlocksArticlesPages/BlocksArticlesPages';
 const Routes = () => {
   return (
     <>
@@ -26,9 +27,12 @@ const Routes = () => {
         <Route path='/about'>
           <AboutPage/>
         </Route>
-        <Route path='/blog'>
+        <Route exact path='/blog'>
           <BlogPage />
         </Route>
+        <Route exact path='/blog/post'>
+          <BlocksArticlesPages/>
+          </Route>
         <Route path='/contact-us'>
           <ContactUsPage />
         </Route>
@@ -36,6 +40,7 @@ const Routes = () => {
           <ShoppingCartPage />
         </Route>
       </Switch>
+      <Footer/>
     </>
   );
 };
