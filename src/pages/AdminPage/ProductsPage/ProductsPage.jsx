@@ -13,12 +13,21 @@ const ProductsPage = () => {
   const [test, setTest] = useState()
   const [isModalVisible, setIsModalVisible] = useState(false)
   const updateCard = (res) => {
-    const response = res;
-    console.log(res.categories)
+    console.log(res)
+    dispatch(recCard(res))
     setIsModalVisible(!isModalVisible)
   }
-  const onFinish = (values: any) => {
+
+  const onOk = (values) => {
     console.log(values)
+    // axios.defaults.headers.common['Authorization'] = token;
+    axios.put(`https://boiling-dawn-71074.herokuapp.com/api/products/${activeEditProduct._id}`, values)
+      .then(loggedInCustomer => {
+        console.log(loggedInCustomer)
+      })
+      .catch(err => {
+        console.log(err)
+      });
   }
   const columns = [
     { title: 'numID', dataIndex: 'itemNo', key: 'itemNo' },
@@ -60,15 +69,21 @@ const ProductsPage = () => {
       <Modal
         title="Edit product"
         visible={isModalVisible}
+        onOk={onOk}
+        footer={[
+          <Button color='primary' form="form" key="submit" htmlType="submit">
+              Submit
+          </Button>
+        ]}
       >
         <Form
-          onFinish={onFinish}
-          initialValues={{
-          }}
+          id='form'
+          onFinish={onOk}
+          initialValues={activeEditProduct}
         >
           <Form.Item
             label="Category"
-            name="category"
+            name="categories"
             rules={[{ required: true, message: 'Please input category!' }]}
           >
           <Input />
@@ -82,7 +97,7 @@ const ProductsPage = () => {
       </Form.Item>
       <Form.Item
           label="Price"
-          name="price"
+          name="currentPrice"
           rules={[{ required: true, message: 'Please input price!' }]}
         >
         <Input />
@@ -96,7 +111,7 @@ const ProductsPage = () => {
       </Form.Item>
       <Form.Item
           label="Size"
-          name="size"
+          name="sizes"
           rules={[{ required: true, message: 'Please input size!' }]}
         >
         <Input />
