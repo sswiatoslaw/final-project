@@ -2,35 +2,37 @@ import './Header.scss';
 import React from 'react';
 import MenuComponent from './../Menu';
 import { Link } from 'react-router-dom';
-import { ShoppingOutlined, UserOutlined, HeartOutlined } from '@ant-design/icons';
+import { HeartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons';
 import { toggle_isModalOpen } from '../../store/modal/actions';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import useWindowSize from '../../сustomHooks/useWindowSize';
-function Header () {
+
+function Header ({ cart }) {
   const dispatch = useDispatch();
   const size = useWindowSize();
   const toggleModal = () => {
-    dispatch(toggle_isModalOpen())
+    dispatch(toggle_isModalOpen());
   };
+
   return (
     <>
-      <div className="header">
-        <div className="header__logo">
+      <div className='header'>
+        <div className='header__logo'>
           <h1>
             Savvy<span>Tots</span>
           </h1>
         </div>
-        <div className="header__menu">
-          { size.width >= 768 ? <MenuComponent mobile={true} /> : <MenuComponent mobile={false} /> }
+        <div className='header__menu'>
+          {size.width >= 768 ? <MenuComponent mobile={true} /> : <MenuComponent mobile={false} />}
         </div>
-        <div className="header__icon">
-          <Link to="/favorite">
+        <div className='header__icon'>
+          <Link to='/favorite'>
             <HeartOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} />
           </Link>
-          <Link to="/cart">
-            <ShoppingOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} />
-          </Link>
-          <Link to="/login">
+          <Link to='/cart'>
+            <ShoppingOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} /><sup className='header__sup-text'>{cart.length}</sup>
+          </Link>--
+          <Link to='/login'>
             <UserOutlined onClick={toggleModal} style={{ fontSize: '24px', color: '#A8D6CB' }} />
           </Link>
           {/* <Button onClick={toggleCollapsed} size='large'>
@@ -42,4 +44,10 @@ function Header () {
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart
+  };
+};
+
+export default connect(mapStateToProps)(Header);

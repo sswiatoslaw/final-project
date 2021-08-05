@@ -5,7 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 60px;
 
+  @include breakpoint(lg-only) {
+    margin-bottom: 100px;
+  }
   &__container-img {
     width: 100%;
     overflow: hidden;
@@ -44,6 +48,7 @@
     text-align: center;
     text-transform: capitalize;
     line-height: 61px;
+    color: $White;
     @include fluid-type($font-48, $font-72);
 
     @include breakpoint(md-up) {
@@ -64,6 +69,10 @@
 
     &--top {
       margin-bottom: 7px;
+    }
+
+    &--bottom {
+      line-height: 28px;
     }
   }
 

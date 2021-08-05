@@ -1,16 +1,19 @@
 {
-  "name": "smart-online-education",
+  "name": "final-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
+    "@google-pay/button-react": "^2.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "antd": "^4.16.3",
+    "antd": "^4.16.6",
     "axios": "^0.21.1",
+    "classnames": "^2.3.1",
     "formik": "^2.2.9",
-    "node-sass": "^6.0.0",
+    "moment": "^2.29.1",
+    "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -26,12 +29,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run eslint && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --debug src/",
-    "lint:write": "eslint --debug src/ --fix",
-    "prettier": "prettier --write src/**/*.js"
+    "eslint": "eslint 'src/**/*.jsx'"
   },
   "eslintConfig": {
     "extends": [

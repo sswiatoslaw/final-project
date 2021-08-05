@@ -22,16 +22,10 @@ const Baner = ({
       <span className='baner__overlay' style={{ opacity, backgroundColor: '#36403D' }}></span>
 
       <div className='baner__content'>
-        <span className='baner__text baner__text--top'>
-          {textTop}
-        </span>
+        {textTop && <p className='baner__text baner__text--top'>{textTop}</p>}
         <h2 className='baner__title'>{title}</h2>
-        <span className='baner__text baner__text--bottom'>
-          {textBottom}
-        </span>
-        <span className='baner__btn'>
-          {children}
-        </span>
+        {textBottom && <p className='baner__text baner__text--bottom'>{textBottom}</p>}
+        {children && <div className='baner__btn'>{children}</div>}
       </div>
     </section>
   );
@@ -48,5 +42,5 @@ Baner.propTypes = {
   textTop: PropTypes.string,
   title: PropTypes.string,
   textBottom: PropTypes.string,
-  children: PropTypes.element
-}
+  children: PropTypes.element,
+};
