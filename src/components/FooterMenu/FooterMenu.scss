@@ -2,10 +2,9 @@
 
 .menu{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     font-size: 16px;
-    padding: 20px 50px 50px; 
+    padding-bottom:50px; 
     width: 100%;
     
     &__tittle {
@@ -16,6 +15,7 @@
         
     }    
     .ant-menu {
+        width: 100%;
        text-align: center; 
        border-right: none;
     }  
