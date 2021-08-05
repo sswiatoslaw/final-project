@@ -1,15 +1,27 @@
 @import 'src/assets/index';
 
 .cart {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    max-height: 60vh;
+    overflow: auto;
+    overflow-x: hidden;
+    list-style: none;
+  }
+
   &__orders-container {
-    width: 50vw;
+    min-width: 40vw;
+    padding-top: 47px;
   }
 
   &__title {
-    font-size: 22px;
+    font-size: $font-18;
     font-weight: bold;
-    color: #444;
+    color: $text-color;
     margin-left: 40px;
+    margin-bottom: 20px;
   }
 
   &__total-price {
@@ -24,10 +36,15 @@
 .cart-item {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  position: relative;
   padding: 25px 0;
-  border-top: 1px solid $footer-bg-color;
+
+  &:first-child {
+    border-top: 1px solid $footer-bg-color;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $footer-bg-color;
+  }
 
   &__img-container {
     display: flex;
@@ -44,9 +61,19 @@
   }
 
   &__column {
+    width: 75%;
+  }
+
+  &__column,
+  &__product-info {
     display: flex;
     flex-direction: column;
-    width: 45%;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__title {
@@ -62,20 +89,12 @@
   &__info {
     display: flex;
     align-items: center;
-    width: 15vw;
   }
 
-  &__price {
+  &__price,
+  &__total-price {
     font-size: $font-14;
     color: $text-color;
     font-weight: 500;
   }
-}
-
-.ant-btn, .ant-btn:hover, .ant-btn:focus {
-  border: none;
-}
-
-.ant-btn-icon-only {
-  color: $text-color;
 }
