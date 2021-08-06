@@ -22,14 +22,13 @@ const LoginPage = () => {
                           console.log(userData)
                           axios.post('https://boiling-dawn-71074.herokuapp.com/api/customers/login', userData)
                             .then(loginResult => {
-                              console.log(loginResult)
-                              localStorage.setItem('token', loginResult.token)
+                              localStorage.setItem('token', loginResult.data.token)
                             })
                             .catch(error => {
                               console.log(error)
                             })
-                          // form.resetFields();
-                          // toggleModal()
+                          form.resetFields();
+                          toggleModal()
                         })
                     }}
                 >
