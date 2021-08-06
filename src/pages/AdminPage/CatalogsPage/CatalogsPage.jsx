@@ -5,7 +5,7 @@ import 'antd/dist/antd.css'
 import { getProducts, recCard } from '../../../store/admin/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ProductsPage = () => {
+const CatalogsPage = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.admin.products)
   const activeEditProduct = useSelector(state => state.admin.card)
@@ -18,19 +18,16 @@ const ProductsPage = () => {
   const onOk = (values) => {
     const token = localStorage.getItem('token');
     axios.defaults.headers.common['Authorization'] = token;
-    axios.put(`https://boiling-dawn-71074.herokuapp.com/api/products/${activeEditProduct._id}`, values)
+    axios.put(`https://boiling-dawn-71074.herokuapp.com/api/catalog/${activeEditProduct._id}`, values)
       .then(res => {
         console.log(res)
       })
   }
   const columns = [
-    { title: 'numID', dataIndex: 'itemNo', key: 'itemNo' },
-    { title: 'Categories', dataIndex: 'categories', key: 'categories' },
+    { title: 'Category ID', dataIndex: 'id', key: 'id' },
     { title: 'Name', dataIndex: 'name', key: 'name' },
-    { title: 'Price', dataIndex: 'currentPrice', key: 'currentPrice' },
-    { title: 'Quantity', dataIndex: 'quantity', key: 'quantity'},
-    { title: 'Size', dataIndex: 'sizes', key: 'sizes' },
-    { title: 'Color', dataIndex: 'color', key: 'color' },
+    { title: 'Parent ID', dataIndex: 'parentId', key: 'parentId' },
+    { title: 'Description', dataIndex: 'description', key: 'description' },
     {
       title: 'Action',
       key: 'action',
@@ -44,7 +41,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     axios.defaults.headers.common['Authorization'] = token;
-    axios.get('https://boiling-dawn-71074.herokuapp.com/api/products')
+    axios.get('https://boiling-dawn-71074.herokuapp.com/api/catalog')
       .then(loggedInCustomer => {
         dispatch(getProducts(loggedInCustomer.data))
       })
@@ -76,9 +73,9 @@ const ProductsPage = () => {
           initialValues={activeEditProduct}
         >
           <Form.Item
-            label="Category"
-            name="categories"
-            rules={[{ required: true, message: 'Please input category!' }]}
+            label="Category ID"
+            name="id"
+            rules={[{ required: true, message: 'Please input id!' }]}
           >
           <Input />
         </Form.Item>
@@ -90,34 +87,19 @@ const ProductsPage = () => {
         <Input />
       </Form.Item>
       <Form.Item
-          label="Price"
-          name="currentPrice"
-          rules={[{ required: true, message: 'Please input price!' }]}
+          label="Parent ID"
+          name="parentId"
+          rules={[{ required: true, message: 'Please input parent ID!' }]}
         >
         <Input />
       </Form.Item>
       <Form.Item
-          label="Quantity"
-          name="quantity"
-          rules={[{ required: true, message: 'Please input quantity!' }]}
+          label="Description"
+          name="description"
+          rules={[{ required: true, message: 'Please input description!' }]}
         >
         <Input />
       </Form.Item>
-      <Form.Item
-          label="Size"
-          name="sizes"
-          rules={[{ required: true, message: 'Please input size!' }]}
-        >
-        <Input />
-      </Form.Item>
-      <Form.Item
-          label="Color"
-          name="color"
-          rules={[{ required: true, message: 'Please input color!' }]}
-        >
-        <Input />
-      </Form.Item>
-
         </Form>
       </Modal>
      )}
@@ -125,4 +107,4 @@ const ProductsPage = () => {
   )
 }
 
-export default ProductsPage
+export default CatalogsPage

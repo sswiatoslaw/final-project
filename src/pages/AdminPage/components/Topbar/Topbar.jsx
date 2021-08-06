@@ -1,14 +1,13 @@
 import React from 'react'
 import MenuIcon from '@material-ui/icons/Menu';
-import UsersIcon from '@material-ui/icons/Group';
 import './Topbar.scss'
-import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
+import { Divider, Drawer, List, ListItem, ListItemText } from '@material-ui/core'
 import Avatar from '../Avatar'
 import axios from 'axios'
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Topbar = () => {
   const getAvatar = () => {
-    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZTVkY2I4Y2VlZDgxMDA0NWQ1ZmZmNiIsImZpcnN0TmFtZSI6IlN2aWF0b3NsYXYiLCJsYXN0TmFtZSI6IlNvZGVsIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjI1OTA3MzMwLCJleHAiOjE2MjU5NDMzMzB9.JAx2FfZo55hB337jppcB6BBaespKWfgmF-aiF10e4OQ';
+    const token = localStorage.getItem('token')
     axios.defaults.headers.common['Authorization'] = token;
     axios.get('https://boiling-dawn-71074.herokuapp.com/api/customers/customer')
       .then(loggedInCustomer => {
@@ -27,11 +26,6 @@ const Topbar = () => {
     {
       name: 'Categories',
       url: '/categories'
-
-    },
-    {
-      name: 'Users',
-      url: '/users'
 
     },
   ]
