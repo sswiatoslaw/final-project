@@ -10,6 +10,8 @@ import AboutPage from '../../pages/AboutPage';
 import ShoppingCartPage from '../../pages/ShoppingCartPage/ShoppingCartPage';
 import Footer from '../Footer/Footer';
 import BlocksArticlesPages from '../../pages/BlogPage/BlocksArticlesPages/BlocksArticlesPages';
+import FavoritePage from '../../pages/FavoritePage/FavoritePage';
+
 const Routes = () => {
   return (
     <>
@@ -35,6 +37,9 @@ const Routes = () => {
           </Route>
         <Route path='/contact-us'>
           <ContactUsPage />
+        </Route>
+        <Route path='/favorite'>
+          <FavoritePage />
         </Route>
         <Route path='/cart'>
           <ShoppingCartPage />
