@@ -46,7 +46,9 @@
     }
 
     #send-mail {
-      width: calc((100% - -580px) / 2)
+      width: calc((100% - -580px) / 2);
+      font-family: sans-serif;
+      font-weight: normal;
     }
   }
 

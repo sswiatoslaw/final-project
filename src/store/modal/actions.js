@@ -9,7 +9,7 @@ export const toggle_isModalOpen = () => ({
   type: types.TOGGLE_ISMODALOPEN,
 });
 
-export const add_Email = (value) => ({
+export const addEmail = (value) => ({
   type: types.ADD_EMAIL,
   payload: value,
 })
