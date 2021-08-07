@@ -1,0 +1,30 @@
+@import '../../assets/index.scss';
+
+.blog__card {
+ color: $text-color;
+ margin-bottom: 51px;
+ text-align: center;
+  
+ &--image {
+  
+   @include breakpoint(lg-only) {
+    width: 95%;
+  }
+ }
+  
+ &--date {
+ margin: 20px 0;
+ @include fluid-type($font-14, $font-16);
+  
+ }
+ 
+ &--title {
+  width: 90%;
+  @include fluid-type($font-16, $font-24);
+
+  @include breakpoint(lg-only) {
+    margin: 0 10px;
+  }
+  
+ }
+}

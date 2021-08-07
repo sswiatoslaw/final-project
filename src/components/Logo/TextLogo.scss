@@ -1,0 +1,19 @@
+@import './src/assets/index.scss';
+
+.text {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+    &__savvy {
+     color: $logo-text-color;
+     font-size: 50px;
+     font-family: $montserrat-font;
+     margin-top: -30px;
+    }
+
+    &__tots {
+     color: $main-color;
+     font-size: 30px;     
+    }
+}

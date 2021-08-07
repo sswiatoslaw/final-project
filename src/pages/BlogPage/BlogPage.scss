@@ -1,0 +1,15 @@
+@import '../../assets/index.scss';
+
+.blog__title {
+  text-align: center;
+  font-family: $amatic-sc-font;
+  font-size: $font-56;
+  font-weight: 700;
+  margin-bottom: 110px;
+  color: $CapeCod;
+
+  @include breakpoint(lg-only) {
+      font-size: $font-62;
+      margin-bottom: 109px;
+    }
+}

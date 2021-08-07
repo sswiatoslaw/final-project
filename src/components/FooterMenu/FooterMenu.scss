@@ -1,0 +1,38 @@
+@import './src/assets/index.scss';
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    padding-bottom:50px; 
+    width: 100%;
+    
+    &__tittle {
+        color: $text-color;
+        font-size: 18px;
+        font-weight: bold;
+        padding-bottom: 30px;          
+        
+    }    
+    .ant-menu {
+        width: 100%;
+       text-align: center; 
+       border-right: none;
+    }  
+        
+
+    li:last-child {
+        height: 55px;
+        line-height: 22px;
+    }
+   
+
+    @include breakpoint(lg-only) {        
+        justify-content: space-between;
+        margin-left: 200px;               
+    }
+}
+
+.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    height: 30px;
+}

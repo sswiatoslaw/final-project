@@ -1,0 +1,129 @@
+@import 'src/assets/index';
+
+.checkout {
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(lg-only) {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  &__column {
+
+    @include breakpoint(lg-only) {
+      &:first-child {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &__select {
+    border-radius: 18px;
+    border-color: $main-color;
+  }
+
+  &__steps-action {
+    display: inline-flex;
+    align-self: center;
+    gap: 40px;
+    margin-top: 30px;
+
+    @include breakpoint(lg-only) {
+      align-self: flex-end;
+    }
+  }
+
+}
+
+.hidden {
+  display: none;
+}
+
+.ant-steps {
+  margin-bottom: 40px;
+}
+
+.ant-row {
+  flex-flow: column wrap;
+}
+
+.ant-page-header {
+  padding: 0 50px 0 0;
+}
+
+.ant-page-header-heading-title {
+  margin-bottom: 27px;
+  font-family: $cormorant-garamond-font;
+  color: $text-color;
+  text-transform: capitalize;
+  @include fluid-type($font-24, $font-48);
+}
+
+.ant-form-item-label {
+  text-align: justify;
+  margin-bottom: 11px;
+}
+
+.ant-input,
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 18px;
+  border-color: $main-color;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: $main-color;
+  }
+}
+
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon,
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after {
+  background-color: $main-color;
+}
+
+.ant-steps-item-process .ant-steps-item-icon,
+.ant-steps-item-finish .ant-steps-item-icon {
+  border-color: $main-color;
+}
+
+.ant-input, .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  min-width: 300px;
+}
+
+.anticon svg {
+  color: $main-color;
+}
+
+.ant-form-item-explain,
+.ant-form-item-explain-error {
+  text-align: right;
+}
+
+.ant-select-arrow {
+  right: 20px;
+  margin-top: -8px;
+}
+
+.ant-form-item-label > label,
+.ant-steps-item-title {
+  text-transform: capitalize;
+  color: $text-color;
+}
+
+@include breakpoint(sm-only & & md-only) {
+  .ant-form-item {
+    margin-bottom: 14px;
+  }
+  .ant-form-item .ant-form-item-label {
+    padding: 0;
+  }
+}
