@@ -8,3 +8,8 @@ export const add_SelectedMenu = (key) => ({
 export const toggle_isModalOpen = () => ({
   type: types.TOGGLE_ISMODALOPEN,
 });
+
+export const addEmail = (value) => ({
+  type: types.ADD_EMAIL,
+  payload: value,
+})
