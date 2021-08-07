@@ -17,9 +17,9 @@ const JoingMailing = () => {
   const currentEmail = useSelector(state => state.modal.subscribeEmail)
   const checkSubscribersValidValue = async () => {
     await getSubscribers().then(response => {
-      response.data.map(userEmail => {
-        if (userEmail.email === currentEmail && response.status === 200) {
-          alert('Вы уже являетесь нашим подпищиком)))')
+      response.data.forEach(userEmail => {
+        if (userEmail.email === currentEmail) {
+          return alert('Вы уже являетесь нашим подпищиком)))')
         }
       })
     })
