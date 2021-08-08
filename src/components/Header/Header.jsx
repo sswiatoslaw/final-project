@@ -34,9 +34,6 @@ function Header () {
           <Link to='/login'>
             <UserOutlined onClick={toggleModal} style={{ fontSize: '24px', color: '#A8D6CB' }} />
           </Link>
-          {/* <Button onClick={toggleCollapsed} size='large'>
-            {React.createElement(collapsed ? MenuOutlined : CloseOutlined)}
-          </Button> */}
         </div>
       </div>
     </>
