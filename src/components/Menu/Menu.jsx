@@ -3,28 +3,21 @@ import { Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { add_SelectedMenu, toggle_isModalOpen } from '../../store/modal/actions';
+import { useDispatch } from 'react-redux';
+import { add_SelectedMenu } from '../../store/modal/actions';
 
 const MenuComponent = (props) => {
-  const { mobile } = props;
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.modal.theme);
-  const selectedMenu = useSelector((state) => state.modal.selectedMenu);
   const handleClick = (e) => {
     dispatch(add_SelectedMenu(e.key));
-  };
-  const toggleModal = () => {
-    dispatch(toggle_isModalOpen());
   };
   return (
     <>
       <Menu
         onClick={handleClick}
-        selectedKeys={[selectedMenu]}
+        selectedKeys={[mapStateToProps.selectedMenu]}
         triggerSubMenuAction='click'
         mode='horizontal'
-        theme={theme}
         overflowedIndicator={<MenuOutlined />}
       >
         <Menu.Item key='1'>
@@ -47,4 +40,10 @@ const MenuComponent = (props) => {
   );
 };
 
-export default MenuComponent;
+const mapStateToProps = (state) => {
+  return {
+    selectedMenu: state.modal.selectedMenu
+  };
+};
+
+export default MenuComponent
