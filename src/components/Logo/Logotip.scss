@@ -4,8 +4,13 @@
     width: 100%;
     padding-bottom: 40px;
     
+    .logo {
+      width: 180px;
+      height: 165px;
+    }
     @include breakpoint(lg-only) {
       display: flex;
+      align-items: center;
       flex-direction: column; 
       border: none; 
       width: 40%;

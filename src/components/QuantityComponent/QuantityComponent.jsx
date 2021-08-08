@@ -11,14 +11,14 @@ const QuantityComponent = ({ cart, itemNo, qualityDecrease, qualityIncrease }) =
   return (
     <>
       <ButtonGroup>
-        <Button onClick={() => qualityDecrease(itemNo)}>
-          <MinusOutlined />
+        <Button onClick={ () => qualityDecrease(itemNo) } style={ { border: 'none' } }>
+          <MinusOutlined/>
         </Button>
         <span className='quantity'>
-        {cart.find(item => item.itemNo === itemNo).userQuantity}
+        { cart.find(item => item.itemNo === itemNo).userQuantity }
         </span>
-        <Button onClick={() => qualityIncrease(itemNo)}>
-          <PlusOutlined />
+        <Button onClick={ () => qualityIncrease(itemNo) } style={ { border: 'none' } }>
+          <PlusOutlined/>
         </Button>
       </ButtonGroup>
     </>

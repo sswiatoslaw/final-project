@@ -20,8 +20,11 @@ body {
 a {
   text-decoration: none;
   cursor: pointer;
+  
 }
-
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: transparent;
+}
 .wrapper {
   margin-left: 4%;
   margin-right: 4%;
