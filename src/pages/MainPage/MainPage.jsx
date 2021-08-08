@@ -8,7 +8,7 @@ import {banerImagesDictionary, banerTitleDictionary, banerTextDictionary} from '
 
 const MainPage = () => {
   return (
-<div>
+<>
   <Baner imgPath={banerImagesDictionary.main} imgName='woman with child' minHeight='742px' maxHeight='806px'
          title={banerTitleDictionary.mainTitle} textBottom={banerTextDictionary.mainTextBottom} children={<Button modifier='contained' text='Shop now'
                                                                                                        width='280px'
@@ -17,7 +17,7 @@ const MainPage = () => {
   <GuideToFavoriteLooks/>
   <Advantages/>
   <JoingMailing/>
-</div>
+</>
   );
 };
 
