@@ -9,14 +9,12 @@ import './assets/index.scss';
 import 'antd/dist/antd.css';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
       <ErrorBoundary>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </ErrorBoundary>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </Provider>,
+    document.getElementById('root')
 );
