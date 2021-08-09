@@ -12,6 +12,8 @@ const modalReducer = (state = initialState, action) => {
       return { ...state, selectedMenu: action.payload };
     case types.TOGGLE_ISMODALOPEN:
       return { ...state, isModalOpen: !state.isModalOpen };
+    case types.ADD_EMAIL:
+      return {...state, subscribeEmail: action.payload}
     default:
       return state;
   }
