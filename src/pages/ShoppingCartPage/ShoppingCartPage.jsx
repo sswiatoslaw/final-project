@@ -9,7 +9,7 @@ const ShoppingCartPage = ({ cart }) => {
   const size = useWindowSize();
 
   if (!cart.length) {
-    return <h2>Your Bag is Empty</h2>;
+    return <h2 className='pages__title'>Your Bag is Empty</h2>;
   }
 
   if (size.width >= 769) {

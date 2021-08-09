@@ -2,21 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import './ProductList.scss';
+import { addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
 
-const ProductList = ({ allProducts }) => {
+const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction }) => {
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const localStoreFromFavorite = localStorage.getItem('favorite') === null ? [] : Array.from(JSON.parse(localStorage.getItem('favorite')))
+    if (localStoreFromFavorite.length !== 0) {
+      addFavoritesAction(localStoreFromFavorite)
+    }
+  }, [addFavoritesAction])
 
   useEffect(() => {
     setProducts(() => {
       const productsNameList = [];
       allProducts.forEach(item => {
-        if (!productsNameList.find(el => el.name === item.name && item.color)) {
+        if (!productsNameList.find(el => el.name === item.name)) {
           productsNameList.push(item)
         }
       })
       return productsNameList
     })
   }, [allProducts]);
+
+  const onToggleImportant = (itemNo) => {
+    if (favorite.includes(itemNo)) {
+      removeItemFromFavoriteAction(itemNo);
+    } else {
+      addItemToFavoriteAction(itemNo)
+    }
+  }
 
   return (
     <>
@@ -25,7 +41,7 @@ const ProductList = ({ allProducts }) => {
 
           { products.map((product) => {
             return (
-              <Product product={ product } key={ product.itemNo }/>
+              <Product product={ product } key={ product.itemNo } onToggleImportant={ () => onToggleImportant(product.itemNo) }/>
             )
           }) }
         </ul>
@@ -36,8 +52,17 @@ const ProductList = ({ allProducts }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts
+    allProducts: state.allProducts,
+    favorite: state.favorite
   };
 };
 
-export default connect(mapStateToProps)(ProductList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeItemFromFavoriteAction: (itemNo) => dispatch(removeItemFromFavoriteAction(itemNo)),
+    addItemToFavoriteAction: (itemNo) => dispatch(addItemToFavoriteAction(itemNo)),
+    addFavoritesAction: (arr) => dispatch(addFavoritesAction(arr)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
