@@ -1,0 +1,15 @@
+@import '../../assets/index.scss';
+
+.block__items {    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+      
+   @include breakpoint(lg-only) {
+    display: grid; 
+    grid-template-columns: 380px 380px 380px;
+    grid-gap: 10px 20px;
+     
+   }
+
+}

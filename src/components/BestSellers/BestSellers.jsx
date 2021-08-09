@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import Button from '../Button/Button';
-import './Botanical.scss';
+import './BestSellers.scss';
 
-const Botanical = ({ allProducts }) => {
+const BestSellers = ({ allProducts }) => {
   const [products, setProducts] = useState([]);
-  const [visible, setVisible] = useState(7);
+  const [visible, setVisible] = useState(4);
 
   const viewAllProducts = () => {
-    setVisible((prevValue) => prevValue + 4);
+    setVisible((prevValue) => prevValue + allProducts.length);
   };
   useEffect(() => {
     setProducts(() => {
@@ -27,9 +27,9 @@ const Botanical = ({ allProducts }) => {
     <>
       <div className='wrapper'>
        <section className='product__list'>
-         <h2 className='botanical__title'>BOTANICAL</h2>
+         <h2 className='bestsellers__title'>BEST SELLERS</h2>
             <ul className='product__item'>
-              {products.slice(3, visible).map((product) => (
+              {products.slice(0, visible).map((product) => (
                 <Product product={product} key={product.itemNo}/>
               ))}
            </ul>
@@ -46,4 +46,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Botanical);
+export default connect(mapStateToProps)(BestSellers);

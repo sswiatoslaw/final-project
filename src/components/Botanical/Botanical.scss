@@ -1,108 +1,28 @@
-  @import './src/assets/index.scss';
+@import './src/assets/index.scss';
 
-@mixin botanicalBtn {
-    width: 280px;
-    height: 60px;
-    font-family: $spartan-font;
-    font-weight: 500;
-    font-size: $font-16;
-    border: 2px solid $Harp;
-    vertical-align: middle;
+.botanical__title {
+  text-align: center;
+  font-family: $amatic-sc-font;
+  font-size: $font-44;
+  font-weight: 700;
+  margin: 89px 0 49px;
+  color: $CapeCod;
+
+  @include breakpoint(lg-only) {
+      font-size: $font-54;      
+    }
 }
 
-.ant-row {
-    gap: 15px;
-}
-
-@include breakpoint(lg-only) {
-  .ant-row {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 15px;
-    justify-content: center;
-  }
-  .ant-col-6 {
-      max-width: 280px;
-      max-height:555px;
-  }
-}
-
-.items-container {
-    margin-top: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 183px;
-}
-
-.botanical {
-    text-align: center;
-    &_h2 {
-        font-family: $amatic-sc-font;
-        font-size: $font-54;
-        margin-bottom: 67px;
-        color: $CapeCod;
-    }
-    &__text {
-        font-family: $spartan-font;
-        font-weight: 500;
-        font-size: $font-18;
-        color: $CapeCod;
-        line-height: 28.8px;
-    }
-    &__starsContainer {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        margin: 75px;
-        width: 132px;
-    }
-    &__stars {
-        width: 25px;
-        height: 25px;
-        margin: 0px 5px;
-    }
-    &__button {
-        // margin-top: 30px;
-        &__addToBag {
-            display: none;
-        }
-       @include botanicalBtn;
-        &:hover &__addToBag {
-            display:inline-block;
-            transition: display 0.5s linear;
-        }
-        &:hover {
-            background-color: $Sinbad;
-            color: $White;
-            text-align: center;
-            margin: 0 auto;
-            transition: all 0.5s;
-        }
-    }
-    &__soldOut {
-        color: $White;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100px;
-        height: 40px;
-        background-color: $Sinbad;
-        margin-top: -350px;
-        font-family: $spartan-font;
-        font-weight: 400;
-    }
-    &__viewAll-btn {
-        @include botanicalBtn;
-        background-color: $Sinbad;
-        margin-top: 69px;
-        color: $White;
-    }
-    &__heart {
-        width: 29px;
-        height: 26px;
-        margin: -330px 0px 0px 231px;
-        position: absolute;
-    }
-}
+// &__soldOut {
+    //     color: $White;
+    //     position: absolute;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     width: 100px;
+    //     height: 40px;
+    //     background-color: $Sinbad;
+    //     margin-top: -350px;
+    //     font-family: $spartan-font;
+    //     font-weight: 400;
+    // }
