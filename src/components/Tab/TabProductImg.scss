@@ -1,0 +1,32 @@
+@import '../../assets/index.scss';
+
+
+.tabs{
+    .ant-tabs-ink-bar {
+        background: none;
+    }
+    .ant-tabs-content-holder {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+    }
+    .ant-tabs-right > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane, .ant-tabs-right > div > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane{
+        padding: 0;
+    }
+}
+.tabs_desktop{
+ 
+    .ant-tabs-tab{
+        padding: 0;
+        margin: 0;
+    }
+  
+
+    .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-right > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-left > div > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-right > div > .ant-tabs-nav .ant-tabs-tab{
+        padding: 1px 24px;
+    }
+}
+
+.tabs_mobile{
+    margin: 5px;
+}
