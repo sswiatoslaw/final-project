@@ -1,21 +1,24 @@
-import { Col, Row } from 'antd';
+import { Row, Col } from 'antd';
 import Button from '../Button/Button';
-import img from './guide-to-favorite-looks.png';
 
 const GuideToFavoriteLooksDesc = () => {
   return (
-    <div className='wrapper'>
-      <Row className='guide'>
-        <Col className='guide__container guide__container--img' flex='1 1 0px'>
-          <img className='guide__img' src={img} alt='Baby boy' width='800' height='480' />
+    <Row className='guide'>
+      <div className='wrapper'>
+        <Col className='guide__container'>
+          <div className='guide__container--img'>
+            <img className='guide__img' src='https://savvy-tots.s3.eu-west-3.amazonaws.com/guide-to-favorite-looks.png' alt='Baby boy' width='800px'
+                 height='480px'/>
+          </div>
+          <Col className='guide__content'>
+            <h2 className='guide__heading'>Drop 1 style guide</h2>
+            <p className='guide__text'>We put together some of our favorite looks from our ss21 drop 1 collection</p>
+            <Button modifier='contained' text='View more' width='280px'/>
+          </Col>
         </Col>
-        <Col className='guide__container' flex='0 1 30%'>
-          <h2 className='guide__heading'>Drop 1 style guide</h2>
-          <p className='guide__text'>We put together some of our favorite looks from our ss21 drop 1 collection</p>
-          <Button modifier='contained' text='View more' width='280px'/>
-        </Col>
-      </Row>
-    </div>
+      </div>
+    </Row>
+
   );
 };
 

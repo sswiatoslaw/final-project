@@ -1,16 +1,30 @@
 @import '../../assets/index.scss';
 
-.blog__item {
+.blogmain {
+  &__item {
   margin: 51px 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   
-
-  @include breakpoint(lg-only) {
+   @include breakpoint(lg-only) {
     display: grid; 
     grid-template-columns: 380px 380px 380px;
         
+   }
+  }
+
+  &__title {
+  text-align: center;
+  font-family: $amatic-sc-font;
+  font-size: $font-44;
+  font-weight: 700;
+  margin-bottom: 49px;
+  color: $CapeCod;
+
+  @include breakpoint(lg-only) {
+      font-size: $font-54;
+      margin-bottom: 49px;
+    }
   }
 }
-
-

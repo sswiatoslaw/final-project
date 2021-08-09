@@ -1,10 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300;500&display=swap');
+@import "src/assets/index";
 
 .header {
   margin: 30px 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   font-family: 'Spartan', sans-serif;
+  position: relative;
+
+  &__sup-text {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20px;
+    min-width: 20px;
+    color: $White;
+    background: $main-color;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 50%;
+  }
 
   &__logo {
     display: flex;
@@ -71,8 +87,13 @@
 
   &__icon {
     display: flex;
-    gap: 50px;
+    gap: 25%;
     align-items: center;
+    a{
+      span{
+        font-size: 10%;
+      }  
+    }
   }
 }
 
@@ -84,12 +105,7 @@
   .ant-menu-root {
     width: 20%;
   }
-  .header__icon {
-    display: none;
-  }
-  .header__icon-mobile {
-    display: block;
-    display: flex;
-    gap: 10px;
+  .header__menu{
+    width: 50px;
   }
 }

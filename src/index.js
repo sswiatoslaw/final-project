@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ErrorBoundary from './components/ErrorBoundary';
 import store from './store/store';
@@ -9,14 +9,12 @@ import './assets/index.scss';
 import 'antd/dist/antd.css';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
       <ErrorBoundary>
-        <Router>
+        <BrowserRouter>
           <App />
-        </Router>
+        </BrowserRouter>
       </ErrorBoundary>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </Provider>,
+    document.getElementById('root')
 );
