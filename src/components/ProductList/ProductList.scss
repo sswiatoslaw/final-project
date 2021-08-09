@@ -1,12 +1,18 @@
 @import './src/assets/index.scss';
 
-.product__item {
+.product {
+  &__list {
+    margin-bottom: 89px;
+  }
+
+  &__item {
   display: grid;
     grid-template-columns: repeat(2, 157px);
     grid-gap: 10px 20px;
     justify-content: center;
-
+    
     @include breakpoint(lg-only) {
       grid-template-columns: repeat(auto-fit, 280px);
     }
+  }
 }

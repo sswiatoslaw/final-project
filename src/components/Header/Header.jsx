@@ -29,7 +29,7 @@ function Header ({ cart }) {
           </Link>
           <Link to='/cart'>
             <ShoppingOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} /><sup className='header__sup-text'>{cart.length}</sup>
-          </Link>
+          </Link>--
           <Link to='/login'>
             <UserOutlined onClick={toggleModal} style={{ fontSize: '24px', color: '#A8D6CB' }} />
           </Link>
