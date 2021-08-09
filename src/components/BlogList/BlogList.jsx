@@ -10,10 +10,10 @@ const BlogList = ({ allSlides}) => {
             <ul className='blog__item'>
             {allSlides.map((slide) => {
               return (
-               <BlogCard slide={slide} key={slide._id} />
+               <BlogCard slide={slide} key={slide._id}/>
               )
-            })};
-           </ul>
+            })}
+            </ul>
         </section>
     </>
   )
