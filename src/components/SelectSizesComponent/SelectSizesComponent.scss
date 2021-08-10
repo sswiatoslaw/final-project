@@ -1,0 +1,43 @@
+@import 'src/assets/index.scss';
+
+.select {
+  &__content {
+    margin-bottom: 50px;
+    font-size: $font-18;
+    color: $logo-text-color;
+    font-weight: 300;
+    outline: none;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: $font-16;
+    color: $logo-text-color;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: $font-18;
+    font-weight: 300;
+    color: $logo-text-color;
+  }
+}
+
+.ant-input, .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  min-height: 60px;
+  width: 100% !important;
+  align-items: center;
+  border-radius: 0 !important;
+}
+
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  padding-left: 30px;
+}
+
+.ant-select-arrow {
+  right: 26px;
+}
+
+.ant-select-arrow .anticon > svg {
+  color: $text-color;
+}
