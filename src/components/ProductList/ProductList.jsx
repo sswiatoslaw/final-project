@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import './ProductList.scss';
 import { addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
 
-const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction }) => {
-  const [products, setProducts] = useState([]);
-
+const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts }) => {
   useEffect(() => {
     const localStoreFromFavorite = localStorage.getItem('favorite') === null ? [] : Array.from(JSON.parse(localStorage.getItem('favorite')))
     if (localStoreFromFavorite.length !== 0) {

@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
-import Pagination from '../../components/Pagination/Pagination';
+import { Pagination } from 'antd';
 import ProductList from '../../components/ProductList/ProductList';
+import './ProductContent.scss'
 
-function ProductContent ({ getAllProducts, allProducts }) {
+function ProductContent ({ getAllProducts, allProducts}) {
   // const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(20);
+  const [productsPerPage] = useState(8);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-
-  // Change page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   useEffect(() => {
     if (allProducts.length === 0) {
@@ -22,18 +21,23 @@ function ProductContent ({ getAllProducts, allProducts }) {
     }
   }, [getAllProducts, allProducts]);
 
+  const onPaginationChange = (page) => {
+    setCurrentPage(page)
+  }
+  
   return (
     <>
       <div className='wrapper'>
-        <ProductList products={currentProducts}/>
+        <ProductList products={currentProducts} setProducts={setProducts}/>
       </div>
-      
-      <Pagination
-        productsPerPage={productsPerPage}
-        allProducts={allProducts.length}
-        paginate={paginate}
+
+      <Pagination total={products.length}
+        current={currentPage}
+        pageSize={8}
+        onChange={onPaginationChange}
       />
-    </>
+      
+      </>
   );
 };
 
