@@ -1,19 +1,13 @@
 import axios from 'axios';
 
-export const getFavorite = async () => {
-  return await axios
+export const getFavorite = () => {
+  return axios
     .get('https://boiling-dawn-71074.herokuapp.com/api/wishlist')
-    .then(wishlist => {
-      console.log('wishlist', wishlist)
-    })
-    .catch(err => {
-      console.log(err)
-    });
 };
 
-export const postFavorite = async (itemNo) => {
-  return await axios
-    .post('https://boiling-dawn-71074.herokuapp.com/api/wishlist', itemNo)
+export const postFavorite = (newWishlist) => {
+  return axios
+    .post('https://boiling-dawn-71074.herokuapp.com/api/wishlist', newWishlist)
     .then(newWishlist => {
       console.log(newWishlist)
     })

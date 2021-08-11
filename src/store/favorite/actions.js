@@ -1,4 +1,5 @@
 import { ADD_FAVORITES, ADD_ITEM_TO_FAVORITE, REMOVE_ITEM_FROM_FAVORITE } from './actionTypes';
+import { getUser } from '../../api/getUser';
 
 export const addItemToFavoriteAction = itemNo => {
   return {
@@ -19,4 +20,13 @@ export const addFavoritesAction = arr => {
     type: ADD_FAVORITES,
     payload: arr
   }
+}
+
+export const getCustomerAction = () => () => {
+  getUser()
+    .then(response => {
+      console.log(response)
+    }).catch(() => {
+      throw new Error('Error! Invalid email or password.');
+    })
 }

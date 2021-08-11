@@ -14,7 +14,6 @@ const favoriteReducer = (state = initialStates, action) => {
   switch (action.type) {
     case types.ADD_ITEM_TO_FAVORITE:
       localStorage.setItem('favorite', JSON.stringify(addToLocalStorage(state, action.payload)))
-      // return updateSongFavoriteFlag(state, action.payload, true);
       return [...state, action.payload]
 
     case types.REMOVE_ITEM_FROM_FAVORITE:

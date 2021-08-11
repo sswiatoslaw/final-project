@@ -5,7 +5,7 @@ import { addItemToCartAction } from '../../store/cart/actions';
 import { removeItemFromFavoriteAction } from '../../store/favorite/actions';
 import './FavoriteProduct.scss';
 
-const FavoriteProductItem = ({ addItemToCartAction, product, removeItemFromFavoriteAction, favorite }) => {
+const FavoriteProductItem = ({ product, addItemToCartAction, removeItemFromFavoriteAction, favorite }) => {
   const { imageUrls, name, color, currentPrice, sizes, quantity, itemNo } = product;
 
   const addItemToCart = () => {
