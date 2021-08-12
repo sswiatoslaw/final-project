@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import './ProductList.scss';
 import { addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
+import Loading from '../Loading/Loading';
 
-const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction }) => {
-  const [products, setProducts] = useState([]);
-
+const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts }) => {
   useEffect(() => {
     const localStoreFromFavorite = localStorage.getItem('favorite') === null ? [] : Array.from(JSON.parse(localStorage.getItem('favorite')))
     if (localStoreFromFavorite.length !== 0) {
       addFavoritesAction(localStoreFromFavorite)
     }
   }, [addFavoritesAction])
+
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     setProducts(() => {
@@ -21,10 +22,14 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
         if (!productsNameList.find(el => el.name === item.name)) {
           productsNameList.push(item)
         }
+        setLoading(false)
       })
       return productsNameList
     })
-  }, [allProducts]);
+  }, [allProducts, setProducts])
+  if (isLoading) {
+    return <Loading/>
+  }
 
   const onToggleImportant = (itemNo) => {
     if (favorite.includes(itemNo)) {

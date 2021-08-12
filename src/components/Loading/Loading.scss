@@ -1,0 +1,22 @@
+@import '../../assets/index.scss';
+
+.loading {
+    text-align: center;
+
+    @include breakpoint(lg-only) {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 150px;
+    }
+
+    &__text {
+        text-align: center;
+        color: $logo-text-color;
+        font-size: $font-36;
+
+        @include breakpoint(lg-only) {
+        margin-top: 50px;
+        font-size: $font-62;
+        }
+    }
+}
