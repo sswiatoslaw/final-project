@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import './ProductList.scss';
 import { addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
+import Loading from '../Loading/Loading';
 
 const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts }) => {
   useEffect(() => {
@@ -12,6 +13,8 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
     }
   }, [addFavoritesAction])
 
+  const [isLoading, setLoading] = useState(true)
+
   useEffect(() => {
     setProducts(() => {
       const productsNameList = [];
@@ -19,10 +22,14 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
         if (!productsNameList.find(el => el.name === item.name)) {
           productsNameList.push(item)
         }
+        setLoading(false)
       })
       return productsNameList
     })
-  }, [allProducts]);
+  }, [allProducts, setProducts])
+  if (isLoading) {
+    return <Loading/>
+  }
 
   const onToggleImportant = (itemNo) => {
     if (favorite.includes(itemNo)) {

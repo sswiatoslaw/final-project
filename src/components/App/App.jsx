@@ -18,7 +18,7 @@ function App () {
         </a>
       </header>
       <ProductContent/>
-    </div>
+      </div>
   );
 }
 

@@ -1,6 +1,18 @@
 @import "src/assets/index";
 
 .ant-pagination {
-    text-align: center;
-    color: $main-color;    
+    text-align: center;    
+
+    &-item-active {
+    border: 2px solid $main-color !important;     
+    }   
+}
+
+.ant-pagination-item-active a {
+    color: $main-color !important;
+}
+
+.ant-pagination-prev:focus-visible .ant-pagination-item-link, .ant-pagination-next:focus-visible .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {
+    color: $main-color !important;
+    border: 2px solid $main-color !important;
 }

@@ -5,8 +5,8 @@ import { Pagination } from 'antd';
 import ProductList from '../../components/ProductList/ProductList';
 import './ProductContent.scss'
 
-function ProductContent ({ getAllProducts, allProducts}) {
-  // const [loading, setLoading] = useState(false);
+function ProductContent ({ getAllProducts, allProducts }) {
+  // const [isLoading, setLoading] = useState(true)
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(8);
