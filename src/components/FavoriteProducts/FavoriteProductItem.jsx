@@ -6,15 +6,15 @@ import { removeItemFromFavoriteAction } from '../../store/favorite/actions';
 import './FavoriteProduct.scss';
 
 const FavoriteProductItem = ({ product, addItemToCartAction, removeItemFromFavoriteAction, favorite }) => {
-  const { imageUrls, name, color, currentPrice, sizes, quantity, itemNo } = product;
+  const { imageUrls, name, color, currentPrice, sizes, quantity, _id } = product;
 
   const addItemToCart = () => {
     addItemToCartAction(product);
   };
 
-  const removeItemImportant = (itemNo) => {
-    if (favorite.includes(itemNo)) {
-      removeItemFromFavoriteAction(itemNo);
+  const removeItemImportant = (_id) => {
+    if (favorite.includes(_id)) {
+      removeItemFromFavoriteAction(_id);
     }
   }
 
@@ -40,8 +40,8 @@ const FavoriteProductItem = ({ product, addItemToCartAction, removeItemFromFavor
       </div>
 
       <div className='favorite__content favorite__content--btn'>
-        <Button modifier='contained' text='Add to cart' onClick={ () => addItemToCart() } width='120px' height='44px'/>
-        <span className='favorite__remove' onClick={ () => removeItemImportant(itemNo) }>Remove</span>
+        <Button modifier='contained' text='Add to cart' onClick={addItemToCart} width='120px' height='44px'/>
+        <span className='favorite__remove' onClick={ () => removeItemImportant(_id) }>Remove</span>
       </div>
     </>
   );
@@ -55,8 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addItemToCartAction: (itemNo) => dispatch(addItemToCartAction(itemNo)),
-    removeItemFromFavoriteAction: (itemNo) => dispatch(removeItemFromFavoriteAction(itemNo)),
+    addItemToCartAction: (productId) => dispatch(addItemToCartAction(productId)),
+    removeItemFromFavoriteAction: (productId) => dispatch(removeItemFromFavoriteAction(productId)),
   };
 };
 

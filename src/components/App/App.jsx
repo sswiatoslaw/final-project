@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
-import { getCustomerAction } from '../../store/favorite/actions';
+import { getCustomerAction, getWishlistAction } from '../../store/favorite/actions';
 import Routes from '../Routes';
 import './App.scss';
 
-function App ({ getAllProducts, allProducts, getCustomer }) {
+function App ({getAllProducts, allProducts, getCustomer, getWishlist}) {
   useEffect(() => {
     if (!allProducts.length) {
       getAllProducts();
@@ -13,12 +13,13 @@ function App ({ getAllProducts, allProducts, getCustomer }) {
   }, [getAllProducts, allProducts]);
 
   useEffect(() => {
-    getCustomer()
-  }, [getCustomer])
+    getCustomer();
+    getWishlist();
+  }, [getCustomer, getWishlist])
 
   return (
     <div className='App'>
-      <Routes />
+      <Routes/>
     </div>
   );
 }
@@ -33,6 +34,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(fetchProducts()),
     getCustomer: () => dispatch(getCustomerAction()),
+    getWishlist: () => dispatch(getWishlistAction()),
   };
 };
 

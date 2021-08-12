@@ -26,11 +26,12 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
     })
   }, [allProducts]);
 
-  const onToggleImportant = (itemNo) => {
-    if (favorite.includes(itemNo)) {
-      removeItemFromFavoriteAction(itemNo);
-    } else {
-      addItemToFavoriteAction(itemNo)
+  const onToggleImportant = (productId) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      favorite.find(product => product._id === productId)
+        ? removeItemFromFavoriteAction(productId)
+        : addItemToFavoriteAction(productId)
     }
   }
 
@@ -41,7 +42,7 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
 
           { products.map((product) => {
             return (
-              <Product product={ product } key={ product.itemNo } onToggleImportant={ () => onToggleImportant(product.itemNo) }/>
+              <Product product={ product } key={ product._id } onToggleImportant={ () => onToggleImportant(product._id) }/>
             )
           }) }
         </ul>

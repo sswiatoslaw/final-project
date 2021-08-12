@@ -1,24 +1,18 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import FavoriteProductsList from '../../components/FavoriteProducts/FavoriteProductsList';
-import { addFavoritesAction } from '../../store/favorite/actions';
+import { addFavoritesAction, getWishlistAction } from '../../store/favorite/actions';
 
-const FavoritePage = ({ allProducts, favorite, onToggleImportant, addFavorites }) => {
-  const favoriteProductsList = favorite.map(it => allProducts.find(product => product.itemNo === it))
-  console.log('favoriteProductsList', favoriteProductsList)
-  const favoriteProductsItemNoList = favoriteProductsList.map(item => item.itemNo)
-  console.log('favoriteProductsItemNoList', favoriteProductsItemNoList)
-
+const FavoritePage = ({favorite, onToggleImportant, getWishlist}) => {
   useEffect(() => {
-    addFavorites(favoriteProductsItemNoList)
-  }, [])
+    getWishlist()
+  }, [getWishlist])
 
   return (
     <>
-      { !favoriteProductsList.length
+      { !favorite.length
         ? <h2 className='pages__title'>Your Favorite List is Empty</h2>
         : <FavoriteProductsList
-          products={ favoriteProductsList }
           onToggleImportant={ onToggleImportant }
         /> }
     </>
@@ -27,7 +21,6 @@ const FavoritePage = ({ allProducts, favorite, onToggleImportant, addFavorites }
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
     favorite: state.favorite
   }
 }
@@ -35,6 +28,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addFavorites: (arr) => dispatch(addFavoritesAction(arr)),
+    getWishlist: () => dispatch(getWishlistAction()),
   };
 };
 
