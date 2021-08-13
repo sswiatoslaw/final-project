@@ -1,10 +1,9 @@
-@import "media";
-@import "reset";
-@import "colors";
-@import "link";
-@import "typography";
-@import "ourMailingList";
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import 'media';
+@import 'reset';
+@import 'colors';
+@import 'link';
+@import 'typography';
+
 html {
   height: 100%;
   width: 100%;
@@ -20,11 +19,13 @@ body {
 a {
   text-decoration: none;
   cursor: pointer;
-  
+
 }
+
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
   background-color: transparent;
 }
+
 .wrapper {
   margin-left: 4%;
   margin-right: 4%;
@@ -41,3 +42,8 @@ a {
   }
 }
 
+.pages {
+  &__title {
+    margin-bottom: 60px;
+  }
+}
