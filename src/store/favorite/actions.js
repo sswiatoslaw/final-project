@@ -1,20 +1,20 @@
 import { ADD_FAVORITES } from './actionTypes';
 import { getUser } from '../../api/getUser';
-import { addProductFavoriteItem } from '../../api/favoriteAPI/addProductFavoriteItem';
-import { createFavoriteList } from '../../api/favoriteAPI/createFavoriteList';
-import { deleteProductFavoriteItem } from '../../api/favoriteAPI/deleteProductFavoriteItem';
-import { getProductsFavoriteList } from '../../api/favoriteAPI/getProductsFavoriteList';
+import { createFavoriteList, addProductFavoriteItem, getProductsFavoriteList, deleteProductFavoriteItem } from '../../api/favoriteAPI';
 
-export const addProductToWishlistAction = productId => () => {
+export const addProductToWishlistAction = productId => dispatch => {
   addProductFavoriteItem(productId)
     .then(res => {
-      console.log(res)
+      if (res?.data) {
+        dispatch(getWishlistAction())
+      }
     })
     .catch(err => {
       console.log(err)
     })
 }
 
+// heart switch icon
 export const addItemToFavoriteAction = productId => dispatch => {
   getProductsFavoriteList()
     .then(res => {
@@ -57,9 +57,11 @@ export const getWishlistAction = () => (dispatch) => {
   })
 }
 
-export const postWishlistAction = (arr) => () => {
+export const postWishlistAction = (arr) => dispatch => {
   createFavoriteList(arr).then(res => {
-    console.log(res)
+    if (res?.data) {
+      dispatch(getWishlistAction())
+    }
   }).catch(err => {
     console.log(err)
   })
