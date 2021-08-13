@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import fetchProducts from '../../store/products/actions';
+import Routes from '../Routes';
 import './App.scss';
-import ProductContent from '../../containers/ProductContent';
 
-function App () {
+function App ({ getAllProducts, allProducts }) {
+  useEffect(() => {
+    if (allProducts.length === 0) {
+      getAllProducts();
+    }
+  }, [getAllProducts, allProducts]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-      <ProductContent/>
-      </div>
+    <div className='App'>
+      <Routes />
+    </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    allProducts: state.allProducts
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllProducts: () => dispatch(fetchProducts())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
