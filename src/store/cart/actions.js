@@ -7,17 +7,17 @@ export const addItemToCartAction = product => {
   };
 };
 
-export const increaseQuantity = itemNo => {
+export const increaseQuantity = productId => {
   return {
     type: INCREASE_QUANTITY,
-    payload: itemNo
+    payload: productId
   };
 };
 
-export const decreaseQuantity = itemNo => {
+export const decreaseQuantity = productId => {
   return {
     type: DECREASE_QUANTITY,
-    payload: itemNo
+    payload: productId
   };
 };
 
@@ -28,9 +28,9 @@ export const loadCardsAction = arr => {
   };
 };
 
-export const removeItemFromCartAction = itemNo => {
+export const removeItemFromCartAction = productId => {
   return {
     type: REMOVE_ITEM_FROM_CART,
-    payload: itemNo
+    payload: productId
   };
 };

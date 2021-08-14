@@ -6,11 +6,11 @@ import QuantityComponent from '../QuantityComponent';
 import { removeItemFromCartAction } from '../../store/cart/actions';
 import './CartProduct.scss';
 
-const CartProductItem = ({ productNo, cart, removeFromCart }) => {
-  const { imageUrls, name, color, currentPrice, sizes, itemNo, userQuantity } = cart.find(item => item.itemNo === productNo);
+const CartProductItem = ({ productId, cart, removeFromCart }) => {
+  const { imageUrls, name, color, currentPrice, sizes, _id, userQuantity } = cart.find(item => item._id === productId);
 
-  const removeItemFromCart = (itemNo) => {
-    removeFromCart(itemNo);
+  const removeItemFromCart = () => {
+    removeFromCart(_id);
   };
 
   return (
@@ -25,9 +25,9 @@ const CartProductItem = ({ productNo, cart, removeFromCart }) => {
             <span className='cart-item__size'>Size: { sizes }</span>
             <span className='cart-item__price'>Price: $ { currentPrice }</span>
           </div>
-          <QuantityComponent itemNo={ itemNo }/>
+          <QuantityComponent productId={ _id }/>
           <span className='cart-item__total-price'>$ { currentPrice * userQuantity }</span>
-          <Button icon={ <DeleteOutlined/> } onClick={ () => removeItemFromCart(itemNo) } style={ { border: 'none' } }/>
+          <Button icon={ <DeleteOutlined/> } onClick={ () => removeItemFromCart(_id) } style={ { border: 'none' } }/>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeFromCart: (itemNo) => dispatch(removeItemFromCartAction(itemNo))
+    removeFromCart: (productId) => dispatch(removeItemFromCartAction(productId))
   };
 };
 
