@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import FavoriteProductsList from '../../components/FavoriteProducts/FavoriteProductsList';
+import { addFavoritesAction, getWishlistAction } from '../../store/favorite/actions';
 
-const FavoritePage = ({ allProducts, favorite, onToggleImportant }) => {
-  const importantCard = favorite.map(it => allProducts.find(product => product.itemNo === it))
-  if (!importantCard.length) {
-    return <h2 className='pages__title'>Your Favorite List is Empty</h2>
-  }
+const FavoritePage = ({favorite, onToggleImportant, getWishlist}) => {
+  useEffect(() => {
+    getWishlist()
+  }, [getWishlist])
 
   return (
     <>
-      <FavoriteProductsList
-        products={ importantCard }
-        onToggleImportant={ onToggleImportant }
-      />
+      { !favorite.length
+        ? <h2 className='pages__title'>Your Favorite List is Empty</h2>
+        : <FavoriteProductsList
+          onToggleImportant={ onToggleImportant }
+        /> }
     </>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
     favorite: state.favorite
   }
 }
 
-export default connect(mapStateToProps)(FavoritePage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFavorites: (arr) => dispatch(addFavoritesAction(arr)),
+    getWishlist: () => dispatch(getWishlistAction()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritePage);
