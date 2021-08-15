@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
-import './ProductList.scss';
 import { addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
 import Loading from '../Loading/Loading';
+import { notification } from 'antd';
+import './ProductList.scss';
 
 const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts }) => {
   useEffect(() => {
@@ -31,11 +32,25 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
     return <Loading/>
   }
 
-  const onToggleImportant = (itemNo) => {
-    if (favorite.includes(itemNo)) {
-      removeItemFromFavoriteAction(itemNo);
+  const openErrorNotification = () => {
+    notification.error({
+      message: 'Please login to your account.',
+      description:
+        'Only registered user can use the favorites',
+      duration: 5,
+      placement: 'bottomRight',
+      className: 'notification__error',
+    });
+  };
+
+  const onToggleImportant = (productId) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      favorite.find(product => product._id === productId)
+        ? removeItemFromFavoriteAction(productId)
+        : addItemToFavoriteAction(productId)
     } else {
-      addItemToFavoriteAction(itemNo)
+      openErrorNotification()
     }
   }
 
@@ -46,7 +61,7 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
 
           { products.map((product) => {
             return (
-              <Product product={ product } key={ product.itemNo } onToggleImportant={ () => onToggleImportant(product.itemNo) }/>
+              <Product product={ product } key={ product._id } onToggleImportant={ () => onToggleImportant(product._id) }/>
             )
           }) }
         </ul>
@@ -64,8 +79,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeItemFromFavoriteAction: (itemNo) => dispatch(removeItemFromFavoriteAction(itemNo)),
-    addItemToFavoriteAction: (itemNo) => dispatch(addItemToFavoriteAction(itemNo)),
+    removeItemFromFavoriteAction: (productId) => dispatch(removeItemFromFavoriteAction(productId)),
+    addItemToFavoriteAction: (productId) => dispatch(addItemToFavoriteAction(productId)),
     addFavoritesAction: (arr) => dispatch(addFavoritesAction(arr)),
   }
 }

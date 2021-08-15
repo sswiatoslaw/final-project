@@ -9,7 +9,7 @@ import Rater from './Rater';
 const { Meta } = Card;
 
 const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
-  const classNames = favorite.includes(product.itemNo) ? 'card important' : 'card';
+  const classNames = favorite.find(item => product._id === item._id) ? 'card important' : 'card';
 
   const addItemToCart = (product) => {
     addToCart(product);
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (itemNo) => dispatch(addItemToCartAction(itemNo))
+    addToCart: (productId) => dispatch(addItemToCartAction(productId))
   };
 };
 
