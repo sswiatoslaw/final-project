@@ -6,7 +6,7 @@ import Loading from '../Loading/Loading';
 import { notification } from 'antd';
 import './ProductList.scss';
 
-const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts }) => {
+const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts}) => {
   useEffect(() => {
     const localStoreFromFavorite = localStorage.getItem('favorite') === null ? [] : Array.from(JSON.parse(localStorage.getItem('favorite')))
     if (localStoreFromFavorite.length !== 0) {
