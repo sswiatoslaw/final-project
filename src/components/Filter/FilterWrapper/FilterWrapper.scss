@@ -1,0 +1,22 @@
+@import '../../../assets/index.scss';
+
+.shop__page {
+    display: flex;
+
+    .checkbox__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 100px;
+        margin-left: 42px;
+        padding: 8px;
+
+        .ant-checkbox-wrapper+.ant-checkbox-wrapper {
+         margin: 0px;
+        }
+    }
+}
+
+.ant-menu-submenu-selected{
+color: $CapeCod;
+}

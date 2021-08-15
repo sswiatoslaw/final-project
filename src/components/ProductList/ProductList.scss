@@ -8,5 +8,7 @@
 
     @include breakpoint(lg-only) {
       grid-template-columns: repeat(auto-fit, 280px);
+      display: flex;
+      flex-wrap: wrap;
     }
 }
