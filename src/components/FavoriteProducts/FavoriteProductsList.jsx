@@ -1,12 +1,13 @@
 import React from 'react';
 import FavoriteProductItem from './FavoriteProductItem';
 import './FavoriteProduct.scss';
+import { connect } from 'react-redux';
 
-const FavoriteProductsList = ({ products }) => {
-  const productList = products.map((product) => {
+const FavoriteProductsList = ({ favorite }) => {
+  const productList = favorite.map((product) => {
     return (
-      <li key={ product.itemNo } className='favorite__item'>
-        <FavoriteProductItem product={ product } key={ product.itemNo }/>
+      <li key={ product._id } className='favorite__item'>
+        <FavoriteProductItem product={ product } key={ product._id }/>
       </li>
     );
   });
@@ -22,4 +23,10 @@ const FavoriteProductsList = ({ products }) => {
   );
 };
 
-export default FavoriteProductsList;
+const mapStateToProps = (state) => {
+  return {
+    favorite: state.favorite
+  };
+};
+
+export default connect(mapStateToProps)(FavoriteProductsList);

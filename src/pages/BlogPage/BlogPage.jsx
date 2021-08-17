@@ -7,11 +7,11 @@ import './BlogPage.scss'
 
 const BlogPage = () => {
   return (
-    <div>
-      <Baner imgPath={banerImagesDictionary.blog} imgName='girls' title={banerTitleDictionary.blogTitle}/>
-      <BlogContainer/>
-      <JoingMailing/>
-    </div>
+        <div>
+           <Baner imgPath={banerImagesDictionary.blog} imgName='girls' title={banerTitleDictionary.blogTitle}/>
+           <BlogContainer/>
+           <JoingMailing/>
+        </div>
   )
 }
 
