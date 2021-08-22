@@ -8,10 +8,8 @@ import './App.scss';
 
 function App ({getAllProducts, allProducts, getCustomer, getWishlist, getCart}) {
   useEffect(() => {
-    if (!allProducts.length) {
-      getAllProducts();
-    }
-  }, [getAllProducts, allProducts]);
+    getAllProducts()
+  }, [getAllProducts]);
 
   useEffect(() => {
     getCustomer();

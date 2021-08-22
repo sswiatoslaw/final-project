@@ -1,18 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import QuantityComponent from '../QuantityComponent';
 import { removeItemFromCartAction } from '../../store/cart/actions';
 import './CartProduct.scss';
 
-const CartProductItem = ({ productItem, removeFromCart }) => {
-  const { cartQuantity, product } = productItem;
-  const { imageUrls, name, color, currentPrice, sizes, _id } = product;
-
-  const removeItemFromCart = () => {
-    removeFromCart(_id);
-  };
+const CartProductItem = ({productItem, removeFromCart}) => {
+  const {cartQuantity, product} = productItem;
+  const {imageUrls, name, color, currentPrice, sizes, _id} = product;
 
   return (
     <div className='cart-item'>
@@ -26,9 +23,9 @@ const CartProductItem = ({ productItem, removeFromCart }) => {
             <span className='cart-item__size'>Size: { sizes }</span>
             <span className='cart-item__price'>Price: $ { currentPrice }</span>
           </div>
-           <QuantityComponent cartQuantity={ cartQuantity } id={_id}/>
+          <QuantityComponent cartQuantity={ cartQuantity } id={ _id }/>
           <span className='cart-item__total-price'>$ { currentPrice * cartQuantity }</span>
-          <Button icon={ <DeleteOutlined/> } onClick={ () => removeItemFromCart() } style={ { border: 'none' } }/>
+          <Button icon={ <DeleteOutlined/> } onClick={ () => removeFromCart(_id) } style={ {border: 'none'} }/>
         </div>
       </div>
     </div>
@@ -42,3 +39,12 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(CartProductItem);
+
+CartProductItem.propTypes = {
+  imageUrls: PropTypes.array,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  currentPrice: PropTypes.number,
+  sizes: PropTypes.string,
+  _id: PropTypes.string,
+};

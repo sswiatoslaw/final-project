@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import { removeItemFromFavoriteAction } from '../../store/favorite/actions';
 import './FavoriteProduct.scss';
@@ -59,3 +60,13 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteProductItem);
+
+FavoriteProductItem.propTypes = {
+  imageUrls: PropTypes.array,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  currentPrice: PropTypes.number,
+  sizes: PropTypes.string,
+  quantity: PropTypes.number,
+  _id: PropTypes.string,
+};
