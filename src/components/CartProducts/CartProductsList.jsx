@@ -5,16 +5,16 @@ import './CartProduct.scss';
 
 const CartProductsList = ({ cart }) => {
   const getTotalPrice = () => {
-    return cart.map(item => item.currentPrice * item.userQuantity)
+    return cart.map(item => item.product.currentPrice * item.cartQuantity)
       .reduce((a, b) => a + b, 0)
       .toFixed(2);
   };
 
-  const products = cart.map((product) => {
+  const products = cart.map(product => {
     const { _id } = product;
     return (
       <li key={ _id }>
-        <CartProductItem productId={ _id } key={ _id }/>
+        <CartProductItem productItem={ product } key={ _id }/>
       </li>
     );
   });
