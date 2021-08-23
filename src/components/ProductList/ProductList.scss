@@ -1,7 +1,12 @@
 @import './src/assets/index.scss';
 
-.product__item {
-  display: grid;
+.product {
+  &__list {
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    display: grid;
     grid-template-columns: repeat(2, 157px);
     grid-gap: 10px 20px;
     justify-content: center;
@@ -9,4 +14,11 @@
     @include breakpoint(lg-only) {
       grid-template-columns: repeat(auto-fit, 280px);
     }
+  }
+}
+
+.notification {
+  &__error .anticon svg {
+    color: red;
+  }
 }

@@ -1,0 +1,15 @@
+@import './src/assets/index.scss';
+
+.bestsellers__title {
+  text-align: center;
+  font-family: $amatic-sc-font;
+  font-size: $font-44;
+  font-weight: 700;
+  margin-bottom: 49px;
+  color: $CapeCod;
+
+  @include breakpoint(lg-only) {
+      font-size: $font-54;
+      margin-bottom: 49px;
+    }
+}

@@ -7,21 +7,19 @@ import './QuantityComponent.scss';
 
 const ButtonGroup = Button.Group;
 
-const QuantityComponent = ({ cart, itemNo, qualityDecrease, qualityIncrease }) => {
+const QuantityComponent = ({ cart, productId, qualityDecrease, qualityIncrease }) => {
   return (
-    <>
-      <ButtonGroup>
-        <Button onClick={ () => qualityDecrease(itemNo) } style={ { border: 'none' } }>
-          <MinusOutlined/>
-        </Button>
-        <span className='quantity'>
-        { cart.find(item => item.itemNo === itemNo).userQuantity }
+    <ButtonGroup>
+      <Button onClick={ () => qualityDecrease(productId) } style={ { border: 'none' } }>
+        <MinusOutlined/>
+      </Button>
+      <span className='quantity'>
+        { cart.find(item => item._id === productId).userQuantity }
         </span>
-        <Button onClick={ () => qualityIncrease(itemNo) } style={ { border: 'none' } }>
-          <PlusOutlined/>
-        </Button>
-      </ButtonGroup>
-    </>
+      <Button onClick={ () => qualityIncrease(productId) } style={ { border: 'none' } }>
+        <PlusOutlined/>
+      </Button>
+    </ButtonGroup>
   );
 };
 
@@ -33,8 +31,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    qualityIncrease: (itemNo) => dispatch(increaseQuantity(itemNo)),
-    qualityDecrease: (itemNo) => dispatch(decreaseQuantity(itemNo))
+    qualityIncrease: (productId) => dispatch(increaseQuantity(productId)),
+    qualityDecrease: (productId) => dispatch(decreaseQuantity(productId))
   };
 };
 

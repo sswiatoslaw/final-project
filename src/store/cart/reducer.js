@@ -4,7 +4,7 @@ const initialStates = [];
 
 const cartReducer = (state = initialStates, action) => {
   const removeProduct = () => {
-    const index = state.findIndex(item => item.itemNo === action.payload);
+    const index = state.findIndex(item => item._id === action.payload);
     if (index !== 0) {
       return [...state.slice(0, index), ...state.slice(index + 1)];
     } else {
@@ -18,7 +18,7 @@ const cartReducer = (state = initialStates, action) => {
 
   switch (action.type) {
     case types.ADD_ITEM_TO_CART:
-      if (!findStateItem(action.payload.itemNo)) {
+      if (!findStateItem(action.payload._id)) {
         return [...state, {
           imageUrls: action.payload.imageUrls[0],
           name: action.payload.name,
@@ -27,10 +27,10 @@ const cartReducer = (state = initialStates, action) => {
           currentPrice: action.payload.currentPrice,
           quantity: action.payload.quantity,
           userQuantity: 1,
-          itemNo: action.payload.itemNo
+          _id: action.payload._id
         }];
       } else {
-        const actual = findStateItem(action.payload.itemNo);
+        const actual = findStateItem(action.payload._id);
         if (actual.quantity > actual.userQuantity) {
           actual.userQuantity++;
           return [...state];
@@ -72,8 +72,8 @@ const cartReducer = (state = initialStates, action) => {
       return state;
   }
 
-  function findStateItem (itemNo) {
-    return state.find(item => item.itemNo === itemNo);
+  function findStateItem (productId) {
+    return state.find(item => item._id === productId);
   }
 };
 
