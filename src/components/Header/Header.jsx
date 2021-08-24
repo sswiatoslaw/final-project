@@ -44,21 +44,21 @@ function Header ({ cart, favorite }) {
     <>
       <div className='header'>
         <div className='header__logo'>
-          <h1>
+          <a href="/#">
             Savvy<span>Tots</span>
-          </h1>
+          </a>
         </div>
         <div className='header__menu'>
          <MenuComponent />
         </div>
         <div className='header__icon'>
           <Dropdown key='more' overlay={searchInput}>
-          <Button style={{
+          <a href='/#' style={{
             border: 'none',
             padding: 0,
           }}>
             <SearchOutlined />
-          </Button>
+          </a>
           </Dropdown>
           <Link to='/favorite'>
             <HeartOutlined style={ { fontSize: '24px', color: '#A8D6CB' } }/><sup className='header__sup-text'>{ favorite.length }</sup>
