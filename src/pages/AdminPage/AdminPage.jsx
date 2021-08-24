@@ -1,23 +1,30 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import Topbar from './components/Topbar';
 import ProductsPage from './ProductsPage';
 import CatalogsPage from './CatalogsPage';
+import Routes from '../../components/Routes';
 
 const AdminPage = () => {
-  return (
-    <>
-      <Topbar />
-      <Switch>
-        <Route path="/products">
-          <ProductsPage />
-        </Route>
-        <Route path="/categories">
-          <CatalogsPage />
-        </Route>
-      </Switch>
-    </>
-  )
+  const history = useHistory();
+  if (localStorage.getItem('token')) {
+    return (
+      <>
+        <Topbar />
+        <Switch>
+          <Route exact path="/admin/products">
+            <ProductsPage />
+          </Route>
+          <Route exact path="/admin/categories">
+            <CatalogsPage />
+          </Route>
+        </Switch>
+      </>
+    )
+  } else {
+    history.push('/');
+    return (<Routes />)
+  }
 }
 
 export default AdminPage

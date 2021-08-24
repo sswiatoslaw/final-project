@@ -1,0 +1,86 @@
+@import "src/assets/index";
+
+.baner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+
+  @include breakpoint(lg-only) {
+    margin-bottom: 100px;
+  }
+  &__container-img {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    transform: scale(1.1);
+
+    @include breakpoint(lg-only) {
+      transform: scale(1);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    padding: 0 20px;
+    text-align: center;
+    color: $White;
+
+    @include breakpoint(lg-only) {
+      padding: 0 20%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-family: $cormorant-garamond-font;
+    text-align: center;
+    text-transform: capitalize;
+    line-height: 61px;
+    color: $White;
+    @include fluid-type($font-48, $font-72);
+
+    @include breakpoint(md-up) {
+      margin-bottom: 12px;
+    }
+
+    @include breakpoint(lg-only) {
+      margin-bottom: 14px;
+      line-height: 86px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-weight: 300;
+
+    @include fluid-type($font-14, $font-16);
+
+    &--top {
+      margin-bottom: 7px;
+    }
+
+    &--bottom {
+      line-height: 28px;
+    }
+  }
+
+  &__btn {
+    margin-top: 110px;
+
+    @include breakpoint(lg-only) {
+      margin-top: 34px;
+    }
+  }
+}

@@ -48,7 +48,7 @@ const CatalogsPage = () => {
       .catch(err => {
         console.log(err)
       });
-  }, [])
+  }, [dispatch])
   
   return (
     <div>
@@ -60,6 +60,7 @@ const CatalogsPage = () => {
       <Modal
         title="Edit product"
         visible={isModalVisible}
+        onClose={isModalVisible}
         onOk={onOk}
         footer={[
           <Button color='primary' form="form" key="submit" htmlType="submit">

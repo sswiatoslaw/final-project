@@ -1,17 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
 $comfortaa-font: 'Comfortaa', cursive;
 $cormorant-garamond-font: 'Cormorant Garamond', serif;
 $spartan-font: 'Spartan', sans-serif;
-
+$amatic-sc-font: 'Amatic SC', sans-serif;
+$montserrat-font: 'Montserrat';
 $font-72: 72px;
 $font-64: 64px;
+$font-62: 62px;
 $font-56: 56px;
+$font-54: 54px;
 $font-48: 48px;
+$font-44: 44px;
 $font-36: 36px;
 $font-24: 24px;
 $font-18: 18px;
 $font-16: 16px;
 $font-14: 14px;
-
+$font-12: 12px;
 
 //size typography
 $min-vw: 400px;
@@ -29,4 +35,3 @@ $max-vw: 1440px;
     font-size: $max-font-size;
   }
 }
-

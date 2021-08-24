@@ -21,11 +21,11 @@ const Topbar = () => {
   const menuList = [
     {
       name: 'Products',
-      url: '/products'
+      url: '/admin/products'
     },
     {
       name: 'Categories',
-      url: '/categories'
+      url: '/admin/categories'
 
     },
   ]

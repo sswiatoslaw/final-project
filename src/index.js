@@ -1,21 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ErrorBoundary from './components/ErrorBoundary';
 import store from './store/store';
+import App from './components/App/App';
 import './assets/index.scss';
-import App from './components/App';
-import AdminPage from './pages/AdminPage'
-import { BrowserRouter } from 'react-router-dom';
+import 'antd/dist/antd.css';
+import axios from 'axios';
+
+axios.interceptors.request.use((config) => {
+  if (config.headers['No-Auth']) {
+    return config;
+  }
+  const accessToken = localStorage.getItem('token');
+  if (accessToken) {
+    config.headers.authorization = accessToken;
+  }
+  return config;
+}, function (error) {
+  return Promise.reject(error);
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ErrorBoundary>
         <BrowserRouter>
-          <AdminPage></AdminPage>
+          <App />
         </BrowserRouter>
-      </Provider>
-    </ErrorBoundary>
-  </React.StrictMode>,
-  document.getElementById('root'),
+      </ErrorBoundary>
+    </Provider>,
+    document.getElementById('root')
 );
