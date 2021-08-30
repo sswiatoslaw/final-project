@@ -7,8 +7,8 @@ import JoingMailing from '../../components/JoingMailing/JoingMailing';
 import { banerImagesDictionary, banerTextDictionary, banerTitleDictionary } from '../../dictionary/banerDictionary'
 import BlogMainContent from '../../containers/BlogMainContent';
 import Botanical from '../../components/Botanical';
-import BestSellersContent from '../../containers/BestSellersContent';
 import BlockImagesHome from '../../components/BlockImagesHome/BlockImagesHome';
+import BestSellers from '../../components/BestSellers';
 
 const MainPage = () => {
   return (
@@ -21,7 +21,7 @@ const MainPage = () => {
       <BlockImagesHome/>
       <Botanical/>
       <GuideToFavoriteLooks/>
-      <BestSellersContent/>
+      <BestSellers/>
       <Advantages/>
       <BlogMainContent/>
       <JoingMailing/>
