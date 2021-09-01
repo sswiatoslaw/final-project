@@ -12,11 +12,7 @@ function BlogMainContent ({ getAllSlides, allSlides }) {
   }, [getAllSlides, allSlides]);
 
   return (
-    <div className='wrapper'>
-      <h2 className='blog__title'>BLOG</h2>
       <BlogMain />
-
-    </div>
   );
 };
 

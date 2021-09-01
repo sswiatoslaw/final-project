@@ -6,7 +6,7 @@ import './BestSellers.scss';
 
 const BestSellers = ({ allProducts }) => {
   const [products, setProducts] = useState([]);
-  const [visible, setVisible] = useState(4);
+  const [visible, setVisible] = useState(16);
 
   const viewAllProducts = () => {
     setVisible((prevValue) => prevValue + allProducts.length);
@@ -26,7 +26,7 @@ const BestSellers = ({ allProducts }) => {
   return (
     <>
       <div className='wrapper'>
-       <section className='product__list'>
+       <section className='bestsellers product__list'>
          <h2 className='bestsellers__title'>BEST SELLERS</h2>
             <ul className='product__item'>
               {products.slice(0, visible).map((product) => (
