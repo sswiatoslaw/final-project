@@ -9,6 +9,7 @@ import BlogMainContent from '../../containers/BlogMainContent';
 import Botanical from '../../components/Botanical';
 import BlockImagesHome from '../../components/BlockImagesHome/BlockImagesHome';
 import BestSellers from '../../components/BestSellers';
+import BanerCarousel from '../../components/BanerCarousel/BanerCarousel';
 
 const MainPage = () => {
   return (
@@ -18,6 +19,7 @@ const MainPage = () => {
                                                                                                                            width='280px'
                                                                                                                            minWidth='335px'
       /> }/>
+      <BanerCarousel/>
       <BlockImagesHome/>
       <Botanical/>
       <GuideToFavoriteLooks/>
