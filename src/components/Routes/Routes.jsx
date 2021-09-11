@@ -5,14 +5,14 @@ import MainPage from '../../pages/MainPage/MainPage';
 import ShopPage from '../../pages/ShopPage/ShopPage';
 import LoginPage from '../../pages/LoginPage';
 import ContactUsPage from '../../pages/ContactUsPage';
-// import BlogPage from '../../pages/BlogPage/BlogPage';
+import BlogPage from '../../pages/BlogPage/BlogPage';
 import AboutPage from '../../pages/AboutPage';
 import ShoppingCartPage from '../../pages/ShoppingCartPage/ShoppingCartPage';
 import Footer from '../Footer/Footer';
 import BlocksArticlesPages from '../../pages/BlogPage/BlocksArticlesPages/BlocksArticlesPages';
 import FavoritePage from '../../pages/FavoritePage/FavoritePage';
 import RegisterPage from '../../pages/RegisterPage';
-import ProductPage from './../../pages/ProductPage/index';
+// import ProductPage from './../../pages/ProductPage/index';
 
 const Routes = () => {
   return (
@@ -35,7 +35,7 @@ const Routes = () => {
           <AboutPage/>
         </Route>
         <Route exact path='/blog'>
-          <ProductPage />
+          <BlogPage />
         </Route>
         <Route exact path='/blog/post'>
           <BlocksArticlesPages/>
