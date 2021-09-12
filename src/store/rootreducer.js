@@ -7,13 +7,15 @@ import formsDataReducer from './formsData/checkoutFormData/reducer';
 import categoryReducer from './category/reducer'
 import sizesReducer from './sizes/reducer';
 import filterReducer from './Filter/reducer';
+import colorReducer from './color/reducer';
 export default combineReducers({
   modal: modalReducer,
   allSlides: slidesReducer,
-  allProducts: productsReducer,
+  products: productsReducer,
   cart: cartReducer,
   userData: formsDataReducer,
   category: categoryReducer,
   sizes: sizesReducer,
+  color: colorReducer,
   filter: filterReducer,
 });

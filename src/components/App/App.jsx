@@ -4,12 +4,10 @@ import fetchProducts from '../../store/products/actions';
 import Routes from '../Routes';
 import './App.scss';
 
-function App ({ getAllProducts, allProducts }) {
+function App ({ getAllProducts }) {
   useEffect(() => {
-    if (allProducts.length === 0) {
-      getAllProducts();
-    }
-  }, [getAllProducts, allProducts]);
+    getAllProducts();
+  }, [getAllProducts]);
 
   return (
     <div className='App'>
@@ -18,16 +16,10 @@ function App ({ getAllProducts, allProducts }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    allProducts: state.allProducts
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(fetchProducts())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

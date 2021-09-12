@@ -39,7 +39,7 @@ function ProductContent ({ getAllProducts, allProducts }) {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts
+    allProducts: state.products.allProducts
   };
 };
 

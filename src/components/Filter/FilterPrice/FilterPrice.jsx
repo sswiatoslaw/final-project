@@ -1,37 +1,45 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './FilterPrice.scss'
 import { Slider, Input } from 'antd';
 import {MinusOutlined } from '@ant-design/icons';
-import {useSelector} from 'react-redux';
+import { connect} from 'react-redux';
+import { filterProducts } from '../../../store/Filter/action';
+import { setMinPrice, setMaxPrice } from '../../../store/products/actions';
 
-const FilterPrice = (props) => {
-  const getAllProducts = useSelector(state => state.allProducts)
-  const getPrice = getAllProducts.map((item) => { return item.currentPrice })
+const FilterPrice = ({addProductsByFilters, filter, minPrice, maxPrice}) => {
   const handleChangePrice = (value) => {
-    setMinPrice(value[0])
-    setMaxPrice(value[1])
+    addProductsByFilters({...filter, maxPrice: value[1], minPrice: value[0]})
   }
-  const [minPrice, setMinPrice] = useState()
-  const [maxPrice, setMaxPrice] = useState()
   return (
         <div className={'filter__price'}>
           <div className={'filter__price__input'}>
-               <Input className={'filter__price__input--item'} type='text' value={minPrice === undefined ? Math.min(...getPrice) : minPrice} />
+               <Input className={'filter__price__input--item'} type='text' value={filter.minPrice || minPrice} />
                 <MinusOutlined style={{padding: '5px'}} />
-               <Input className={'filter__price__input--item'} type='text' value={maxPrice === undefined ? Math.max(...getPrice) : maxPrice}/>
-               {props.button}
+               <Input className={'filter__price__input--item'} type='text' value={filter.maxPrice || maxPrice}/>
           </div>
       <Slider
       range
-      min={Math.min(...getPrice)}
-      max={Math.max(...getPrice)}
-      value={[minPrice === undefined ? Math.min(...getPrice) : minPrice, maxPrice === undefined ? Math.max(...getPrice) : maxPrice]}
+      max={maxPrice}
+      value={[filter.minPrice || minPrice, filter.maxPrice || maxPrice]}
       step={1}
-      onChange={
-        handleChangePrice
-        }/>
+      onChange={handleChangePrice}/>
         </div>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    filter: state.filter,
+    minPrice: state.products.minPrice,
+    maxPrice: state.products.maxPrice
+  };
+};
 
-export default FilterPrice
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addProductsByFilters: (elem) => dispatch(filterProducts(elem)),
+    addMinPrice: (elem) => dispatch(setMinPrice(elem)),
+    addMaxPrice: (elem) => dispatch(setMaxPrice(elem)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterPrice)

@@ -1,5 +1,10 @@
 @import './src/assets/index.scss';
 
+.product__list {
+  @include breakpoint(lg-only) {
+    width: 100%;
+  }
+}
 .product__item {
   display: grid;
     grid-template-columns: repeat(2, 157px);
@@ -10,5 +15,16 @@
       grid-template-columns: repeat(auto-fit, 280px);
       display: flex;
       flex-wrap: wrap;
+      height: 100%;
+      
+      &>div:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
+  &_not_found {
+    width: 100%;
+    height: 100%;
+  } 
 }

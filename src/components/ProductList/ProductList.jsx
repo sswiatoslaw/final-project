@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import './ProductList.scss';
 
-const ProductList = ({ allProducts }) => {
+const ProductList = ({ allProducts, filter }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -17,17 +17,17 @@ const ProductList = ({ allProducts }) => {
       return productsNameList
     })
   }, [allProducts]);
-
   return (
     <>
       <section className='product__list'>
         <ul className='product__item'>
-
-          { products.map((product) => {
-            return (
+          {(!products.length && Object.keys(filter).length !== 0
+            ? <div className='product__item_not_found'>Sorry, product not found</div>
+            : products.map((product) => {
+              return (
               <Product product={ product } key={ product.itemNo }/>
-            )
-          }) }
+              )
+            }))}
         </ul>
       </section>
     </>
@@ -36,7 +36,8 @@ const ProductList = ({ allProducts }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts
+    allProducts: state.products.allProducts,
+    filter: state.filter
   };
 };
 
