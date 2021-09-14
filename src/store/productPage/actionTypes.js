@@ -1,0 +1,1 @@
+export const LOAD_PRODUCT_ID = 'LOAD_PRODUCT_ID';

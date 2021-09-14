@@ -6,6 +6,7 @@ import { addItemToCartAction } from '../../store/cart/actions';
 import Loading from '../Loading/Loading';
 import { notification } from 'antd';
 import './ProductList.scss';
+import { useHistory } from 'react-router';
 
 const ProductList = ({
   allProducts,
@@ -17,6 +18,7 @@ const ProductList = ({
   addItemToCartAction
 }) => {
   const [isLoading, setLoading] = useState(true)
+  const history = useHistory();
 
   useEffect(() => {
     setProducts(() => {
@@ -74,6 +76,7 @@ const ProductList = ({
             return (
               <Product product={ product }
                        key={ product._id }
+                       onClick={() => { history.push(`/shop/${product.itemNo}`) }}
                        onToggleImportant={ () => onToggleImportant(product._id) }
                        addToCart={ () => addToCart(product._id) }/>
             )
