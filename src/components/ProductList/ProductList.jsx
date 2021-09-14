@@ -7,6 +7,8 @@ import Loading from '../Loading/Loading';
 import { notification } from 'antd';
 import './ProductList.scss';
 import { useHistory } from 'react-router';
+import { getProduct } from '../../api/getProduct';
+import { setProduct } from '../../store/productPage/actions';
 
 const ProductList = ({
   allProducts,
@@ -15,7 +17,8 @@ const ProductList = ({
   removeItemFromFavoriteAction,
   products,
   setProducts,
-  addItemToCartAction
+  addItemToCartAction,
+  addSelectedProductAction
 }) => {
   const [isLoading, setLoading] = useState(true)
   const history = useHistory();
@@ -76,7 +79,9 @@ const ProductList = ({
             return (
               <Product product={ product }
                        key={ product._id }
-                       onClick={() => { history.push(`/shop/${product.itemNo}`) }}
+                       onClick={() => {
+                         history.push(`/shop/${product.itemNo}`)
+                       }}
                        onToggleImportant={ () => onToggleImportant(product._id) }
                        addToCart={ () => addToCart(product._id) }/>
             )
@@ -96,6 +101,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addSelectedProductAction: (product) => dispatch(setProduct(product)),
     removeItemFromFavoriteAction: (productId) => dispatch(removeItemFromFavoriteAction(productId)),
     addItemToFavoriteAction: (productId) => dispatch(addItemToFavoriteAction(productId)),
     addItemToCartAction: (productId) => dispatch(addItemToCartAction(productId)),

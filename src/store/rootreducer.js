@@ -6,6 +6,7 @@ import cartReducer from './cart/reducer';
 import formsDataReducer from './formsData/checkoutFormData/reducer';
 import favoriteReducer from './favorite/reducer';
 import selectedProductReducer from './productPage/reducer';
+import selectedProductColorPageReducer from './productColorPage/reducer';
 
 export default combineReducers({
   modal: modalReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   cart: cartReducer,
   userData: formsDataReducer,
   favorite: favoriteReducer,
-  selectedProduct: selectedProductReducer
+  selectedProduct: selectedProductReducer,
+  identicProduct: selectedProductColorPageReducer,
 });
