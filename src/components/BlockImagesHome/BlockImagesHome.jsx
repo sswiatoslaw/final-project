@@ -1,7 +1,4 @@
 import React from 'react';
-import img1 from './images/image1.jpg'
-import img2 from './images/image2.jpg'
-import img3 from './images/image3.jpg'
 import './BlockImagesHome.scss'
 
 const BlockImagesHome = () => {
@@ -10,9 +7,9 @@ const BlockImagesHome = () => {
   <div className='wrapper'>
     
       <ul className='block__items'>
-        <li><img className='block__item--image' src={img1} alt='card-blog' width='380' height='380'/></li>
-        <li><img className='block__item--image' src={img2} alt='card-blog' width='380' height='380'/></li>
-        <li><img className='block__item-image' src={img3} alt='card-blog' width='380' height='380'/></li>
+        <li><img className='block__item--image' src='https://savvy-tots.s3.eu-west-3.amazonaws.com/block-images-home/001.jpeg' alt='card-blog' width='380' height='380'/></li>
+        <li><img className='block__item--image' src='https://savvy-tots.s3.eu-west-3.amazonaws.com/block-images-home/002.jpeg' alt='card-blog' width='380' height='380'/></li>
+        <li><img className='block__item-image' src='https://savvy-tots.s3.eu-west-3.amazonaws.com/block-images-home/003.jpeg' alt='card-blog' width='380' height='380'/></li>
       </ul>
      
   </div>

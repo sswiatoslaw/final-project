@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const BoughtTogether = ({ allProducts }) => {
+const YouMightLike = ({ allProducts }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const BoughtTogether = ({ allProducts }) => {
     <>
       <div className='wrapper'>
        <section className='product__list like' >
-         <h2 className='like__title'>Yoy Might Like</h2>
+         <h2 className='like__title'>You Might Like</h2>
            <Slider {...settings}>
             <ul className='product__item'></ul>
             {likeItems}
@@ -72,4 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(BoughtTogether);
+export default connect(mapStateToProps)(YouMightLike);
