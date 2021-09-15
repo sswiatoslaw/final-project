@@ -1,38 +1,40 @@
 import { Button, Card } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
-import { addItemToCartAction } from '../../store/cart/actions';
 import './Product.scss';
 import PropTypes from 'prop-types';
 import Rater from './Rater';
+import { addItemToCartAction } from '../../store/cart/actions';
 
 const { Meta } = Card;
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
+  const classNames = favorite.find(item => product._id === item._id) ? 'card important' : 'card';
+
   const addItemToCart = (product) => {
     addToCart(product);
   };
 
   return (
-    <div className='card'>
-      <li key={product._id}>
+    <div className={ classNames }>
+      <li key={ product._id }>
 
         <Card
           hoverable
-          style={{ width: '100%', textAlign: 'center', border: 'none', colorStyle: '#36403D' }}
-          cover={<img src={product.imageUrls[0]} alt={product.name} />}
+          style={ { width: '100%', textAlign: 'center', border: 'none', colorStyle: '#36403D' } }
+          cover={ <img src={ product.imageUrls[0] } alt={ product.name }/> }
         >
-          <HeartOutlined className='card__icon' />
+          <HeartOutlined className='card__icon' onClick={ onToggleImportant }/>
           <div className='card__title'>
             <Meta
-              title={product.name} />
+              title={ product.name }/>
           </div>
           <div>
             <span>
-              <Rater />
+              <Rater/>
             </span>
           </div>
-          <Button className='card__button' onClick={() => addItemToCart(product)}>To bag - $ {product.currentPrice} </Button>
+          <Button className='card__button' onClick={ () => addItemToCart(product) }>To bag - $ { product.currentPrice } </Button>
 
         </Card>
       </li>
@@ -41,7 +43,8 @@ const Product = ({ product, addToCart }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.products.allProducts
+    allProducts: state.products.allProducts,
+    favorite: state.favorite
   };
 };
 

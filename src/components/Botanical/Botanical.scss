@@ -1,0 +1,32 @@
+@import './src/assets/index.scss';
+
+.botanical {
+  padding-bottom: 120px;
+
+  &__title {
+  text-align: center;
+  font-family: $amatic-sc-font;
+  font-size: $font-44;
+  font-weight: 700;
+  margin: 89px 0 49px;
+  color: $CapeCod;
+
+  @include breakpoint(lg-only) {
+      font-size: $font-54;      
+    }
+  }
+}
+
+// &__soldOut {
+    //     color: $White;
+    //     position: absolute;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     width: 100px;
+    //     height: 40px;
+    //     background-color: $Sinbad;
+    //     margin-top: -350px;
+    //     font-family: $spartan-font;
+    //     font-weight: 400;
+    // }

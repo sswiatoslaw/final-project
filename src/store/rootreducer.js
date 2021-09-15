@@ -8,6 +8,8 @@ import categoryReducer from './category/reducer'
 import sizesReducer from './sizes/reducer';
 import filterReducer from './Filter/reducer';
 import colorReducer from './color/reducer';
+import favoriteReducer from './favorite/reducer';
+
 export default combineReducers({
   modal: modalReducer,
   allSlides: slidesReducer,
@@ -18,4 +20,5 @@ export default combineReducers({
   sizes: sizesReducer,
   color: colorReducer,
   filter: filterReducer,
+  favorite: favoriteReducer,
 });

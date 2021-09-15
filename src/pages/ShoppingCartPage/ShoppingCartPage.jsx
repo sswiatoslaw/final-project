@@ -1,34 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import CartProductsList from '../../components/CartProducts/CartProductsList';
 import Checkout from '../../components/Checkout/Checkout';
 import useWindowSize from '../../сustomHooks';
+import { getCartAction } from '../../store/cart/actions';
 import './ShoppingCartPage.scss';
 
-const ShoppingCartPage = ({ cart }) => {
+const ShoppingCartPage = ({ cart, getCart }) => {
+  useEffect(() => {
+    getCart();
+  }, [getCart])
+
   const size = useWindowSize();
 
-  if (!cart.length) {
-    return <h2>Your Bag is Empty</h2>;
-  }
-
-  if (size.width >= 769) {
-    return (
-      <div className='wrapper'>
-        <div className='cart__container'>
-          <Checkout/>
-          <CartProductsList/>
-        </div>
+  return (
+    !cart.length
+      ? <h2 className='pages__title'>Your Bag is Empty</h2>
+      : <div className='wrapper'>
+        { size.width >= 769
+          ? <div className='cart__container'>
+            <Checkout/>
+            <CartProductsList/>
+          </div>
+          : <>
+            <CartProductsList/>
+            <Checkout/>
+          </>
+        }
       </div>
-    )
-  } else {
-    return (
-      <div className='wrapper'>
-        <CartProductsList/>
-        <Checkout/>
-      </div>
-    )
-  }
+  )
 };
 
 const mapStateToProps = (state) => {
@@ -37,4 +37,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ShoppingCartPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCart: () => dispatch(getCartAction()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartPage);

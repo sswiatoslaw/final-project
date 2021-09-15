@@ -46,7 +46,7 @@ const FilterWrapper = ({ addToSizes, addToCategory, addToColors, categories, col
           >
             
             <SubMenu key='sub2' title='Category'>
-                     <Checkbox.Group ref={checkbox}
+                     <Checkbox.Group ref={checkbox} indeterminate
                     className={'checkbox__container'} options={categoriesOptions} onChange={(e) => handleChangeCheckbox(e, 'categories', checkbox)} />
             </SubMenu>
             <SubMenu key='sub3' title='Size'>

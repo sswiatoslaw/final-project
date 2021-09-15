@@ -1,43 +1,74 @@
 import './Header.scss';
 import React from 'react';
 import MenuComponent from './../Menu';
-import { Link } from 'react-router-dom';
-import { HeartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons';
+import { Link, useHistory } from 'react-router-dom';
+import { HeartOutlined, SearchOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons';
 import { toggle_isModalOpen } from '../../store/modal/actions';
 import { connect, useDispatch } from 'react-redux';
-import useWindowSize from '../../сustomHooks/useWindowSize';
+import { Button, Dropdown, Input, Menu, Form } from 'antd';
+import { searchProducts } from '../../api/searchProducts';
+import { setProducts } from '../../store/products/actions';
 
-function Header ({ cart }) {
+function Header ({ cart, favorite }) {
   const dispatch = useDispatch();
-  const size = useWindowSize();
+  const history = useHistory();
+
+  const onFinish = (e) => {
+    searchProducts(e)
+      .then(value => {
+        dispatch(setProducts(value.data))
+        history.push(`/shop?search=${e.query}`);
+      })
+  }
+  
+  const searchInput = (
+    <Menu>
+      <Form
+      onFinish={onFinish}>
+          <Form.Item
+            name='query'>
+            <Input
+              placeholder='Search...' />
+            </Form.Item>
+        <Button type='submit' htmlType='submit'>
+          Search
+        </Button>
+      </Form>
+    </Menu>
+  )
+  
   const toggleModal = () => {
     dispatch(toggle_isModalOpen());
   };
-
   return (
     <>
       <div className='header'>
         <div className='header__logo'>
-          <h1>
+          <a href="/#">
             Savvy<span>Tots</span>
-          </h1>
+          </a>
         </div>
         <div className='header__menu'>
-          {size.width >= 768 ? <MenuComponent mobile={true} /> : <MenuComponent mobile={false} />}
+         <MenuComponent />
         </div>
         <div className='header__icon'>
+          <Dropdown key='more' overlay={searchInput}>
+          <a href='/#' style={{
+            border: 'none',
+            padding: 0,
+          }}>
+            <SearchOutlined />
+          </a>
+          </Dropdown>
           <Link to='/favorite'>
-            <HeartOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} />
+            <HeartOutlined style={ { fontSize: '24px', color: '#A8D6CB' } }/><sup className='header__sup-text'>{ favorite.length }</sup>
           </Link>
           <Link to='/cart'>
-            <ShoppingOutlined style={{ fontSize: '24px', color: '#A8D6CB' }} /><sup className='header__sup-text'>{cart.length}</sup>
+            <ShoppingOutlined style={ { fontSize: '24px', color: '#A8D6CB' } }/><sup className='header__sup-text'>{ cart.length }</sup>
           </Link>
           <Link to='/login'>
-            <UserOutlined onClick={toggleModal} style={{ fontSize: '24px', color: '#A8D6CB' }} />
+            <UserOutlined onClick={ toggleModal } style={ { fontSize: '24px', color: '#A8D6CB' } }/>
           </Link>
-          {/* <Button onClick={toggleCollapsed} size='large'>
-            {React.createElement(collapsed ? MenuOutlined : CloseOutlined)}
-          </Button> */}
         </div>
       </div>
     </>
@@ -46,8 +77,15 @@ function Header ({ cart }) {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    favorite: state.favorite
   };
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
