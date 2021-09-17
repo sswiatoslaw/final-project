@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux';
 import './FilterWrapper.scss'
 import FilterPrice from '../FilterPrice/FilterPrice';
@@ -16,14 +16,13 @@ const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 const FilterWrapper = ({ addToSizes, addToCategory, addToColors, categories, color, size, filter, getProducts, addProductsByFilters, onClick, toogleClick }) => {
-  const checkbox = useRef()
   useEffect(() => {
     getCategory().then((response) => response).then((response) => addToCategory(response.data))
     getSizes().then((response) => addToSizes(response.data))
     getColors().then((response) => addToColors(response.data))
   }, [addToCategory, addToSizes, addToColors, addProductsByFilters])
   
-  const handleChangeCheckbox = (e, filterName, checkbox) => {
+  const handleChangeCheckbox = (e, filterName) => {
     addProductsByFilters({...filter, [filterName]: e})
   }
   const handleChangeFilterProducts = () => {
@@ -46,19 +45,19 @@ const FilterWrapper = ({ addToSizes, addToCategory, addToColors, categories, col
           >
             
             <SubMenu key='sub2' title='Category'>
-                     <Checkbox.Group ref={checkbox} indeterminate
-                    className={'checkbox__container'} options={categoriesOptions} onChange={(e) => handleChangeCheckbox(e, 'categories', checkbox)} />
+                     <Checkbox.Group
+                    className={'checkbox__container'} options={categoriesOptions} value={filter.categories} onChange={(e) => handleChangeCheckbox(e, 'categories')} />
             </SubMenu>
             <SubMenu key='sub3' title='Size'>
-                <Checkbox.Group className={'checkbox__container'} options={sizesOptions} onChange={(e) => handleChangeCheckbox(e, 'sizes')} />
+                <Checkbox.Group className={'checkbox__container'} options={sizesOptions} value={filter.sizes} onChange={(e) => handleChangeCheckbox(e, 'sizes')} />
             </SubMenu>
             <SubMenu key='sub4' title='Color'>
-                <Checkbox.Group className={'checkbox__container'} options={colorsOptions} onChange={(e) => handleChangeCheckbox(e, 'color')} />
+                <Checkbox.Group className={'checkbox__container'} options={colorsOptions} value={filter.color} onChange={(e) => handleChangeCheckbox(e, 'color')} />
             </SubMenu>
             <SubMenu key='sub5' title='Цена , USD'>
             <FilterPrice/>
             <Button text='Find' width='90%' minWidth='240px' height='40px' borderRadius='8px' onClick={(() => { handleChangeFilterProducts(); onClick() })} />
-            <Button text='Reset' width='90%' minWidth='240px' height='40px' borderRadius='8px' onClick={(() => { ClearFilteredProducts(checkbox); toogleClick() })} />
+            <Button text='Reset' width='90%' minWidth='240px' height='40px' borderRadius='8px' onClick={(() => { ClearFilteredProducts(); toogleClick() })} />
             </SubMenu>
           </Menu>
         </Sider>

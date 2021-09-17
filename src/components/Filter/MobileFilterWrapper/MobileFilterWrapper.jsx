@@ -7,7 +7,7 @@ const MobileFilterWrapper = () => {
   const [filterFlag, setfilterFlag] = useState(false)
   useEffect(() => {
     setfilterFlag(filterFlag)
-  }, [])
+  }, [filterFlag])
 
   const toggleModalFilters = () => {
     setfilterFlag(!filterFlag)
