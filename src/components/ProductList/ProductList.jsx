@@ -57,6 +57,7 @@ const ProductList = ({
   }
 
   const addToCart = (productId) => {
+    console.log(productId);
     if (token) {
       addItemToCartAction(productId)
     } else {
