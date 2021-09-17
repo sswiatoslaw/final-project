@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import './Product.scss';
 import PropTypes from 'prop-types';
 import Rater from './Rater';
-import { addItemToCartAction } from '../../store/cart/actions';
 
 const { Meta } = Card;
 
@@ -48,13 +47,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (itemNo) => dispatch(addItemToCartAction(itemNo))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps)(Product);
 
 Product.propTypes = {
   product: PropTypes.exact({
