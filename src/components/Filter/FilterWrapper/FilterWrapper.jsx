@@ -28,7 +28,7 @@ const FilterWrapper = ({ addToSizes, addToCategory, addToColors, categories, col
   const handleChangeFilterProducts = () => {
     getProducts()
   }
-  const ClearFilteredProducts = (checkbox) => {
+  const ClearFilteredProducts = () => {
     addProductsByFilters({})
     getProducts()
   }
