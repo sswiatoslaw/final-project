@@ -95,14 +95,14 @@
   border-color: $main-color;
 }
 
-// .ant-input, .ant-select:not(.ant-select-customize-input) .ant-select-selector {
-//   min-width: 300px;
-// }
-
-.anticon svg {
-  color: $main-color;
+.anticon.anticon-heart svg {
+  color:$logo-text-color;
 }
-
+.anticon.anticon-plus svg,
+.anticon.anticon-minus svg,
+.anticon.anticon-delete svg {
+  color: $main-color; 
+}
 .ant-form-item-explain,
 .ant-form-item-explain-error {
   text-align: right;
