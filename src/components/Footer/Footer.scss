@@ -26,7 +26,7 @@
 
     &__text {
         margin: 0 30px; 
-        padding-bottom: 50px;
+        padding-bottom: 30px;
 
          @include breakpoint(lg-only) {        
           font-size: 16px;
