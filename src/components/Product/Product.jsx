@@ -42,7 +42,7 @@ const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
     favorite: state.favorite
   };
 };

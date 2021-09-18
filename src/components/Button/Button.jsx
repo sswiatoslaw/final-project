@@ -12,14 +12,15 @@ const Button = ({
   height = '60px',
   minHeight,
   maxHeight,
-  textTransform = 'uppercase'
+  textTransform = 'uppercase',
+  borderRadius
 }) => {
   return (
     <ButtonComponent
       onClick={onClick}
       className={`btn btn--${modifier} btn__text  btn__text--${modifier}`}
       htmlType={htmlType}
-      style={{ width, minWidth, height, minHeight, maxHeight, textTransform }}>
+      style={{ width, minWidth, height, minHeight, maxHeight, textTransform, borderRadius }}>
       {text}
     </ButtonComponent>
   );
