@@ -88,7 +88,7 @@ const SaleNowContent = ({ allProducts, favorite, addItemToFavoriteAction, remove
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
     favorite: state.favorite,
   };
 };

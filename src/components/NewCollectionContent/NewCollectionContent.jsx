@@ -19,7 +19,7 @@ const NewCollectionContent = ({ allProducts, favorite, addItemToFavoriteAction, 
   useEffect(() => {
     setProducts(() => {
       const productsNameList = [];
-      allProducts.forEach(item => {
+      allProducts.forEach((item) => {
         if (!productsNameList.find(el => el.name === item.name && item.color)) {
           productsNameList.push(item)
         }
@@ -90,7 +90,7 @@ const NewCollectionContent = ({ allProducts, favorite, addItemToFavoriteAction, 
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
     favorite: state.favorite,
   };
 };
