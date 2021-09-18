@@ -15,7 +15,7 @@
     size: 24px;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 20px;    
   }
 
   &__title {
@@ -58,11 +58,10 @@ svg {
   font-size: $font-18;
 }
 
-.card .anticon svg {
-  color: $basic-color;
-}
+// .card .anticon svg {
+//   color: $basic-color;
+// }
 
-.card.important .anticon svg,
-.card.important .anticon svg {
+.card.important .card__icon svg {
   color: $main-color;
 }

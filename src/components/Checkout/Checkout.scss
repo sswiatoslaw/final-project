@@ -99,10 +99,12 @@
   min-width: 300px;
 }
 
-.anticon svg {
-  color: $main-color;
+// .anticon svg{
+//   color: $main-color;  
+// }
+.anticon.anticon-plus svg{
+  color: $main-color; 
 }
-
 .ant-form-item-explain,
 .ant-form-item-explain-error {
   text-align: right;
