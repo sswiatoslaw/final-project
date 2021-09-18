@@ -9,15 +9,14 @@ import './ProductList.scss';
 
 const ProductList = ({
   allProducts,
+  filter,
   favorite,
   addItemToFavoriteAction,
   removeItemFromFavoriteAction,
-  products,
-  setProducts,
   addItemToCartAction
 }) => {
   const [isLoading, setLoading] = useState(true)
-
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     setProducts(() => {
       const productsNameList = [];
@@ -58,6 +57,7 @@ const ProductList = ({
   }
 
   const addToCart = (productId) => {
+    console.log(productId);
     if (token) {
       addItemToCartAction(productId)
     } else {
@@ -69,15 +69,16 @@ const ProductList = ({
     <>
       <section className='product__list'>
         <ul className='product__item'>
-
-          { products.map((product) => {
-            return (
-              <Product product={ product }
-                       key={ product._id }
-                       onToggleImportant={ () => onToggleImportant(product._id) }
-                       addToCart={ () => addToCart(product._id) }/>
-            )
-          }) }
+          {(!products.length && Object.keys(filter).length !== 0
+            ? <div className='product__item_not_found'>Sorry, product not found</div>
+            : products.map((product) => {
+              return (
+                <Product product={ product }
+                key={ product._id }
+                onToggleImportant={ () => onToggleImportant(product._id) }
+                addToCart={ () => addToCart(product._id) }/>
+              )
+            }))}
         </ul>
       </section>
     </>
@@ -86,7 +87,8 @@ const ProductList = ({
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
+    filter: state.filter,
     favorite: state.favorite,
   };
 };
