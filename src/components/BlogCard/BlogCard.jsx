@@ -7,17 +7,17 @@ const BlogCard = ({slide}) => {
   const match = useRouteMatch()
   return (
  <>
-  <div className='blog__card'>
+  <ul className='blog__card'>
     
       <li key={slide._id}>
-      <Link to={`${match.url}/post`}>
+      <Link to={`${match.url}/post`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
                         <img className='blog__card--image' src={slide.imageUrl} alt='card-blog' width='380' height='380'/>
                         <div className='blog__card--date'>{moment(slide.date).format('ll')}</div>
                         <div className='blog__card--title'>{slide.title}</div>
                         </Link>
       </li>
      
-  </div>
+  </ul>
   
 </>
   )
