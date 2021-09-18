@@ -5,7 +5,7 @@ import { addFavoritesAction, getWishlistAction } from '../../store/favorite/acti
 
 const FavoritePage = ({favorite, onToggleImportant, getWishlist}) => {
   useEffect(() => {
-    getWishlist()
+    getWishlist();
   }, [getWishlist])
 
   return (

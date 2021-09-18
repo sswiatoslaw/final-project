@@ -26,7 +26,7 @@ const Botanical = ({ allProducts }) => {
   return (
     <>
       <div className='wrapper'>
-       <section className='product__list'>
+       <section className='botanical product__list'>
          <h2 className='botanical__title'>BOTANICAL</h2>
             <ul className='product__item'>
               {products.slice(3, visible).map((product) => (
@@ -42,7 +42,7 @@ const Botanical = ({ allProducts }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts
+    allProducts: state.products.allProducts
   };
 };
 

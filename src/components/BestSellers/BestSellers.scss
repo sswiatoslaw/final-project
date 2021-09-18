@@ -1,6 +1,9 @@
 @import './src/assets/index.scss';
 
-.bestsellers__title {
+.bestsellers {
+  padding-bottom: 69px;
+  
+  &__title {
   text-align: center;
   font-family: $amatic-sc-font;
   font-size: $font-44;
@@ -12,4 +15,5 @@
       font-size: $font-54;
       margin-bottom: 49px;
     }
+  }
 }

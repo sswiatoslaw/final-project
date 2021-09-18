@@ -1,0 +1,72 @@
+@import '../../assets/index.scss';
+
+.bought {
+  padding-bottom: 91px;
+  margin-left: 15px;
+  
+  @include breakpoint(lg-only) {
+      padding-left: 0;
+    }
+
+  &__title {
+  text-align: center;
+  font-family: $amatic-sc-font;
+  font-size: $font-44;
+  font-weight: 700;
+  margin-bottom: 49px;
+  color: $CapeCod;  
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, 157px);
+    grid-gap: 10px 20px;
+    justify-content: center;
+
+    @include breakpoint(lg-only) {
+      grid-template-columns: repeat(auto-fit, 280px);
+    }
+  }
+}
+
+.slick-slider {
+    align-items: center !important;
+}
+
+li {
+    list-style-type: none;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 20px !important;
+    background-color: $main-color;
+    opacity: .99 !important;
+    border-radius: 20px !important;
+    padding-top: 3px;
+
+    @include breakpoint(lg-only) {
+    font-size: 35px !important;
+    padding-top: 5px; 
+    
+    }
+          
+}
+
+.slick-prev {
+    left: -25px !important;
+
+    @include breakpoint(lg-only) {
+      left: -65px !important;
+    }
+    
+}
+.slick-current {
+    width: 0 !important;
+}
+
+.slick-dots li button:before {
+    font-size: 13px !important;
+    line-height: 18px !important;
+    width: 20px !important;
+    height: 20px !important;   
+}
