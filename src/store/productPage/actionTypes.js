@@ -1,1 +1,2 @@
 export const LOAD_PRODUCT_ID = 'LOAD_PRODUCT_ID';
+export const LOAD_PRODUCT_COLOR = 'LOAD_PRODUCT_COLOR';

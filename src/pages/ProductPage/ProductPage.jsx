@@ -5,7 +5,7 @@ import JoingMailing from '../../components/JoingMailing/JoingMailing';
 import ProductContentBlock from '../../components/ProductContentBlock/ProductContentBlock';
 import QuantityComponent from '../../components/QuantityComponent';
 import SelectSizesComponent from '../../components/SelectSizesComponent';
-import MobileTabProductImg from './../../components/Tab/MobileTabProductImg';
+import TabResponsive from './../../components/Tab/TabResponsive';
 import BoughtTogether from './../../components/BoughtTogether/BoughtTogether';
 import YouMightLike from '../../components/YouMightLike/YouMightLike';
 import './ProductPage.scss'
@@ -18,48 +18,35 @@ import { getProducts } from '../../api/getProducts';
 import { setProductColor } from '../../store/productColorPage/actions';
 import axios from 'axios';
 import { getColors } from '../../api/getColors';
+import { getColor } from '../../api/getColor';
 
-const ProductPage = ({addSelectedProductAction, identicProduct, selectedProduct, setProductColor}) => {
+const ProductPage = ({addSelectedProductAction, allProducts, identicProduct, selectedProduct, setProductColor}) => {
   const { id } = useParams();
-  const [array, setArray] = useState();
-
+  const [colorName, setColorName] = useState();
+  const stateIdenticProduct = [];
   useEffect(() => {
-    // getProducts().then(value => {
-    //   const test = value.data;
-    //   test.map(val => {
-    //     getColors().then(color => {
-    //       if (val.color == color.name) {
-    //         console.log(val._id)
-    //         axios.put(`https://boiling-dawn-71074.herokuapp.com/api/products/${val._id}`, {color: color._id}).then(res => console.log(res))
-    //       }
-    //     })
-    //   })
-    // })
-    const arr = []
+    getColor(selectedProduct.color).then(val => setColorName(val.data.name))
     getProduct(id).then(res => {
       addSelectedProductAction(res.data)
     })
 
-    getProducts().then(value => {
-      value.data.forEach((product) => {
-        if (product.name === selectedProduct.name && product.color === selectedProduct.color) {
-          arr.push(product)
-        }
-      })
-      setArray(arr)
-      setProductColor(arr)
+    allProducts.map((product) => {
+      if (product.name.toLowerCase() === selectedProduct.name.toLowerCase() && product.color !== selectedProduct.color) {
+        stateIdenticProduct.push(product)
+        setProductColor(stateIdenticProduct)
+      }
     })
-  }, [setProductColor])
+  }, [allProducts])
 
   return (
     <div className='wrapper'>
       <div className='product__block'>
         <div className='product__block-left'>
-          <MobileTabProductImg/>
+          <TabResponsive/>
           <Accordions/>
         </div>
         <div className='product__block-right'>
-          <h2 className='product__title'>{selectedProduct.name}: {selectedProduct.color}</h2>
+          <h2 className='product__title'>{selectedProduct.name}: {colorName}</h2>
           <h3 className='product__price'>${selectedProduct.currentPrice} {selectedProduct.previousPrice && <s className='previous-price'>${selectedProduct.previousPrice}</s>}</h3>
           <SelectSizesComponent/>
           <SelectColor />
@@ -78,8 +65,9 @@ const ProductPage = ({addSelectedProductAction, identicProduct, selectedProduct,
 
 const mapStateToProps = (state) => {
   return {
+    allProducts: state.allProducts,
     selectedProduct: state.selectedProduct,
-    identicProduct: state.identicProduct
+    identicProduct: state.identicProduct.arrayProduct
   };
 };
 

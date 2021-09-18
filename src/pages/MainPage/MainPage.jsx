@@ -14,11 +14,6 @@ import BanerCarousel from '../../components/BanerCarousel/BanerCarousel';
 const MainPage = () => {
   return (
     <>
-      <Baner imgPath={ banerImagesDictionary.main } imgName='woman with child' minHeight='742px' maxHeight='806px'
-             title={ banerTitleDictionary.mainTitle } textBottom={ banerTextDictionary.mainTextBottom } children={ <Button modifier='contained' text='Shop now'
-                                                                                                                           width='280px'
-                                                                                                                           minWidth='335px'
-      /> }/>
       <BanerCarousel/>
       <BlockImagesHome/>
       <Botanical/>
