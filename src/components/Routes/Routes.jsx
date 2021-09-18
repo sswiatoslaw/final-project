@@ -12,6 +12,9 @@ import Footer from '../Footer/Footer';
 import BlocksArticlesPages from '../../pages/BlogPage/BlocksArticlesPages/BlocksArticlesPages';
 import FavoritePage from '../../pages/FavoritePage/FavoritePage';
 import RegisterPage from '../../pages/RegisterPage';
+import NewCollectionPage from './../../pages/NewCollectionPage/NewCollectionPage';
+import SaleNowPage from './../../pages/SaleNowPage/index';
+import KnittingCollectionPage from './../../pages/KnittingCollectionPage/index';
 
 const Routes = () => {
   return (
@@ -47,6 +50,15 @@ const Routes = () => {
         </Route>
         <Route path='/cart'>
           <ShoppingCartPage />
+        </Route>
+        <Route path='/new-collection'>
+          <NewCollectionPage />
+        </Route>
+        <Route path='/sale-now'>
+          <SaleNowPage />
+        </Route>
+        <Route path='/knitting-collection'>
+          <KnittingCollectionPage />
         </Route>
       </Switch>
       <Footer/>
