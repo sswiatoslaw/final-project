@@ -7,6 +7,8 @@ const adminReducer = (state = initialState, action) => {
       return {...state, products: action.payload}
     case types.ACTIVE_CARD:
       return {...state, card: action.payload}
+    case types.GET_COLORS:
+      return {...state, colors: action.payload}
     default:
       return state;
   }

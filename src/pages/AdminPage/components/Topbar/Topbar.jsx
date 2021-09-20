@@ -28,6 +28,10 @@ const Topbar = () => {
       url: '/admin/categories'
 
     },
+    {
+      name: 'Colors',
+      url: '/admin/colors'
+    }
   ]
   const handleLeftPanel = () => {
     setLeftPanel(!leftPanel)

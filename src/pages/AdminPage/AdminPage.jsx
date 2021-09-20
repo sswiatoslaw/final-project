@@ -4,6 +4,7 @@ import Topbar from './components/Topbar';
 import ProductsPage from './ProductsPage';
 import CatalogsPage from './CatalogsPage';
 import Routes from '../../components/Routes';
+import ColorsPage from './ColorsPage/ColorsPage';
 
 const AdminPage = () => {
   const history = useHistory();
@@ -17,6 +18,9 @@ const AdminPage = () => {
           </Route>
           <Route exact path="/admin/categories">
             <CatalogsPage />
+          </Route>
+          <Route exact path='/admin/colors'>
+            <ColorsPage />
           </Route>
         </Switch>
       </>
