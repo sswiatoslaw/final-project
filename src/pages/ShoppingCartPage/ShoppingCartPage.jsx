@@ -5,8 +5,9 @@ import Checkout from '../../components/Checkout/Checkout';
 import useWindowSize from '../../сustomHooks';
 import { getCartAction } from '../../store/cart/actions';
 import './ShoppingCartPage.scss';
+import EmptyBanner from '../../components/EmptyBanner';
 
-const ShoppingCartPage = ({ cart, getCart }) => {
+const ShoppingCartPage = ({cart, getCart}) => {
   useEffect(() => {
     getCart();
   }, [getCart])
@@ -15,7 +16,7 @@ const ShoppingCartPage = ({ cart, getCart }) => {
 
   return (
     !cart.length
-      ? <h2 className='pages__title'>Your Bag is Empty</h2>
+      ? <EmptyBanner title='Your cart is currently empty'/>
       : <div className='wrapper'>
         { size.width >= 769
           ? <div className='cart__container'>

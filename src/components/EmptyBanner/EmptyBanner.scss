@@ -1,0 +1,20 @@
+@import 'src/assets/index';
+
+.empty {
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://savvy-tots.s3.eu-west-3.amazonaws.com/empty.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &__title {
+    @include fluid-type($font-24, $font-54);
+    color: $text-color;
+    font-weight: bold;
+  }
+}

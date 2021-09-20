@@ -17,7 +17,7 @@ const mainTextBottom = 'Baby’s shop';
 const shopTextBottom = 'BWe celebrate styles and colors not gender-specifically categorized. All of our clothing and designs will fit and look beautiful on any baby, male or female.';
 const newbornSleepSchedulesTextBottom = 'by Stephanie Gray';
 
-export const banerImagesDictionary = {
+export const bannerImagesDictionary = {
   main,
   shop,
   about,
@@ -26,7 +26,7 @@ export const banerImagesDictionary = {
   contactUs
 };
 
-export const banerTitleDictionary = {
+export const bannerTitleDictionary = {
   mainTitle,
   shopTitle,
   aboutTitle,
@@ -35,7 +35,7 @@ export const banerTitleDictionary = {
   contactUsTitle
 };
 
-export const banerTextDictionary = {
+export const bannerTextDictionary = {
   newbornSleepSchedulesTextTop,
   mainTextBottom,
   shopTextBottom,
