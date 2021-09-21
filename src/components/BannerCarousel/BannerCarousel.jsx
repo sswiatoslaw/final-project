@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import './BanerCarousel.scss'
+import './BannerCarousel.scss'
 
-const BanerCarousel = () => {
+const BannerCarousel = () => {
   const history = useHistory();
   const onClickItemEvent = (item) => {
     if (item === 0) {
@@ -45,4 +45,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(BanerCarousel);
+export default connect(mapStateToProps)(BannerCarousel);
