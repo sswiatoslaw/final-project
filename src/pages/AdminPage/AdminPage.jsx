@@ -11,7 +11,7 @@ const AdminPage = () => {
   useEffect(() => {
     console.log(localStorage.getItem('token'))
   }, [])
-  if (localStorage.getItem('token')) {
+  if (localStorage.getItem('user').isAdmin) {
     return (
       <>
         <Topbar />

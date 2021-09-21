@@ -18,6 +18,7 @@ const LoginPage = () => {
         console.log(userData)
         axios.post('https://boiling-dawn-71074.herokuapp.com/api/customers/login', userData)
           .then(loginResult => {
+            localStorage.setItem('user', loginResult.data)
             localStorage.setItem('token', loginResult.data.token)
           })
           .catch(error => {
