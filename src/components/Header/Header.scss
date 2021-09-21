@@ -25,7 +25,7 @@
   &__logo {
     display: flex;
 
-    h1 {
+    a {
       display: flex;
       flex-direction: column;
       color: #5E6A67;
@@ -44,6 +44,7 @@
     align-items: center;
 
     .ant-menu {
+      width: 65vw;
       display: flex;
       gap: 46px;
       list-style: none;
@@ -102,10 +103,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .ant-menu-root {
-    width: 20%;
-  }
   .header__menu{
     width: 50px;
+    .ant-menu {
+      width: 20%;
+    }  
   }
 }

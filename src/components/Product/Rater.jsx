@@ -15,7 +15,7 @@ class Rater extends React.Component {
   render () {
     const { value } = this.state;
     return (
-      <span>
+      <span >
         <Rate tooltips={desc} onChange={this.handleChange} value={value} />
       </span>
     );

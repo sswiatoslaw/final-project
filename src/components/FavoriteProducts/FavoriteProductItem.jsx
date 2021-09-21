@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
-import { addItemToCartAction } from '../../store/cart/actions';
 import { removeItemFromFavoriteAction } from '../../store/favorite/actions';
 import './FavoriteProduct.scss';
 
-const FavoriteProductItem = ({product, addItemToCartAction, removeItemFromFavoriteAction, favorite}) => {
+const FavoriteProductItem = ({product, addToCart, removeItemFromFavoriteAction, favorite}) => {
   const {imageUrls, name, color, currentPrice, sizes, quantity, _id} = product;
 
-  const addItemToCart = () => {
-    addItemToCartAction(product);
+  const addItemToCart = (product) => {
+    addToCart(product);
   };
 
   const removeItemImportant = (productId) => {
@@ -40,7 +40,7 @@ const FavoriteProductItem = ({product, addItemToCartAction, removeItemFromFavori
       </div>
 
       <div className='favorite__content favorite__content--btn'>
-        <Button modifier='contained' text='Add to cart' onClick={ addItemToCart } width='120px' height='44px'/>
+        <Button modifier='contained' text='Add to cart' onClick={ () => addItemToCart(product) } width='120px' height='44px'/>
         <span className='favorite__remove' onClick={ () => removeItemImportant(_id) }>Remove</span>
       </div>
     </>
@@ -55,9 +55,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addItemToCartAction: (productId) => dispatch(addItemToCartAction(productId)),
     removeItemFromFavoriteAction: (productId) => dispatch(removeItemFromFavoriteAction(productId)),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteProductItem);
+
+FavoriteProductItem.propTypes = {
+  imageUrls: PropTypes.array,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  currentPrice: PropTypes.number,
+  sizes: PropTypes.string,
+  quantity: PropTypes.number,
+  _id: PropTypes.string,
+};

@@ -1,0 +1,11 @@
+@import 'src/assets/index';
+
+.sale-now {
+    &__article {
+    margin-bottom: 50px;
+    text-align: center;
+    }    
+    &__text {
+        font-size: $font-36;
+    }
+}

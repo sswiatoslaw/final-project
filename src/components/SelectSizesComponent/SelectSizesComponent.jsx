@@ -14,11 +14,11 @@ const SelectSizesComponent = () => {
 
   useEffect(() => {
     setSizes(() => {
-      const getSizesNameList = [];
+      const sizesNameList = [];
       getSizes()
         .then(res => res.data
-          .map(item => getSizesNameList.push(item.name)));
-      return getSizesNameList
+          .map(item => sizesNameList.push(item.name)));
+      return sizesNameList
     })
   }, []);
 

@@ -60,7 +60,7 @@ const CatalogsPage = () => {
       <Modal
         title="Edit product"
         visible={isModalVisible}
-        onClose={isModalVisible}
+        onCancel={() => { setIsModalVisible(false) }}
         onOk={onOk}
         footer={[
           <Button color='primary' form="form" key="submit" htmlType="submit">

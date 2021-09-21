@@ -1,0 +1,43 @@
+@import '../../assets/index.scss';
+
+
+.carousel-root {
+    width: 100% !important;
+    font-family:cursive;
+    padding-bottom: 40px;
+}
+
+.carousel__image {
+    @include breakpoint(lg-only) {
+     max-height: 75vh !important;
+   }
+
+   &--title {
+      color: $footer-bg-color;
+      font-size: $font-24; 
+      margin-top: -50px;
+      text-align: start;
+      padding-left:50px;
+        
+      @include breakpoint(lg-only) {       
+       font-size: $font-64; 
+       margin-top: -150px;                  
+        }      
+   }
+}
+
+.control-dots {
+    display: none !important;
+}
+
+.carousel {
+    text-align: center !important;
+}
+
+.thumb {
+    width: 100px !important; 
+
+    @include breakpoint(lg-only) {       
+         width: 150px !important;                
+    }    
+}

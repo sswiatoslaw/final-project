@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
-import { addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
+import { addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
+import { addItemToCartAction } from '../../store/cart/actions';
 import Loading from '../Loading/Loading';
 import { notification } from 'antd';
 import './ProductList.scss';
 
-const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavoriteAction, removeItemFromFavoriteAction, products, setProducts}) => {
-  useEffect(() => {
-    const localStoreFromFavorite = localStorage.getItem('favorite') === null ? [] : Array.from(JSON.parse(localStorage.getItem('favorite')))
-    if (localStoreFromFavorite.length !== 0) {
-      addFavoritesAction(localStoreFromFavorite)
-    }
-  }, [addFavoritesAction])
-
+const ProductList = ({
+  allProducts,
+  filter,
+  favorite,
+  addItemToFavoriteAction,
+  removeItemFromFavoriteAction,
+  addItemToCartAction
+}) => {
   const [isLoading, setLoading] = useState(true)
-
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     setProducts(() => {
       const productsNameList = [];
@@ -28,15 +29,17 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
       return productsNameList
     })
   }, [allProducts, setProducts])
+
   if (isLoading) {
     return <Loading/>
   }
 
-  const openErrorNotification = () => {
+  const token = localStorage.getItem('token');
+
+  const openErrorNotification = (description) => {
     notification.error({
       message: 'Please login to your account.',
-      description:
-        'Only registered user can use the favorites',
+      description: `Only registered user can use the ${description}`,
       duration: 5,
       placement: 'bottomRight',
       className: 'notification__error',
@@ -44,13 +47,21 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
   };
 
   const onToggleImportant = (productId) => {
-    const token = localStorage.getItem('token');
     if (token) {
       favorite.find(product => product._id === productId)
         ? removeItemFromFavoriteAction(productId)
         : addItemToFavoriteAction(productId)
     } else {
-      openErrorNotification()
+      openErrorNotification('favorites')
+    }
+  }
+
+  const addToCart = (productId) => {
+    console.log(productId);
+    if (token) {
+      addItemToCartAction(productId)
+    } else {
+      openErrorNotification('cart')
     }
   }
 
@@ -58,12 +69,16 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
     <>
       <section className='product__list'>
         <ul className='product__item'>
-
-          { products.map((product) => {
-            return (
-              <Product product={ product } key={ product._id } onToggleImportant={ () => onToggleImportant(product._id) }/>
-            )
-          }) }
+          {(!products.length && Object.keys(filter).length !== 0
+            ? <div className='product__item_not_found'>Sorry, product not found</div>
+            : products.map((product) => {
+              return (
+                <Product product={ product }
+                key={ product._id }
+                onToggleImportant={ () => onToggleImportant(product._id) }
+                addToCart={ () => addToCart(product._id) }/>
+              )
+            }))}
         </ul>
       </section>
     </>
@@ -72,8 +87,9 @@ const ProductList = ({ allProducts, favorite, addFavoritesAction, addItemToFavor
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
-    favorite: state.favorite
+    allProducts: state.products.allProducts,
+    filter: state.filter,
+    favorite: state.favorite,
   };
 };
 
@@ -81,7 +97,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     removeItemFromFavoriteAction: (productId) => dispatch(removeItemFromFavoriteAction(productId)),
     addItemToFavoriteAction: (productId) => dispatch(addItemToFavoriteAction(productId)),
-    addFavoritesAction: (arr) => dispatch(addFavoritesAction(arr)),
+    addItemToCartAction: (productId) => dispatch(addItemToCartAction(productId)),
   }
 }
 

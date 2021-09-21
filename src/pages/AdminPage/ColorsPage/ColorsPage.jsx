@@ -30,16 +30,10 @@ const ColorsPage = () => {
       title: 'HEX',
       dataIndex: 'cssValue',
       key: 'cssValue',
-      render: cssValue => (
-        <>
-        {cssValue.map(value => {
-          return (
+      render: (value, record) => (
             <Tag color={value} key={value}>
-              {value.toUpperCase()}
+              {value}
             </Tag>
-          )
-        })}
-        </>
       )
     },
     {

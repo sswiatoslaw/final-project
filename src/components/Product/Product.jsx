@@ -1,7 +1,6 @@
 import { Button, Card } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
-import { addItemToCartAction } from '../../store/cart/actions';
 import './Product.scss';
 import PropTypes from 'prop-types';
 import Rater from './Rater';
@@ -34,7 +33,7 @@ const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
               <Rater/>
             </span>
           </div>
-          <Button className='card__button' onClick={ () => addItemToCart(product) }>To bag - $ { product.currentPrice } </Button>
+          <Button className='card__button' onClick={ () => addItemToCart(product._id) }>To bag - $ { product.currentPrice } </Button>
 
         </Card>
       </li>
@@ -43,18 +42,12 @@ const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
     favorite: state.favorite
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (productId) => dispatch(addItemToCartAction(productId))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps)(Product);
 
 Product.propTypes = {
   product: PropTypes.exact({

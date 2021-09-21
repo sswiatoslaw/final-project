@@ -30,7 +30,14 @@ const ProductsPage = () => {
     { title: 'Price', dataIndex: 'currentPrice', key: 'currentPrice' },
     { title: 'Quantity', dataIndex: 'quantity', key: 'quantity'},
     { title: 'Size', dataIndex: 'sizes', key: 'sizes' },
-    { title: 'Color', dataIndex: 'color', key: 'color' },
+    {
+      title: 'Color',
+      dataIndex: 'color',
+      key: 'color',
+      render: (value, record) => (
+        getColor
+      )
+    },
     {
       title: 'Action',
       key: 'action',
@@ -63,7 +70,7 @@ const ProductsPage = () => {
       <Modal
         title="Edit product"
         visible={isModalVisible}
-        onClose={isModalVisible}
+        onCancel={() => { setIsModalVisible(false) }}
         onOk={onOk}
         footer={[
           <Button color='primary' form="form" key="submit" htmlType="submit">
