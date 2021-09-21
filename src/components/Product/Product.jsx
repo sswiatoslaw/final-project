@@ -7,7 +7,7 @@ import Rater from './Rater';
 
 const { Meta } = Card;
 
-const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
+const Product = ({ product, addToCart, onClick, onToggleImportant, favorite }) => {
   const classNames = favorite.find(item => product._id === item._id) ? 'card important' : 'card';
 
   const addItemToCart = (product) => {
@@ -21,7 +21,7 @@ const Product = ({ product, addToCart, onToggleImportant, favorite }) => {
         <Card
           hoverable
           style={ { width: '100%', textAlign: 'center', border: 'none', colorStyle: '#36403D' } }
-          cover={ <img src={ product.imageUrls[0] } alt={ product.name }/> }
+          cover={ <img onClick={onClick} src={ product.imageUrls[0] } alt={ product.name }/> }
         >
           <HeartOutlined className='card__icon' onClick={ onToggleImportant }/>
           <div className='card__title'>

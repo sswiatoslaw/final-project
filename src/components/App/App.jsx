@@ -5,6 +5,8 @@ import { getCustomerAction, getWishlistAction } from '../../store/favorite/actio
 import { getCartAction } from '../../store/cart/actions';
 import Routes from '../Routes';
 import './App.scss';
+import { Route, Switch } from 'react-router-dom';
+import AdminPage from '../../pages/AdminPage';
 
 function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
   useEffect(() => {
@@ -19,7 +21,14 @@ function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
 
   return (
     <div className='App'>
-      <Routes/>
+      <Switch>
+        <Route exact path='/'>
+          <Routes />
+        </Route>
+        <Route path='/admin'>
+          <AdminPage />
+        </Route>
+      </Switch>x
     </div>
   );
 }

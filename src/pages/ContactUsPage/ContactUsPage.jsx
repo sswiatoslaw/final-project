@@ -2,7 +2,7 @@ import Button from '../../components/Button/Button'
 import React from 'react'
 import FeedbackForm from '../../components/FeedbackForm/FeedbackForm'
 import Banner from '../../components/Banners/Banner'
-import { bannerImagesDictionary, bannerTitleDictionary } from '../../dictionary/banerDictionary'
+import { bannerImagesDictionary, bannerTitleDictionary } from '../../dictionary/bannerDictionary';
 const ContactUsPage = () => {
   return (
         <div>
