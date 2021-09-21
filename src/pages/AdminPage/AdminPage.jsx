@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom';
 import Topbar from './components/Topbar';
 import ProductsPage from './ProductsPage';
@@ -8,6 +8,9 @@ import ColorsPage from './ColorsPage/ColorsPage';
 
 const AdminPage = () => {
   const history = useHistory();
+  useEffect(() => {
+    console.log(localStorage.getItem('token'))
+  }, [])
   if (localStorage.getItem('token')) {
     return (
       <>
