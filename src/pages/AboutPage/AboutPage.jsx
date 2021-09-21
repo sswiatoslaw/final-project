@@ -1,13 +1,13 @@
 import React from 'react'
-import Baner from '../../components/Baners/Baner'
-import {banerImagesDictionary, banerTitleDictionary} from '../../dictionary/banerDictionary'
+import Banner from '../../components/Banners/Banner'
+import {bannerImagesDictionary, bannerTitleDictionary} from '../../dictionary/banerDictionary'
 import AboutContent from '../../containers/AboutContent/AboutContent'
 import JoingMailing from '../../components/JoingMailing/JoingMailing'
 
 const AboutPage = () => {
   return (
         <div>
-            <Baner imgPath={banerImagesDictionary.about} imgName='Baby boy' title={banerTitleDictionary.aboutTitle}/>
+            <Banner imgPath={bannerImagesDictionary.about} imgName='Baby boy' title={bannerTitleDictionary.aboutTitle}/>
             <AboutContent/>
             <JoingMailing/>
         </div>
