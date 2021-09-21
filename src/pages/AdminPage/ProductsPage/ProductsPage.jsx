@@ -4,12 +4,14 @@ import axios from 'axios'
 import 'antd/dist/antd.css'
 import { getProducts, recCard } from '../../../store/admin/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { getColor } from '../../../api/getColor'
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.admin.products)
   const activeEditProduct = useSelector(state => state.admin.card)
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [tableColor, setTableColor] = useState()
   const updateCard = (res) => {
     dispatch(recCard(res))
     setIsModalVisible(!isModalVisible)
@@ -30,14 +32,7 @@ const ProductsPage = () => {
     { title: 'Price', dataIndex: 'currentPrice', key: 'currentPrice' },
     { title: 'Quantity', dataIndex: 'quantity', key: 'quantity'},
     { title: 'Size', dataIndex: 'sizes', key: 'sizes' },
-    {
-      title: 'Color',
-      dataIndex: 'color',
-      key: 'color',
-      render: (value, record) => (
-        getColor
-      )
-    },
+    { title: 'Color', dataIndex: 'color', key: 'color' },
     {
       title: 'Action',
       key: 'action',

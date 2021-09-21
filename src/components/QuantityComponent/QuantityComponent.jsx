@@ -9,6 +9,8 @@ const ButtonGroup = Button.Group;
 
 const QuantityComponent = ({cartQuantity, id, quantityDecrease, quantityIncrease}) => {
   return (
+    <div>
+    <h3 className='select__title'>Quantity</h3>
     <ButtonGroup>
       <Button onClick={ () => quantityDecrease(id) } style={ {border: 'none'} }>
         <MinusOutlined/>
@@ -20,6 +22,7 @@ const QuantityComponent = ({cartQuantity, id, quantityDecrease, quantityIncrease
         <PlusOutlined/>
       </Button>
     </ButtonGroup>
+    </div>
   );
 };
 

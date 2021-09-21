@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
-
+  
   @include breakpoint(lg-only) {
     margin-bottom: 100px;
   }

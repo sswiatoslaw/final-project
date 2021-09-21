@@ -10,6 +10,8 @@ import filterReducer from './Filter/reducer';
 import colorReducer from './color/reducer';
 import favoriteReducer from './favorite/reducer';
 import adminReducer from './admin/reducer';
+import selectedProductReducer from './productPage/reducer';
+import selectedProductColorPageReducer from './productColorPage/reducer';
 
 export default combineReducers({
   admin: adminReducer,
@@ -23,4 +25,6 @@ export default combineReducers({
   color: colorReducer,
   filter: filterReducer,
   favorite: favoriteReducer,
+  selectedProduct: selectedProductReducer,
+  identicProduct: selectedProductColorPageReducer,
 });
