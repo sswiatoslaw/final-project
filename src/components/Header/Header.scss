@@ -28,12 +28,15 @@
     a {
       display: flex;
       flex-direction: column;
-      color: #5E6A67;
+      color: $Corduroy;
 
+      &:hover {
+        color: $Sinbad;
+      }
       span {
         line-height: 10px;
         font-size: 10px;
-        color: #A8D6CB;
+        color: $Sinbad;
         opacity: 0.9;
       }
     }
@@ -57,7 +60,7 @@
         .ant-menu-title-content {
           a {
             font-weight: 500;
-            color: #36403D;
+            color: $CapeCod;
           }
         }
       }
@@ -68,7 +71,7 @@
             font-size: 24px;
             font-weight: 300;
             text-decoration: none;
-            color: #5E6A67;
+            color: $Corduroy;
           }
         }
       }
@@ -79,7 +82,12 @@
             font-size: 24px;
             font-weight: 300;
             text-decoration: none;
-            color: #5E6A67;
+            color: $Corduroy;
+
+            &:hover {
+              color: $Sinbad;
+           
+            }
           }
         }
       }
@@ -109,4 +117,9 @@
       width: 20%;
     }  
   }
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-active.ant-menu-item-only-child:hover::after{
+  border-bottom: 2px solid $Sinbad;
+
 }
