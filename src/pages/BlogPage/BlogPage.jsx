@@ -1,5 +1,5 @@
 import React from 'react'
-import { bannerImagesDictionary, bannerTitleDictionary } from '../../dictionary/banerDictionary';
+import { bannerImagesDictionary, bannerTitleDictionary } from '../../dictionary/bannerDictionary';
 import Banner from '../../components/Banners/Banner';
 import JoingMailing from '../../components/JoingMailing/JoingMailing';
 import BlogContainer from './../../containers/BlogContainer/index';

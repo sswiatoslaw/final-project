@@ -2,7 +2,7 @@ import React from 'react';
 import './ShopPage.scss'
 import Banner from '../../components/Banners/Banner';
 import JoingMailing from '../../components/JoingMailing/JoingMailing';
-import { bannerImagesDictionary, bannerTextDictionary, bannerTitleDictionary } from '../../dictionary/banerDictionary';
+import { bannerImagesDictionary, bannerTextDictionary, bannerTitleDictionary } from '../../dictionary/bannerDictionary';
 import FilterResponsive from '../../components/Filter/FilterResponsive/FilterResponsive';
 import ProductList from '../../components/ProductList/ProductList';
 import Sort from '../../components/Sort/Sort';

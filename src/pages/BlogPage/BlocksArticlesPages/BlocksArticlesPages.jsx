@@ -1,7 +1,7 @@
 import React from 'react'
 import BlogContent from '../../../containers/BlogContent/BlogContent'
 import Banner from '../../../components/Banners/Banner'
-import {bannerImagesDictionary, bannerTitleDictionary, bannerTextDictionary} from '../../../dictionary/banerDictionary'
+import {bannerImagesDictionary, bannerTitleDictionary, bannerTextDictionary} from '../../../dictionary/bannerDictionary'
 import JoingMailing from '../../../components/JoingMailing/JoingMailing'
 import FeedbackForm from '../../../components/FeedbackForm/FeedbackForm'
 import Button from '../../../components/Button/Button'
