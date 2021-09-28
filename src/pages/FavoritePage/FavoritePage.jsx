@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import FavoriteProductsList from '../../components/FavoriteProducts/FavoriteProductsList';
 import { addFavoritesAction, getWishlistAction } from '../../store/favorite/actions';
+import EmptyBanner from '../../components/EmptyBanner';
 
 const FavoritePage = ({favorite, onToggleImportant, getWishlist}) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const FavoritePage = ({favorite, onToggleImportant, getWishlist}) => {
   return (
     <>
       { !favorite.length
-        ? <h2 className='pages__title'>Your Favorite List is Empty</h2>
+        ? <EmptyBanner title='Your Favorite List is Empty'/>
         : <FavoriteProductsList
           onToggleImportant={ onToggleImportant }
         /> }
