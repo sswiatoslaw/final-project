@@ -1,0 +1,19 @@
+.our-mailing-list{
+    @include breakpoint(sm-only);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $amatic-sc-font;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    background-color: $Harp;
+    &_text {
+    margin: 38px 77px 31px;
+    }
+    #send-mail{
+        margin-bottom: 61px;
+   
+    }
+}
