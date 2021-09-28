@@ -12,7 +12,10 @@ import Footer from '../Footer/Footer';
 import BlocksArticlesPages from '../../pages/BlogPage/BlocksArticlesPages/BlocksArticlesPages';
 import FavoritePage from '../../pages/FavoritePage/FavoritePage';
 import RegisterPage from '../../pages/RegisterPage';
-
+import NewCollectionPage from './../../pages/NewCollectionPage/NewCollectionPage';
+import SaleNowPage from './../../pages/SaleNowPage/index';
+import KnittingCollectionPage from './../../pages/KnittingCollectionPage/index';
+import AdminPage from './../../pages/AdminPage'
 const Routes = () => {
   return (
     <>
@@ -20,6 +23,9 @@ const Routes = () => {
       <Switch>
         <Route exact path='/'>
           <MainPage />
+        </Route>
+        <Route path='/admin'>
+          <AdminPage />
         </Route>
         <Route path='/shop'>
           <ShopPage />
@@ -47,6 +53,15 @@ const Routes = () => {
         </Route>
         <Route path='/cart'>
           <ShoppingCartPage />
+        </Route>
+        <Route path='/new-collection'>
+          <NewCollectionPage />
+        </Route>
+        <Route path='/sale-now'>
+          <SaleNowPage />
+        </Route>
+        <Route path='/knitting-collection'>
+          <KnittingCollectionPage />
         </Route>
       </Switch>
       <Footer/>

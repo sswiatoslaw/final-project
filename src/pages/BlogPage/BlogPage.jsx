@@ -1,6 +1,6 @@
 import React from 'react'
-import { banerImagesDictionary, banerTitleDictionary } from '../../dictionary/banerDictionary';
-import Baner from '../../components/Baners/Baner';
+import { bannerImagesDictionary, bannerTitleDictionary } from '../../dictionary/bannerDictionary';
+import Banner from '../../components/Banners/Banner';
 import JoingMailing from '../../components/JoingMailing/JoingMailing';
 import BlogContainer from './../../containers/BlogContainer/index';
 import './BlogPage.scss'
@@ -8,7 +8,7 @@ import './BlogPage.scss'
 const BlogPage = () => {
   return (
         <div>
-           <Baner imgPath={banerImagesDictionary.blog} imgName='girls' title={banerTitleDictionary.blogTitle}/>
+           <Banner imgPath={bannerImagesDictionary.blog} imgName='girls' title={bannerTitleDictionary.blogTitle}/>
            <BlogContainer/>
            <JoingMailing/>
         </div>
