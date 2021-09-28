@@ -17,10 +17,11 @@ const ProductsPage = () => {
     setIsModalVisible(!isModalVisible)
   }
 
-  const onOk = (values) => {
+  const onOk = async (values) => {
     const token = localStorage.getItem('token');
-    axios.defaults.headers.common['Authorization'] = token;
-    axios.put(`https://boiling-dawn-71074.herokuapp.com/api/products/${activeEditProduct._id}`, values)
+    axios.defaults.headers.common['Authorization'] = token
+    console.log(token)
+    await axios.put(`https://boiling-dawn-71074.herokuapp.com/api/products/${activeEditProduct._id}`, {values}, {headers: {'Authorization': token} })
       .then(res => {
         console.log(res)
       })
