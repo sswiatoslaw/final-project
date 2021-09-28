@@ -9,8 +9,12 @@ import sizesReducer from './sizes/reducer';
 import filterReducer from './Filter/reducer';
 import colorReducer from './color/reducer';
 import favoriteReducer from './favorite/reducer';
+import adminReducer from './admin/reducer';
+import selectedProductReducer from './productPage/reducer';
+import selectedProductColorPageReducer from './productColorPage/reducer';
 
 export default combineReducers({
+  admin: adminReducer,
   modal: modalReducer,
   allSlides: slidesReducer,
   products: productsReducer,
@@ -21,4 +25,6 @@ export default combineReducers({
   color: colorReducer,
   filter: filterReducer,
   favorite: favoriteReducer,
+  selectedProduct: selectedProductReducer,
+  identicProduct: selectedProductColorPageReducer,
 });

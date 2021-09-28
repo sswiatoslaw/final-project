@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
 import { getCustomerAction, getWishlistAction } from '../../store/favorite/actions';
 import { getCartAction } from '../../store/cart/actions';
 import Routes from '../Routes';
 import './App.scss';
-import { useLocation } from 'react-router-dom';
+import AdminPage from './../../pages/AdminPage'
 
 function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
   const { pathname } = useLocation();
@@ -19,7 +20,15 @@ function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
 
   return (
     <div className='App'>
-      <Routes/>
+      <Switch>
+      <Route path='/admin'>
+          <AdminPage />
+      </Route>
+      <Route path='/'>
+            <Routes/>
+      </Route>
+      </Switch>
+
     </div>
   );
 }
