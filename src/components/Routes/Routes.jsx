@@ -17,10 +17,11 @@ import SaleNowPage from './../../pages/SaleNowPage/index';
 import KnittingCollectionPage from './../../pages/KnittingCollectionPage/index';
 import AdminPage from './../../pages/AdminPage'
 import ProductPage from '../../pages/ProductPage/ProductPage';
+
 const Routes = () => {
   return (
     <>
-      <Header />
+    <Header />
       <Switch>
         <Route exact path='/'>
           <MainPage />
