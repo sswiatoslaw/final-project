@@ -1,0 +1,17 @@
+@import 'src/assets/index.scss';
+
+.ant-select.select-sort.ant-select-single.ant-select-show-arrow {
+    
+    min-width:172px;
+    width: 50%;
+    margin: 0 0 0 4px;
+
+    &>.ant-select-selector{
+        border-radius: 8px;
+        }
+
+    @include breakpoint(lg-only) {
+        width: 282px;
+        margin: 0 0 20px 28px;
+    }
+}

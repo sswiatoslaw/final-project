@@ -1,15 +1,14 @@
 import React from 'react';
-import Baner from '../../components/Baners/Baner';
+import Banner from '../../components/Banners/Banner';
 import JoingMailing from '../../components/JoingMailing/JoingMailing';
-import { banerImagesDictionary, banerTextDictionary, banerTitleDictionary } from '../../dictionary/banerDictionary';
-// import ProductList from '../../components/ProductList/ProductList';
+import { bannerImagesDictionary, bannerTextDictionary, bannerTitleDictionary } from '../../dictionary/bannerDictionary';
 import ProductContent from './../../containers/ProductContent/ProductContent';
 
 const ShopPage = () => {
   return (
     <div>
-      <Baner imgPath={banerImagesDictionary.shop} imgName='Baby girl shop' title={banerTitleDictionary.shopTitle}
-             textBottom={banerTextDictionary.shopTextBottom} />
+      <Banner imgPath={bannerImagesDictionary.shop} imgName='Baby girl shop' title={bannerTitleDictionary.shopTitle}
+             textBottom={bannerTextDictionary.shopTextBottom} />
       <ProductContent />
       <JoingMailing />
     </div>

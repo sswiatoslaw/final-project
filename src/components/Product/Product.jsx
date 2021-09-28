@@ -33,7 +33,7 @@ const Product = ({ product, addToCart, onClick, onToggleImportant, favorite }) =
               <Rater/>
             </span>
           </div>
-          <Button className='card__button' onClick={ () => addItemToCart(product) }>To bag - $ { product.currentPrice } </Button>
+          <Button className='card__button' onClick={ () => addItemToCart(product._id) }>To bag - $ { product.currentPrice } </Button>
 
         </Card>
       </li>
@@ -42,7 +42,7 @@ const Product = ({ product, addToCart, onClick, onToggleImportant, favorite }) =
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
     favorite: state.favorite
   };
 };

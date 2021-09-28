@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const BoughtTogether = ({ allProducts }) => {
+const YouMightLike = ({ allProducts }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -68,8 +68,8 @@ const BoughtTogether = ({ allProducts }) => {
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts
+    allProducts: state.products.allProducts
   };
 };
 
-export default connect(mapStateToProps)(BoughtTogether);
+export default connect(mapStateToProps)(YouMightLike);

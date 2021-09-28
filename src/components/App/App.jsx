@@ -6,7 +6,7 @@ import { getCartAction } from '../../store/cart/actions';
 import Routes from '../Routes';
 import './App.scss';
 
-function App ({getAllProducts, allProducts, getCustomer, getWishlist, getCart}) {
+function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
   useEffect(() => {
     getAllProducts()
   }, [getAllProducts]);
@@ -24,12 +24,6 @@ function App ({getAllProducts, allProducts, getCustomer, getWishlist, getCart}) 
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    allProducts: state.allProducts
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(fetchProducts()),
@@ -39,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

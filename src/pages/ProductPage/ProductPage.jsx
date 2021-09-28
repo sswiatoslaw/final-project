@@ -19,6 +19,7 @@ import { setProductColor } from '../../store/productColorPage/actions';
 import axios from 'axios';
 import { getColors } from '../../api/getColors';
 import { getColor } from '../../api/getColor';
+import MobileTabProductImg from '../../components/Tab/MobileTabProductImg';
 
 const ProductPage = ({addSelectedProductAction, allProducts, identicProduct, selectedProduct, setProductColor}) => {
   const { id } = useParams();
@@ -31,7 +32,7 @@ const ProductPage = ({addSelectedProductAction, allProducts, identicProduct, sel
     })
 
     allProducts.map((product) => {
-      if (product.name.toLowerCase() === selectedProduct.name.toLowerCase() && product.color !== selectedProduct.color) {
+      if (product.name === selectedProduct.name && product.color !== selectedProduct.color) {
         stateIdenticProduct.push(product)
         setProductColor(stateIdenticProduct)
       }
@@ -42,14 +43,13 @@ const ProductPage = ({addSelectedProductAction, allProducts, identicProduct, sel
     <div className='wrapper'>
       <div className='product__block'>
         <div className='product__block-left'>
-          <TabResponsive/>
+          <MobileTabProductImg/>
           <Accordions/>
         </div>
         <div className='product__block-right'>
           <h2 className='product__title'>{selectedProduct.name}: {colorName}</h2>
           <h3 className='product__price'>${selectedProduct.currentPrice} {selectedProduct.previousPrice && <s className='previous-price'>${selectedProduct.previousPrice}</s>}</h3>
           <SelectSizesComponent/>
-          <SelectColor />
           <QuantityComponent/>
           <Button modifier='contained' text='Add to cart' width='100%'/>
           <Button modifier='outlined' text='Add to wish' width='100%'/>
@@ -65,7 +65,7 @@ const ProductPage = ({addSelectedProductAction, allProducts, identicProduct, sel
 
 const mapStateToProps = (state) => {
   return {
-    allProducts: state.allProducts,
+    allProducts: state.products.allProducts,
     selectedProduct: state.selectedProduct,
     identicProduct: state.identicProduct.arrayProduct
   };
