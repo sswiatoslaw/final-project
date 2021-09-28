@@ -8,7 +8,6 @@ const Loading = () => {
       <div className='wrapper'>
         <div className='loading'>
           <Logotip/>
-          <span className='loading__text'>Stay here, is loading...</span>
       </div>
       </div>
     </>
