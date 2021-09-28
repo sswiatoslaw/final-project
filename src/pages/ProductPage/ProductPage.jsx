@@ -33,7 +33,7 @@ const ProductPage = ({
     })
 
     allProducts.map((product) => {
-      if (product.name === selectedProduct.name && product.color !== selectedProduct.color) {
+      if (product.name === selectedProduct.name && product.color == selectedProduct.color) {
         stateIdenticProduct.push(product)
         setProductColor(stateIdenticProduct)
       }
