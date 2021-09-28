@@ -15,17 +15,14 @@ import RegisterPage from '../../pages/RegisterPage';
 import NewCollectionPage from './../../pages/NewCollectionPage/NewCollectionPage';
 import SaleNowPage from './../../pages/SaleNowPage/index';
 import KnittingCollectionPage from './../../pages/KnittingCollectionPage/index';
-import AdminPage from './../../pages/AdminPage'
+
 const Routes = () => {
   return (
     <>
-      <Header />
+    <Header />
       <Switch>
         <Route exact path='/'>
           <MainPage />
-        </Route>
-        <Route path='/admin'>
-          <AdminPage />
         </Route>
         <Route path='/shop'>
           <ShopPage />
