@@ -8,7 +8,13 @@ import Loading from '../Loading/Loading';
 import { notification } from 'antd';
 import './SaleNowContent.scss';
 
-const SaleNowContent = ({ allProducts, favorite, addItemToFavoriteAction, removeItemFromFavoriteAction, addItemToCartAction }) => {
+const SaleNowContent = ({
+  allProducts,
+  favorite,
+  addItemToFavoriteAction,
+  removeItemFromFavoriteAction,
+  addItemToCartAction
+}) => {
   const [products, setProducts] = useState([]);
   const [visible, setVisible] = useState(34);
   const [isLoading, setLoading] = useState(true)

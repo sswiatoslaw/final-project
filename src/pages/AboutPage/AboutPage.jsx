@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from '../../components/Banners/Banner'
-import {bannerImagesDictionary, bannerTitleDictionary} from '../../dictionary/banerDictionary'
+import {bannerImagesDictionary, bannerTitleDictionary} from '../../dictionary/bannerDictionary'
 import AboutContent from '../../containers/AboutContent/AboutContent'
 import JoingMailing from '../../components/JoingMailing/JoingMailing'
 
