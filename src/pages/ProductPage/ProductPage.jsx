@@ -19,7 +19,10 @@ import MobileTabProductImg from '../../components/Tab/MobileTabProductImg';
 import { addItemToFavoriteAction, removeItemFromFavoriteAction } from '../../store/favorite/actions';
 import { addItemToCartAction } from '../../store/cart/actions';
 
-const ProductPage = ({addSelectedProductAction, products, favorite, allProducts, identicProduct, selectedProduct, setProductColor}) => {
+const ProductPage = ({
+  addSelectedProductAction, products, favorite, allProducts, identicProduct, selectedProduct, setProductColor, addItemToFavoriteAction,
+  removeItemFromFavoriteAction, addItemToCartAction,
+}) => {
   const { id } = useParams();
   const [colorName, setColorName] = useState();
   const stateIdenticProduct = [];
