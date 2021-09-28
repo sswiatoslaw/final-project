@@ -5,17 +5,17 @@ import { getCustomerAction, getWishlistAction } from '../../store/favorite/actio
 import { getCartAction } from '../../store/cart/actions';
 import Routes from '../Routes';
 import './App.scss';
+import { useLocation } from 'react-router-dom';
 
 function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
+  const { pathname } = useLocation();
   useEffect(() => {
     getAllProducts()
-  }, [getAllProducts]);
-
-  useEffect(() => {
     getCustomer();
     getWishlist();
     getCart();
-  }, [getCustomer, getWishlist, getCart])
+    window.scrollTo(0, 0);
+  }, [getAllProducts, getCustomer, getWishlist, getCart, pathname]);
 
   return (
     <div className='App'>
