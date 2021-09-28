@@ -15,7 +15,10 @@
 		"semi": 0,
 		"camelcase": 0,
 		"object-curly-spacing": 0,
-		"comma-dangle": 0
+		"comma-dangle": 0,
+		"allowKeywords": 0,
+		"dot-notation": 0,
+		"quote-props": 0
 	},
 	"settings": {
 		"react": {
