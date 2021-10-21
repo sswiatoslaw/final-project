@@ -3,9 +3,11 @@ import React from 'react'
 import FeedbackForm from '../../components/FeedbackForm/FeedbackForm'
 import Banner from '../../components/Banners/Banner'
 import { bannerImagesDictionary, bannerTitleDictionary } from '../../dictionary/bannerDictionary'
+import './ContactUsPage.scss'
+
 const ContactUsPage = () => {
   return (
-        <div>
+        <div className='contact-us'>
             <Banner imgPath={bannerImagesDictionary.contactUs} imgName='boys' title={bannerTitleDictionary.contactUsTitle} />
             <FeedbackForm title={'Leave a Messave'} text={'If you have a question or a query no matter how big or small, feel free to get in touch with us here and we\'ll happily help you.'} button={<Button modifier='contained' text='Send'
                                                                                                        width='280px'
