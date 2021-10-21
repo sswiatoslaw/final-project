@@ -7,6 +7,7 @@ import { addItemToCartAction } from '../../store/cart/actions';
 import Loading from '../Loading/Loading';
 import { notification } from 'antd';
 import './Botanical.scss';
+import { useHistory } from 'react-router';
 
 const Botanical = ({
   allProducts,
@@ -15,6 +16,7 @@ const Botanical = ({
   removeItemFromFavoriteAction,
   addItemToCartAction
 }) => {
+  const history = useHistory()
   const [products, setProducts] = useState([]);
   const [visible, setVisible] = useState(7);
   const [isLoading, setLoading] = useState(true)
@@ -78,6 +80,9 @@ const Botanical = ({
             <ul className='product__item'>
               {products.slice(3, visible).map((product) => (
                 <Product product={ product }
+                onClick={() => {
+                  history.push(`/shop/${product.itemNo}`)
+                }}
                 key={ product._id }
                 onToggleImportant={ () => onToggleImportant(product._id) }
                 addToCart={ () => addToCart(product._id) }/>
