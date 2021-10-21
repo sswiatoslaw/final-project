@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import fetchProducts from '../../store/products/actions';
 import { getCustomerAction, getWishlistAction } from '../../store/favorite/actions';
@@ -9,15 +9,14 @@ import './App.scss';
 import AdminPage from './../../pages/AdminPage'
 
 function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
+  const { pathname } = useLocation();
   useEffect(() => {
     getAllProducts()
-  }, [getAllProducts]);
-
-  useEffect(() => {
     getCustomer();
     getWishlist();
     getCart();
-  }, [getCustomer, getWishlist, getCart])
+    window.scrollTo(0, 0);
+  }, [getAllProducts, getCustomer, getWishlist, getCart, pathname]);
 
   return (
     <div className='App'>
