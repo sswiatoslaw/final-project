@@ -26,9 +26,6 @@ const Routes = () => {
         <Route exact path='/'>
           <MainPage />
         </Route>
-        <Route path='/admin'>
-          <AdminPage />
-        </Route>
         <Route exact path='/shop'>
           <ShopPage />
         </Route>
