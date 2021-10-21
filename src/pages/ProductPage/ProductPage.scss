@@ -1,0 +1,31 @@
+@import './src/assets/index.scss';
+
+.product__block{
+  display: flex;
+  &-left{
+    width: 50%;
+  }
+  &-right{
+    width: 50%;
+    .product{
+      &__title{
+        font-family: $amatic-sc-font;
+        text-align: left;
+        font-size: 40px;
+        font-weight: 700;
+        color: #36403D;
+      }
+      &__price{
+        font-family: $amatic-sc-font;
+        font-size: 36px;
+        color: #A8D6CB;
+        margin-bottom: 20px;
+        .previous-price{
+          
+          font-size: 24px;
+          color: #5E6A67;
+        }
+      }
+    }
+  }
+}

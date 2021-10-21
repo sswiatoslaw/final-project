@@ -1,25 +1,31 @@
 import React from 'react'
 import './TabProductImg.scss'
 import { Tabs } from 'antd';
+import { connect } from 'react-redux';
 const { TabPane } = Tabs;
-const MobileTabProductImg = () => {
+const MobileTabProductImg = ({imageUrlSelectedProduct}) => {
   return (
     <div className={'wrapper'}>
     <section className={'tabs tabs_mobile ant-tabs-bottom'}>
-    <Tabs tabPosition = 'bottom'>
-    <TabPane tab={<img src='https://telecomdom.com/wp-content/uploads/2020/02/kartinki-na-telefon-5-576x1024.jpg' alt='ad' width='99px' height='116px' />} key="1">
-    <img src='https://telecomdom.com/wp-content/uploads/2020/02/kartinki-na-telefon-5-576x1024.jpg' alt='ad' width='345px' height='335px' />
-    </TabPane>
-    <TabPane tab={<img src='https://avatarko.ru/img/kartinka/2/cherep_kapyushon_uzhasy_1606.jpg' alt='ad' width='99px' height='116px' />} key="2">
-    <img src='https://avatarko.ru/img/kartinka/2/cherep_kapyushon_uzhasy_1606.jpg' alt='ad' width='345px' height='335px' />
-    </TabPane>
-    <TabPane tab={<img src='https://vjoy.cc/wp-content/uploads/2020/09/bezymyannyjkvytstsk.jpg' alt='ad' width='99px' height='116px' />} key="3">
-    <img src='https://vjoy.cc/wp-content/uploads/2020/09/bezymyannyjkvytstsk.jpg' alt='ad' width='345px' height='335px' />
-    </TabPane>
+    <Tabs tabPosition='bottom'>
+    {imageUrlSelectedProduct && imageUrlSelectedProduct.map((imageUrl, id) => {
+      return (
+        <TabPane tab={<img src={imageUrl} alt='ad' width='99px' height='116px' />} key={id}>
+        <img src={imageUrl} alt='ad' width='345px' height='335px' />
+        </TabPane>
+      )
+    }
+    )}
   </Tabs>
   </section>
   </div>
   )
 }
 
-export default MobileTabProductImg
+const mapStateToProps = (state) => {
+  return {
+    imageUrlSelectedProduct: state.selectedProduct.imageUrls
+  };
+};
+
+export default connect(mapStateToProps)(MobileTabProductImg)
