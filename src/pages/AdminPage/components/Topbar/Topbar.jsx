@@ -61,7 +61,6 @@ const Topbar = () => {
             <MenuIcon className="topbar-right__menu" onClick={handleLeftPanel} />
           </div>
           <div className="topbar-right">
-            <Button color='primary' onClick={() => { setIsModalVisible(true) }}>Add Product</Button>
             <Avatar onClick={getAvatar} />
           </div>
         </div>
