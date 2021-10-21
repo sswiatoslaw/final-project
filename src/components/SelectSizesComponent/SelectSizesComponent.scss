@@ -41,3 +41,7 @@
 .ant-select-arrow .anticon > svg {
   color: $text-color;
 }
+
+.ant-select.select__content {
+  width: 150px !important;
+}
