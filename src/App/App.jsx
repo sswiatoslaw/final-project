@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import fetchProducts from '../../store/products/actions';
-import { getCustomerAction, getWishlistAction } from '../../store/favorite/actions';
-import { getCartAction } from '../../store/cart/actions';
-import Routes from '../Routes';
+import fetchProducts from '../store/products/actions';
+import { getCustomerAction, getWishlistAction } from '../store/favorite/actions';
+import { getCartAction } from '../store/cart/actions';
+import Routes from '../components/Routes';
 import './App.scss';
-import AdminPage from './../../pages/AdminPage'
+import AdminPage from './../pages/AdminPage'
 
 function App ({getAllProducts, getCustomer, getWishlist, getCart}) {
   const { pathname } = useLocation();

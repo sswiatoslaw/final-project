@@ -3,3 +3,14 @@
 .ant-layout {
     background-color: transparent;
 }
+
+.shop-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 769px) {
+    .shop-wrapper{
+        display: block;
+    }
+}

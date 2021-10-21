@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ErrorBoundary from './components/ErrorBoundary';
 import store from './store/store';
-import App from './components/App/App';
+import App from './App/App';
 import './assets/index.scss';
 import 'antd/dist/antd.css';
 import axios from 'axios';
